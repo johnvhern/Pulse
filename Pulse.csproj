@@ -7,6 +7,9 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>7e109f6a-6db3-42b5-8998-8ae2e88c23ec</UserSecretsId>
+	<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+	  <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+	  <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +18,6 @@
     <Folder Include="Model\" />
     <Folder Include="Helper\" />
     <Folder Include="Interface\" />
-    <Folder Include="UC\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 
@@ -28,7 +30,28 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.9" />
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="3.0.2" />
+    <PackageReference Include="Syncfusion.Core.WinForms" Version="31.1.18" />
+    <PackageReference Include="Syncfusion.Licensing" Version="31.1.18" />
+    <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="31.1.18" />
+    <PackageReference Include="Syncfusion.SfInput.WinForms" Version="31.1.18" />
+    <PackageReference Include="Syncfusion.SfListView.WinForms" Version="31.1.18" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="31.1.18" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

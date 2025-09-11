@@ -28,18 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ucSidebar1 = new Pulse.UC.Sidebar.UCSidebar();
             SuspendLayout();
+            // 
+            // ucSidebar1
+            // 
+            ucSidebar1.BackColor = Color.White;
+            ucSidebar1.Dock = DockStyle.Left;
+            ucSidebar1.Location = new Point(0, 0);
+            ucSidebar1.Name = "ucSidebar1";
+            ucSidebar1.Size = new Size(299, 716);
+            ucSidebar1.TabIndex = 0;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1135, 714);
+            BackColor = Color.White;
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ClientSize = new Size(1151, 716);
+            Controls.Add(ucSidebar1);
+            Margin = new Padding(0);
             Name = "frmMain";
-            Text = "frmMain";
+            ShowIcon = false;
+            ShowMaximizeBox = false;
+            Text = "PULSE";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private UC.Sidebar.UCSidebar ucSidebar1;
     }
 }
