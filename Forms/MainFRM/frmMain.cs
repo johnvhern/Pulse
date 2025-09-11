@@ -1,4 +1,7 @@
-﻿using Syncfusion.Windows.Forms;
+﻿using Pulse.UC.Screens;
+using Pulse.UC.Sidebar;
+using Pulse.UC.Topbar;
+using Syncfusion.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +22,16 @@ namespace Pulse.Forms.MainFRM
             InitializeComponent();
             this.Text = $"Pulse - {Application.ProductVersion}";
             this.WindowState = FormWindowState.Maximized;
+
+            // Add Topbar
+            UCTopbar topbar = new UCTopbar(this);
+            topbar.Dock = DockStyle.Top;
+            this.Controls.Add(topbar);
+
+            // Add Sidebar
+            UCSidebar sidebar = new UCSidebar(this);
+            sidebar.Dock = DockStyle.Left;
+            this.Controls.Add(sidebar);
         }
 
         #region -- Windows dragging fix --
@@ -51,5 +64,18 @@ namespace Pulse.Forms.MainFRM
         }
 
         #endregion
+
+        public void frmMain_Load(object sender, EventArgs e)
+        {
+            OpenScreen(new DashboardUC());
+        }
+
+        public void OpenScreen(UserControl control)
+        {
+            mainPanel.Controls.Clear();
+            control.Dock = DockStyle.Fill;
+            mainPanel.Controls.Add(control);
+            control.Show();
+        }
     }
 }

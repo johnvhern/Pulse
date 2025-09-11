@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ucSidebar1 = new Pulse.UC.Sidebar.UCSidebar();
+            mainPanel = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            ((System.ComponentModel.ISupportInitialize)mainPanel).BeginInit();
             SuspendLayout();
             // 
-            // ucSidebar1
+            // mainPanel
             // 
-            ucSidebar1.BackColor = Color.White;
-            ucSidebar1.Dock = DockStyle.Left;
-            ucSidebar1.Location = new Point(0, 0);
-            ucSidebar1.Name = "ucSidebar1";
-            ucSidebar1.Size = new Size(299, 716);
-            ucSidebar1.TabIndex = 0;
+            mainPanel.BackColor = Color.White;
+            mainPanel.Border3DStyle = Border3DStyle.Flat;
+            mainPanel.BorderStyle = BorderStyle.None;
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(0, 0);
+            mainPanel.Margin = new Padding(0);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(1151, 716);
+            mainPanel.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -48,17 +52,19 @@
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ClientSize = new Size(1151, 716);
-            Controls.Add(ucSidebar1);
+            Controls.Add(mainPanel);
             Margin = new Padding(0);
             Name = "frmMain";
             ShowIcon = false;
             ShowMaximizeBox = false;
             Text = "PULSE";
+            Load += frmMain_Load;
+            ((System.ComponentModel.ISupportInitialize)mainPanel).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private UC.Sidebar.UCSidebar ucSidebar1;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel mainPanel;
     }
 }
