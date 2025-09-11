@@ -16,7 +16,6 @@
     <Folder Include="Data\" />
     <Folder Include="Forms\PatientFRM\" />
     <Folder Include="Model\" />
-    <Folder Include="Helper\" />
     <Folder Include="Interface\" />
     <Folder Include="Repository\" />
   </ItemGroup>

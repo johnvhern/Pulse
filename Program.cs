@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Pulse.Forms.MainFRM;
+using Syncfusion.Windows.Forms;
 using System.Reflection;
 
 namespace Pulse
@@ -12,6 +13,8 @@ namespace Pulse
         [STAThread]
         static void Main(string[] args)
         {
+            MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Office2016;
+
             IConfiguration config = new ConfigurationBuilder()
              .AddJsonFile("secrets.json", optional: true)
              .AddUserSecrets(Assembly.GetExecutingAssembly()) // Pass any class from your assembly
