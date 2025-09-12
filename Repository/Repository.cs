@@ -4,7 +4,7 @@ using Pulse.Data;
 
 namespace Pulse.Repository
 {
-    internal class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly PulseDbContext _context;
         private readonly DbSet<T> _dbSet;
