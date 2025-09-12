@@ -1,4 +1,5 @@
-﻿using Pulse.Helper;
+﻿using Pulse.Forms.DoctorFRM;
+using Pulse.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,6 @@ namespace Pulse.UC.Screens
 {
     public partial class DoctorUC : UserControl
     {
-        SfButtonStyle SfButtonStyle = new SfButtonStyle();
         public DoctorUC()
         {
             InitializeComponent();
@@ -22,12 +22,9 @@ namespace Pulse.UC.Screens
 
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
-
+            frmAddDoctor frmAddDoctor = new frmAddDoctor();
+            frmAddDoctor.ShowDialog();
         }
 
-        private void gradientPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

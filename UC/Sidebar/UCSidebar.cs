@@ -18,7 +18,6 @@ namespace Pulse.UC.Sidebar
     public partial class UCSidebar : UserControl
     {
         SfButton activeButton;
-        SfButtonStyle btnStyle = new SfButtonStyle();
         frmMain _main;
 
         #region -- Screen Instances --
@@ -34,7 +33,7 @@ namespace Pulse.UC.Sidebar
         public UCSidebar(frmMain main)
         {
             InitializeComponent();
-            btnStyle.ApplyNavButtonStyle(this);
+            SfButtonStyle.ApplyNavButtonStyle(this);
             ColorActiveButton(btnDashboard);
             _main = main;
         }

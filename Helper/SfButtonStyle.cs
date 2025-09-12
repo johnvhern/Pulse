@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Pulse.Helper
 {
-    public class SfButtonStyle
+    public static class SfButtonStyle
     {
-        private SfButton activeButton;
-        public void ApplyNavButtonStyle(Control parent)
+        public static void ApplyNavButtonStyle(Control parent)
         {
             foreach (Control control in parent.Controls)
             {
@@ -45,7 +44,7 @@ namespace Pulse.Helper
             }
         }
 
-        public void GreenButton(SfButton button)
+        public static void GreenButton(SfButton button)
         {
             button.Style.BackColor = Color.FromArgb(0, 213, 99);
             button.Style.ForeColor = Color.White;
@@ -65,6 +64,28 @@ namespace Pulse.Helper
             button.Style.FocusedBorder = null;
         }
 
+        public static void SecondaryButton(SfButton button)
+        {
+            button.Style.BackColor = Color.White;
+            button.Style.ForeColor = Color.FromArgb(107, 114, 128);
+            button.Style.ImageForeColor = Color.FromArgb(107, 114, 128);
+            button.Style.Border = new Pen(Color.FromArgb(226, 232, 240));
+
+            button.Style.HoverBackColor = Color.FromArgb(243, 245, 247);
+            button.Style.HoverForeColor = Color.FromArgb(107, 114, 128);
+            button.Style.HoverImageForeColor = Color.FromArgb(107, 114, 128);
+            button.Style.HoverBorder = new Pen(Color.FromArgb(226, 232, 240));
+
+            button.Style.PressedBackColor = Color.FromArgb(243, 245, 247);
+            button.Style.PressedForeColor = Color.FromArgb(107, 114, 128);
+            button.Style.PressedImageForeColor = Color.FromArgb(107, 114, 128);
+            button.Style.PressedBorder = new Pen(Color.FromArgb(226, 232, 240));
+
+            button.Style.FocusedBackColor = Color.FromArgb(243, 245, 247);
+            button.Style.FocusedForeColor = Color.FromArgb(107, 114, 128);
+            button.Style.FocusedImageForeColor = Color.FromArgb(107, 114, 128);
+            button.Style.FocusedBorder = new Pen(Color.FromArgb(226, 232, 240));
+        }
 
     }
 }
