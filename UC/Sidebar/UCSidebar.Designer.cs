@@ -188,7 +188,7 @@
             // gradientPanel2
             // 
             gradientPanel2.Border3DStyle = Border3DStyle.Flat;
-            gradientPanel2.BorderColor = Color.Gainsboro;
+            gradientPanel2.BorderColor = Color.FromArgb(226, 232, 240);
             gradientPanel2.BorderSides = Border3DSide.Top;
             gradientPanel2.BorderStyle = BorderStyle.FixedSingle;
             gradientPanel2.Controls.Add(btnLogout);

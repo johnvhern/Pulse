@@ -28,18 +28,268 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            pictureBox1 = new PictureBox();
+            gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            btnAddDoctor = new Syncfusion.WinForms.Controls.SfButton();
+            autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
+            sfDataGrid1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
+            gradientPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel3).BeginInit();
+            gradientPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
+            gradientPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
+            gradientPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
+            gradientPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)textBoxExt1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
+            gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)sfDataGrid1).BeginInit();
             SuspendLayout();
+            // 
+            // gradientPanel1
+            // 
+            gradientPanel1.BorderStyle = BorderStyle.None;
+            gradientPanel1.Controls.Add(tableLayoutPanel1);
+            gradientPanel1.Controls.Add(gradientPanel2);
+            gradientPanel1.Dock = DockStyle.Fill;
+            gradientPanel1.Location = new Point(0, 0);
+            gradientPanel1.Name = "gradientPanel1";
+            gradientPanel1.Padding = new Padding(15, 20, 15, 15);
+            gradientPanel1.Size = new Size(1129, 637);
+            gradientPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(gradientPanel3, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(15, 76);
+            tableLayoutPanel1.Margin = new Padding(0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(1099, 546);
+            tableLayoutPanel1.TabIndex = 1;
+            // 
+            // gradientPanel3
+            // 
+            gradientPanel3.BorderStyle = BorderStyle.None;
+            gradientPanel3.Controls.Add(gradientPanel7);
+            gradientPanel3.Controls.Add(gradientPanel6);
+            gradientPanel3.Controls.Add(gradientPanel5);
+            gradientPanel3.Dock = DockStyle.Fill;
+            gradientPanel3.Location = new Point(3, 15);
+            gradientPanel3.Margin = new Padding(3, 15, 3, 3);
+            gradientPanel3.Name = "gradientPanel3";
+            gradientPanel3.Size = new Size(1093, 528);
+            gradientPanel3.TabIndex = 0;
+            // 
+            // gradientPanel7
+            // 
+            gradientPanel7.BorderColor = Color.FromArgb(226, 232, 240);
+            gradientPanel7.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel7.Controls.Add(sfDataGrid1);
+            gradientPanel7.Dock = DockStyle.Fill;
+            gradientPanel7.Location = new Point(0, 80);
+            gradientPanel7.Name = "gradientPanel7";
+            gradientPanel7.Padding = new Padding(10);
+            gradientPanel7.Size = new Size(1093, 448);
+            gradientPanel7.TabIndex = 6;
+            // 
+            // gradientPanel6
+            // 
+            gradientPanel6.BorderStyle = BorderStyle.None;
+            gradientPanel6.Dock = DockStyle.Top;
+            gradientPanel6.Location = new Point(0, 65);
+            gradientPanel6.Name = "gradientPanel6";
+            gradientPanel6.Size = new Size(1093, 15);
+            gradientPanel6.TabIndex = 5;
+            // 
+            // gradientPanel5
+            // 
+            gradientPanel5.Border3DStyle = Border3DStyle.Flat;
+            gradientPanel5.BorderColor = Color.FromArgb(226, 232, 240);
+            gradientPanel5.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel5.Controls.Add(gradientPanel4);
+            gradientPanel5.Dock = DockStyle.Top;
+            gradientPanel5.Location = new Point(0, 0);
+            gradientPanel5.Name = "gradientPanel5";
+            gradientPanel5.Padding = new Padding(10);
+            gradientPanel5.Size = new Size(1093, 65);
+            gradientPanel5.TabIndex = 4;
+            // 
+            // gradientPanel4
+            // 
+            gradientPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            gradientPanel4.BorderColor = Color.Gainsboro;
+            gradientPanel4.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel4.Controls.Add(textBoxExt1);
+            gradientPanel4.Controls.Add(pictureBox1);
+            gradientPanel4.Location = new Point(13, 13);
+            gradientPanel4.Name = "gradientPanel4";
+            gradientPanel4.Size = new Size(1065, 37);
+            gradientPanel4.TabIndex = 3;
+            // 
+            // textBoxExt1
+            // 
+            textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            bannerTextInfo1.Text = "Search doctors by name or specialization";
+            bannerTextInfo1.Visible = true;
+            bannerTextProvider1.SetBannerText(textBoxExt1, bannerTextInfo1);
+            textBoxExt1.BeforeTouchSize = new Size(440, 23);
+            textBoxExt1.Border3DStyle = Border3DStyle.Flat;
+            textBoxExt1.BorderColor = Color.Transparent;
+            textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
+            textBoxExt1.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxExt1.Location = new Point(44, 6);
+            textBoxExt1.Name = "textBoxExt1";
+            textBoxExt1.Size = new Size(1016, 23);
+            textBoxExt1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox1.Image = Properties.Resources.search__2_;
+            pictureBox1.Location = new Point(4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(38, 29);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // gradientPanel2
+            // 
+            gradientPanel2.BorderStyle = BorderStyle.None;
+            gradientPanel2.Controls.Add(btnAddDoctor);
+            gradientPanel2.Controls.Add(autoLabel2);
+            gradientPanel2.Controls.Add(autoLabel1);
+            gradientPanel2.Dock = DockStyle.Top;
+            gradientPanel2.Location = new Point(15, 20);
+            gradientPanel2.Name = "gradientPanel2";
+            gradientPanel2.Size = new Size(1099, 56);
+            gradientPanel2.TabIndex = 0;
+            // 
+            // btnAddDoctor
+            // 
+            btnAddDoctor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddDoctor.BackColor = Color.FromArgb(0, 213, 99);
+            btnAddDoctor.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddDoctor.ForeColor = Color.White;
+            btnAddDoctor.Location = new Point(959, 10);
+            btnAddDoctor.Name = "btnAddDoctor";
+            btnAddDoctor.Size = new Size(137, 36);
+            btnAddDoctor.Style.BackColor = Color.FromArgb(0, 213, 99);
+            btnAddDoctor.Style.ForeColor = Color.White;
+            btnAddDoctor.Style.Image = Properties.Resources.plus__2_;
+            btnAddDoctor.TabIndex = 2;
+            btnAddDoctor.Text = "Add Doctor";
+            btnAddDoctor.TextAlign = ContentAlignment.MiddleRight;
+            btnAddDoctor.UseVisualStyleBackColor = false;
+            btnAddDoctor.Click += btnAddDoctor_Click;
+            // 
+            // autoLabel2
+            // 
+            autoLabel2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            autoLabel2.ForeColor = Color.FromArgb(147, 150, 159);
+            autoLabel2.Location = new Point(3, 30);
+            autoLabel2.Name = "autoLabel2";
+            autoLabel2.Size = new Size(197, 18);
+            autoLabel2.TabIndex = 1;
+            autoLabel2.Text = "Manage medical professionals";
+            // 
+            // autoLabel1
+            // 
+            autoLabel1.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel1.ForeColor = Color.FromArgb(107, 114, 128);
+            autoLabel1.Location = new Point(0, 4);
+            autoLabel1.Name = "autoLabel1";
+            autoLabel1.Size = new Size(86, 27);
+            autoLabel1.TabIndex = 0;
+            autoLabel1.Text = "Doctors";
+            // 
+            // sfDataGrid1
+            // 
+            sfDataGrid1.AccessibleName = "Table";
+            sfDataGrid1.Dock = DockStyle.Fill;
+            sfDataGrid1.Location = new Point(10, 10);
+            sfDataGrid1.Name = "sfDataGrid1";
+            sfDataGrid1.Size = new Size(1071, 426);
+            sfDataGrid1.Style.BorderColor = Color.FromArgb(100, 100, 100);
+            sfDataGrid1.Style.BorderStyle = BorderStyle.None;
+            sfDataGrid1.Style.CheckBoxStyle.CheckedBackColor = Color.FromArgb(0, 120, 215);
+            sfDataGrid1.Style.CheckBoxStyle.CheckedBorderColor = Color.FromArgb(0, 120, 215);
+            sfDataGrid1.Style.CheckBoxStyle.IndeterminateBorderColor = Color.FromArgb(0, 120, 215);
+            sfDataGrid1.Style.HyperlinkStyle.DefaultLinkColor = Color.FromArgb(0, 120, 215);
+            sfDataGrid1.TabIndex = 0;
+            sfDataGrid1.Text = "sfDataGrid1";
             // 
             // DoctorUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(gradientPanel1);
             Name = "DoctorUC";
             Size = new Size(1129, 637);
+            ((System.ComponentModel.ISupportInitialize)gradientPanel1).EndInit();
+            gradientPanel1.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gradientPanel3).EndInit();
+            gradientPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
+            gradientPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
+            gradientPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
+            gradientPanel4.ResumeLayout(false);
+            gradientPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)textBoxExt1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
+            gradientPanel2.ResumeLayout(false);
+            gradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)sfDataGrid1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel1;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel2;
+        private Syncfusion.WinForms.Controls.SfButton btnAddDoctor;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel1;
+        private Syncfusion.Windows.Forms.BannerTextProvider bannerTextProvider1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel3;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel4;
+        private PictureBox pictureBox1;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel5;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel6;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel7;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid sfDataGrid1;
     }
 }

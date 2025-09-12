@@ -47,19 +47,19 @@ namespace Pulse.Helper
 
         public void GreenButton(SfButton button)
         {
-            button.Style.BackColor = Color.FromArgb(76, 175, 80);
+            button.Style.BackColor = Color.FromArgb(0, 213, 99);
             button.Style.ForeColor = Color.White;
             button.Style.ImageForeColor = Color.White;
             button.Style.Border = null;
-            button.Style.HoverBackColor = Color.FromArgb(241, 249, 241);
-            button.Style.HoverForeColor = Color.FromArgb(76, 175, 80);
-            button.Style.HoverImageForeColor = Color.FromArgb(76, 175, 80);
+            button.Style.HoverBackColor = Color.FromArgb(26, 217, 115);
+            button.Style.HoverForeColor = Color.White;
+            button.Style.HoverImageForeColor = Color.White;
             button.Style.HoverBorder = null;
-            button.Style.PressedBackColor = Color.FromArgb(244, 244, 245);
-            button.Style.PressedForeColor = Color.FromArgb(51, 51, 51);
-            button.Style.PressedImageForeColor = Color.FromArgb(51, 51, 51);
+            button.Style.PressedBackColor = Color.FromArgb(26, 217, 115);
+            button.Style.PressedForeColor = Color.White;
+            button.Style.PressedImageForeColor = Color.White;
             button.Style.PressedBorder = null;
-            button.Style.FocusedBackColor = Color.FromArgb(76, 175, 80);
+            button.Style.FocusedBackColor = Color.FromArgb(0, 213, 99);
             button.Style.FocusedForeColor = Color.White;
             button.Style.FocusedImageForeColor = Color.White;
             button.Style.FocusedBorder = null;
