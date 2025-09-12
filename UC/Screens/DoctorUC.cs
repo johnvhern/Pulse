@@ -22,8 +22,7 @@ namespace Pulse.UC.Screens
 
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
-            frmAddDoctor frmAddDoctor = new frmAddDoctor();
-            frmAddDoctor.ShowDialog();
+            new frmAddDoctor(doctorBindingSource).ShowDialog();
         }
 
     }

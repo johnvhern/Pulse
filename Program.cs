@@ -27,11 +27,12 @@ namespace Pulse
 
 
             ApplicationConfiguration.Initialize();
+            AppDomain.CurrentDomain.SetData("DataDirectory", AppDomain.CurrentDomain.BaseDirectory);
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(secretValue);
 
             IHost host = Host.CreateDefaultBuilder(args).ConfigureServices((context, services) =>
             {
-                const string connectionString = "PatientDB";
+                const string connectionString = "PulseDB";
                 services.AddDbContext<PulseDbContext>(options =>
                 {
                     options.UseSqlite(context.Configuration.GetConnectionString(connectionString));

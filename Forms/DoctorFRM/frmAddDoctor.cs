@@ -1,4 +1,5 @@
 ﻿using Pulse.Helper;
+using Pulse.Model;
 using Syncfusion.Windows.Forms;
 using System;
 using System.Collections.Generic;
@@ -14,17 +15,29 @@ namespace Pulse.Forms.DoctorFRM
 {
     public partial class frmAddDoctor : MetroForm
     {
-
-        public frmAddDoctor()
+        private readonly IBindingList _bindingList;
+        public frmAddDoctor(IBindingList bindingList)
         {
             InitializeComponent();
             SfButtonStyle.GreenButton(btnAddDoctor);
             SfButtonStyle.SecondaryButton(btnCancel);
+            _bindingList = bindingList;
+            doctorBindingSource.DataSource = new List<Doctor>();
         }
 
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
-
+            var doctor = doctorBindingSource.Current as Doctor;
+            if (string.IsNullOrEmpty(doctor?.Error))
+            {
+                _bindingList.Add(doctor);
+                MessageBoxAdv.Show("Doctor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            else
+            {
+                MessageBoxAdv.Show(doctor.Error, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -38,13 +51,18 @@ namespace Pulse.Forms.DoctorFRM
                 {
                     this.Close();
                 }
-             
+
             }
             else
             {
                 // If any field is empty, close the form without confirmation
                 this.Close();
             }
+        }
+
+        private void frmAddDoctor_Load(object sender, EventArgs e)
+        {
+            doctorBindingSource.AddNew();
         }
     }
 }

@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             txtFullName = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            doctorBindingSource = new BindingSource(components);
             autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             txtSpecialization = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -47,6 +49,7 @@
             gradientPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtFullName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtSpecialization).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtPhoneNumber).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtEmailAddress).BeginInit();
@@ -98,18 +101,23 @@
             // 
             // txtFullName
             // 
-            txtFullName.BeforeTouchSize = new Size(1016, 23);
-            txtFullName.Font = new Font("Inter", 12F);
+            txtFullName.BeforeTouchSize = new Size(389, 26);
+            txtFullName.DataBindings.Add(new Binding("Text", doctorBindingSource, "FullName", true));
+            txtFullName.Font = new Font("Inter", 11.25F);
             txtFullName.Location = new Point(13, 28);
             txtFullName.Margin = new Padding(3, 5, 3, 3);
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(389, 27);
+            txtFullName.Size = new Size(389, 26);
             txtFullName.TabIndex = 1;
+            // 
+            // doctorBindingSource
+            // 
+            doctorBindingSource.DataSource = typeof(Model.Doctor);
             // 
             // autoLabel3
             // 
             autoLabel3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            autoLabel3.Location = new Point(13, 63);
+            autoLabel3.Location = new Point(13, 62);
             autoLabel3.Margin = new Padding(3, 5, 3, 0);
             autoLabel3.Name = "autoLabel3";
             autoLabel3.Size = new Size(93, 18);
@@ -118,18 +126,19 @@
             // 
             // txtSpecialization
             // 
-            txtSpecialization.BeforeTouchSize = new Size(1016, 23);
-            txtSpecialization.Font = new Font("Inter", 12F);
-            txtSpecialization.Location = new Point(13, 86);
+            txtSpecialization.BeforeTouchSize = new Size(389, 26);
+            txtSpecialization.DataBindings.Add(new Binding("Text", doctorBindingSource, "Specialization", true));
+            txtSpecialization.Font = new Font("Inter", 11.25F);
+            txtSpecialization.Location = new Point(13, 85);
             txtSpecialization.Margin = new Padding(3, 5, 3, 3);
             txtSpecialization.Name = "txtSpecialization";
-            txtSpecialization.Size = new Size(389, 27);
+            txtSpecialization.Size = new Size(389, 26);
             txtSpecialization.TabIndex = 3;
             // 
             // autoLabel4
             // 
             autoLabel4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            autoLabel4.Location = new Point(13, 121);
+            autoLabel4.Location = new Point(13, 119);
             autoLabel4.Margin = new Padding(3, 5, 3, 0);
             autoLabel4.Name = "autoLabel4";
             autoLabel4.Size = new Size(102, 18);
@@ -138,18 +147,19 @@
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.BeforeTouchSize = new Size(1016, 23);
-            txtPhoneNumber.Font = new Font("Inter", 12F);
-            txtPhoneNumber.Location = new Point(13, 144);
+            txtPhoneNumber.BeforeTouchSize = new Size(389, 26);
+            txtPhoneNumber.DataBindings.Add(new Binding("Text", doctorBindingSource, "PhoneNumber", true));
+            txtPhoneNumber.Font = new Font("Inter", 11.25F);
+            txtPhoneNumber.Location = new Point(13, 142);
             txtPhoneNumber.Margin = new Padding(3, 5, 3, 3);
             txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(389, 27);
+            txtPhoneNumber.Size = new Size(389, 26);
             txtPhoneNumber.TabIndex = 5;
             // 
             // autoLabel5
             // 
             autoLabel5.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            autoLabel5.Location = new Point(13, 179);
+            autoLabel5.Location = new Point(13, 176);
             autoLabel5.Margin = new Padding(3, 5, 3, 0);
             autoLabel5.Name = "autoLabel5";
             autoLabel5.Size = new Size(96, 18);
@@ -158,12 +168,13 @@
             // 
             // txtEmailAddress
             // 
-            txtEmailAddress.BeforeTouchSize = new Size(1016, 23);
-            txtEmailAddress.Font = new Font("Inter", 12F);
-            txtEmailAddress.Location = new Point(13, 202);
+            txtEmailAddress.BeforeTouchSize = new Size(389, 26);
+            txtEmailAddress.DataBindings.Add(new Binding("Text", doctorBindingSource, "EmailAddress", true));
+            txtEmailAddress.Font = new Font("Inter", 11.25F);
+            txtEmailAddress.Location = new Point(13, 199);
             txtEmailAddress.Margin = new Padding(3, 5, 3, 3);
             txtEmailAddress.Name = "txtEmailAddress";
-            txtEmailAddress.Size = new Size(389, 27);
+            txtEmailAddress.Size = new Size(389, 26);
             txtEmailAddress.TabIndex = 7;
             // 
             // gradientPanel3
@@ -234,11 +245,13 @@
             ShowIcon = false;
             ShowMaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += frmAddDoctor_Load;
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).EndInit();
             gradientPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtFullName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtSpecialization).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtPhoneNumber).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtEmailAddress).EndInit();
@@ -266,5 +279,6 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtPhoneNumber;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel5;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtEmailAddress;
+        private BindingSource doctorBindingSource;
     }
 }
