@@ -49,15 +49,19 @@ namespace Pulse.Forms.DoctorFRM
                 var result = MessageBoxAdv.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    this.Close();
+                    Close();
+                }
+                else
+                {
+                    return;
                 }
 
             }
             else
             {
-                // If any field is empty, close the form without confirmation
-                this.Close();
+                Close();
             }
+
         }
 
         private void frmAddDoctor_Load(object sender, EventArgs e)
