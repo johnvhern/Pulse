@@ -43,7 +43,7 @@ namespace Pulse
             }).Build();
 
 
-            var form = Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService<frmMain>(host.Services);
+            var form = ServiceProviderServiceExtensions.GetService<frmMain>(host.Services);
             Application.Run(form);
 
         }
