@@ -1,5 +1,6 @@
 ﻿using Pulse.Forms.MainFRM;
 using Pulse.Helper;
+using Pulse.Repository.DoctorRepo;
 using Pulse.UC.Screens;
 using Syncfusion.Windows.Forms;
 using Syncfusion.WinForms.Controls;
@@ -20,22 +21,31 @@ namespace Pulse.UC.Sidebar
         SfButton activeButton;
         frmMain _main;
 
+        private readonly IDoctorRepository _doctorRepository;
+
         #region -- Screen Instances --
 
-        DashboardUC dashboard = new DashboardUC();
-        DoctorUC doctor = new DoctorUC();
-        PatientUC patient = new PatientUC();
-        AppointmentUC appointment = new AppointmentUC();
-        ReportsUC reports = new ReportsUC();
+        DashboardUC dashboard;
+        DoctorUC doctor;
+        PatientUC patient;
+        AppointmentUC appointment;
+        ReportsUC reports;
 
         #endregion
 
-        public UCSidebar(frmMain main)
+        public UCSidebar(frmMain main, IDoctorRepository doctorRepository)
         {
             InitializeComponent();
             SfButtonStyle.ApplyNavButtonStyle(this);
             ColorActiveButton(btnDashboard);
             _main = main;
+            _doctorRepository = doctorRepository;
+
+            dashboard = new DashboardUC();
+            doctor = new DoctorUC(_doctorRepository);
+            patient = new PatientUC();
+            appointment= new AppointmentUC();
+            reports= new ReportsUC();
         }
 
         private void ColorActiveButton(SfButton button)

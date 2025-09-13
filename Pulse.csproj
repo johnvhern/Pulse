@@ -13,8 +13,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Interface\**" />
+    <EmbeddedResource Remove="Interface\**" />
+    <None Remove="Interface\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Forms\PatientFRM\" />
-    <Folder Include="Interface\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,7 @@
-﻿using Pulse.UC.Screens;
+﻿using Microsoft.EntityFrameworkCore;
+using Pulse.Data;
+using Pulse.Repository.DoctorRepo;
+using Pulse.UC.Screens;
 using Pulse.UC.Sidebar;
 using Pulse.UC.Topbar;
 using Syncfusion.Windows.Forms;
@@ -19,8 +22,17 @@ namespace Pulse.Forms.MainFRM
             topbar.Dock = DockStyle.Top;
             this.Controls.Add(topbar);
 
+            // Build options
+            var options = new DbContextOptionsBuilder<PulseDbContext>()
+                .UseSqlite($"Data Source={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PulseDB.db")}")
+                .Options;
+
+            // Create context
+            var context = new PulseDbContext(options);
+
             // Add Sidebar
-            UCSidebar sidebar = new UCSidebar(this);
+            var repo = new DoctorRepository(context);
+            UCSidebar sidebar = new UCSidebar(this, repo);
             sidebar.Dock = DockStyle.Left;
             this.Controls.Add(sidebar);
         }

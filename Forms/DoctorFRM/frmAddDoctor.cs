@@ -1,5 +1,6 @@
 ﻿using Pulse.Helper;
 using Pulse.Model;
+using Pulse.Repository.DoctorRepo;
 using Syncfusion.Windows.Forms;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,14 @@ namespace Pulse.Forms.DoctorFRM
     public partial class frmAddDoctor : MetroForm
     {
         private readonly IBindingList _bindingList;
+        private readonly IDoctorRepository _doctorRepository;
 
-        public frmAddDoctor(IBindingList bindingList)
+        public frmAddDoctor(IBindingList bindingList, IDoctorRepository doctorRepository)
         {
             InitializeComponent();
             SfButtonStyle.GreenButton(btnAddDoctor);
             SfButtonStyle.SecondaryButton(btnCancel);
+            _doctorRepository = doctorRepository;
             _bindingList = bindingList;
             doctorBindingSource.DataSource = new List<Doctor>();
         }
@@ -32,6 +35,7 @@ namespace Pulse.Forms.DoctorFRM
             if (string.IsNullOrEmpty(doctor?.Error))
             {
                 _bindingList.Add(doctor);
+                _doctorRepository.Add(doctor);
                 MessageBoxAdv.Show("Doctor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }

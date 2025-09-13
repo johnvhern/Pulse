@@ -10,7 +10,7 @@ using Pulse.Data;
 namespace Pulse.Migrations
 {
     [DbContext(typeof(PulseDbContext))]
-    [Migration("20250912143428_DoctorTable")]
+    [Migration("20250913163230_DoctorTable")]
     partial class DoctorTable
     {
         /// <inheritdoc />

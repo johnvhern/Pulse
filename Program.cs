@@ -4,9 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pulse.Data;
 using Pulse.Forms.MainFRM;
-using Pulse.Repository;
 using Syncfusion.Windows.Forms;
 using System.Reflection;
+using Pulse.Repository.DoctorRepo;
 
 namespace Pulse
 {
@@ -38,7 +38,7 @@ namespace Pulse
                     options.UseSqlite(context.Configuration.GetConnectionString(connectionString));
                 }, ServiceLifetime.Singleton);
 
-                services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+                services.AddSingleton<IDoctorRepository, DoctorRepository>();
                 services.AddSingleton<frmMain>();
             }).Build();
 

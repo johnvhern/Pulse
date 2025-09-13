@@ -38,6 +38,12 @@
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             dataGridView1 = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            specializationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            errorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             doctorBindingSource = new BindingSource(components);
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -49,12 +55,6 @@
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            specializationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            errorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -179,6 +179,50 @@
             dataGridView1.Size = new Size(1071, 426);
             dataGridView1.TabIndex = 0;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // specializationDataGridViewTextBoxColumn
+            // 
+            specializationDataGridViewTextBoxColumn.DataPropertyName = "Specialization";
+            specializationDataGridViewTextBoxColumn.HeaderText = "Specialization";
+            specializationDataGridViewTextBoxColumn.Name = "specializationDataGridViewTextBoxColumn";
+            specializationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
+            emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // errorDataGridViewTextBoxColumn
+            // 
+            errorDataGridViewTextBoxColumn.DataPropertyName = "Error";
+            errorDataGridViewTextBoxColumn.HeaderText = "Error";
+            errorDataGridViewTextBoxColumn.Name = "errorDataGridViewTextBoxColumn";
+            errorDataGridViewTextBoxColumn.ReadOnly = true;
+            errorDataGridViewTextBoxColumn.Visible = false;
+            // 
             // doctorBindingSource
             // 
             doctorBindingSource.DataSource = typeof(Model.Doctor);
@@ -223,7 +267,7 @@
             bannerTextInfo1.Text = "Search doctors by name or specialization";
             bannerTextInfo1.Visible = true;
             bannerTextProvider1.SetBannerText(textBoxExt1, bannerTextInfo1);
-            textBoxExt1.BeforeTouchSize = new Size(440, 23);
+            textBoxExt1.BeforeTouchSize = new Size(1016, 23);
             textBoxExt1.Border3DStyle = Border3DStyle.Flat;
             textBoxExt1.BorderColor = Color.Transparent;
             textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
@@ -294,50 +338,6 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Doctors";
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // specializationDataGridViewTextBoxColumn
-            // 
-            specializationDataGridViewTextBoxColumn.DataPropertyName = "Specialization";
-            specializationDataGridViewTextBoxColumn.HeaderText = "Specialization";
-            specializationDataGridViewTextBoxColumn.Name = "specializationDataGridViewTextBoxColumn";
-            specializationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
-            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailAddressDataGridViewTextBoxColumn
-            // 
-            emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
-            emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
-            emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
-            emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // errorDataGridViewTextBoxColumn
-            // 
-            errorDataGridViewTextBoxColumn.DataPropertyName = "Error";
-            errorDataGridViewTextBoxColumn.HeaderText = "Error";
-            errorDataGridViewTextBoxColumn.Name = "errorDataGridViewTextBoxColumn";
-            errorDataGridViewTextBoxColumn.ReadOnly = true;
-            errorDataGridViewTextBoxColumn.Visible = false;
-            // 
             // DoctorUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -346,6 +346,7 @@
             Controls.Add(gradientPanel1);
             Name = "DoctorUC";
             Size = new Size(1129, 637);
+            Load += DoctorUC_Load;
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).EndInit();
             gradientPanel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
