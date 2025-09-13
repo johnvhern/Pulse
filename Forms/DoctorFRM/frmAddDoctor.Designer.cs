@@ -49,6 +49,7 @@
             btnCancel = new Syncfusion.WinForms.Controls.SfButton();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            doctorDetailError = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -69,6 +70,7 @@
             gradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)doctorDetailError).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -120,25 +122,24 @@
             gradientPanel4.Controls.Add(txtFullName);
             gradientPanel4.Location = new Point(13, 26);
             gradientPanel4.Name = "gradientPanel4";
-            gradientPanel4.Padding = new Padding(5);
-            gradientPanel4.Size = new Size(389, 35);
+            gradientPanel4.Padding = new Padding(5, 5, 20, 5);
+            gradientPanel4.Size = new Size(390, 35);
             gradientPanel4.TabIndex = 8;
             // 
             // txtFullName
             // 
             txtFullName.BackColor = Color.White;
-            txtFullName.BeforeTouchSize = new Size(377, 23);
+            txtFullName.BeforeTouchSize = new Size(363, 23);
             txtFullName.BorderColor = Color.Transparent;
             txtFullName.BorderStyle = BorderStyle.FixedSingle;
             txtFullName.DataBindings.Add(new Binding("Text", doctorBindingSource, "FullName", true));
             txtFullName.Dock = DockStyle.Fill;
             txtFullName.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtFullName.Location = new Point(5, 5);
-            txtFullName.Margin = new Padding(3, 5, 3, 3);
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(377, 23);
+            txtFullName.Size = new Size(363, 23);
             txtFullName.TabIndex = 1;
-            txtFullName.Tag = "Name";
+            txtFullName.Tag = "FullName";
             txtFullName.WordWrap = false;
             // 
             // doctorBindingSource
@@ -164,13 +165,13 @@
             gradientPanel5.Controls.Add(txtSpecialization);
             gradientPanel5.Location = new Point(13, 90);
             gradientPanel5.Name = "gradientPanel5";
-            gradientPanel5.Padding = new Padding(5);
-            gradientPanel5.Size = new Size(389, 35);
+            gradientPanel5.Padding = new Padding(5, 5, 20, 5);
+            gradientPanel5.Size = new Size(390, 35);
             gradientPanel5.TabIndex = 9;
             // 
             // txtSpecialization
             // 
-            txtSpecialization.BeforeTouchSize = new Size(377, 23);
+            txtSpecialization.BeforeTouchSize = new Size(363, 23);
             txtSpecialization.BorderColor = Color.Transparent;
             txtSpecialization.BorderStyle = BorderStyle.FixedSingle;
             txtSpecialization.DataBindings.Add(new Binding("Text", doctorBindingSource, "Specialization", true));
@@ -179,7 +180,7 @@
             txtSpecialization.Location = new Point(5, 5);
             txtSpecialization.Margin = new Padding(3, 5, 3, 3);
             txtSpecialization.Name = "txtSpecialization";
-            txtSpecialization.Size = new Size(377, 23);
+            txtSpecialization.Size = new Size(363, 23);
             txtSpecialization.TabIndex = 3;
             txtSpecialization.Tag = "Specialization";
             txtSpecialization.WordWrap = false;
@@ -203,13 +204,13 @@
             gradientPanel6.Controls.Add(txtPhoneNumber);
             gradientPanel6.Location = new Point(13, 154);
             gradientPanel6.Name = "gradientPanel6";
-            gradientPanel6.Padding = new Padding(5);
-            gradientPanel6.Size = new Size(389, 35);
+            gradientPanel6.Padding = new Padding(5, 5, 20, 5);
+            gradientPanel6.Size = new Size(390, 35);
             gradientPanel6.TabIndex = 10;
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.BeforeTouchSize = new Size(377, 23);
+            txtPhoneNumber.BeforeTouchSize = new Size(363, 23);
             txtPhoneNumber.BorderColor = Color.Transparent;
             txtPhoneNumber.BorderStyle = BorderStyle.FixedSingle;
             txtPhoneNumber.DataBindings.Add(new Binding("Text", doctorBindingSource, "PhoneNumber", true));
@@ -218,7 +219,7 @@
             txtPhoneNumber.Location = new Point(5, 5);
             txtPhoneNumber.Margin = new Padding(3, 5, 3, 3);
             txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(377, 23);
+            txtPhoneNumber.Size = new Size(363, 23);
             txtPhoneNumber.TabIndex = 5;
             txtPhoneNumber.Tag = "PhoneNumber";
             txtPhoneNumber.WordWrap = false;
@@ -242,13 +243,13 @@
             gradientPanel7.Controls.Add(txtEmailAddress);
             gradientPanel7.Location = new Point(13, 218);
             gradientPanel7.Name = "gradientPanel7";
-            gradientPanel7.Padding = new Padding(5);
-            gradientPanel7.Size = new Size(389, 35);
+            gradientPanel7.Padding = new Padding(5, 5, 20, 5);
+            gradientPanel7.Size = new Size(390, 35);
             gradientPanel7.TabIndex = 11;
             // 
             // txtEmailAddress
             // 
-            txtEmailAddress.BeforeTouchSize = new Size(377, 23);
+            txtEmailAddress.BeforeTouchSize = new Size(363, 23);
             txtEmailAddress.BorderColor = Color.Transparent;
             txtEmailAddress.BorderStyle = BorderStyle.FixedSingle;
             txtEmailAddress.DataBindings.Add(new Binding("Text", doctorBindingSource, "EmailAddress", true));
@@ -257,7 +258,7 @@
             txtEmailAddress.Location = new Point(5, 5);
             txtEmailAddress.Margin = new Padding(3, 5, 3, 3);
             txtEmailAddress.Name = "txtEmailAddress";
-            txtEmailAddress.Size = new Size(377, 23);
+            txtEmailAddress.Size = new Size(363, 23);
             txtEmailAddress.TabIndex = 7;
             txtEmailAddress.Tag = "EmailAddress";
             txtEmailAddress.WordWrap = false;
@@ -320,6 +321,10 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Add New Doctor";
             // 
+            // doctorDetailError
+            // 
+            doctorDetailError.ContainerControl = this;
+            // 
             // frmAddDoctor
             // 
             AcceptButton = btnAddDoctor;
@@ -360,6 +365,7 @@
             gradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)doctorDetailError).EndInit();
             ResumeLayout(false);
         }
 
@@ -385,5 +391,6 @@
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel5;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel6;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel7;
+        private ErrorProvider doctorDetailError;
     }
 }

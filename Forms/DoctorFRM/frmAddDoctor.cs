@@ -16,6 +16,7 @@ namespace Pulse.Forms.DoctorFRM
     public partial class frmAddDoctor : MetroForm
     {
         private readonly IBindingList _bindingList;
+
         public frmAddDoctor(IBindingList bindingList)
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace Pulse.Forms.DoctorFRM
             }
             else
             {
-                MessageBoxAdv.Show(doctor.Error, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ValidateControls(this, doctor);
             }
         }
 
@@ -45,7 +46,6 @@ namespace Pulse.Forms.DoctorFRM
             if (!string.IsNullOrWhiteSpace(txtFullName.Text) || !string.IsNullOrWhiteSpace(txtSpecialization.Text) ||
                 !string.IsNullOrWhiteSpace(txtPhoneNumber.Text) || !string.IsNullOrWhiteSpace(txtEmailAddress.Text))
             {
-                // If fields are filled, ask for confirmation before closing
                 var result = MessageBoxAdv.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
@@ -55,14 +55,34 @@ namespace Pulse.Forms.DoctorFRM
                 {
                     return;
                 }
-
             }
             else
             {
                 Close();
             }
-
         }
+
+        private void ValidateControls(Control parent, Doctor doctor)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                var tag = control.Tag?.ToString();
+                if (!string.IsNullOrEmpty(tag))
+                {
+                    if (!string.IsNullOrEmpty(doctor[tag]))
+                        doctorDetailError.SetError(control, doctor[tag]);
+                    else
+                        doctorDetailError.SetError(control, null);
+                }
+
+                // Recurse if the control has children (e.g., Panel, GroupBox, TabPage)
+                if (control.HasChildren)
+                {
+                    ValidateControls(control, doctor);
+                }
+            }
+        }
+
 
         private void frmAddDoctor_Load(object sender, EventArgs e)
         {

@@ -19,14 +19,14 @@ namespace Pulse.Model
                 if (descriptor == null)
                     return string.Empty;
 
-                var errors = new List<ValidationResult>();
+                var errors = new List<ValidationResult>();  
                 var validationContext = new ValidationContext(this, null, null)
                 {
                     MemberName = propertyName,
                 };
                 if (!Validator.TryValidateProperty(descriptor?.GetValue(this), validationContext, errors))
                 {
-                    return errors.FirstOrDefault()?.ErrorMessage ?? string.Empty;
+                    return errors.FirstOrDefault()?.ErrorMessage ?? String.Empty;
                 }
 
                 return string.Empty;
