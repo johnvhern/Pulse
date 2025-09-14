@@ -44,11 +44,20 @@ namespace Pulse.Forms.PatientFRM
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
             var patient = patientBindingSource.Current as Patient;
-            patient.DoctorId = (int)cbAssignedDoctor.SelectedValue;
             patient.DateOfBirth = dtDOB.Value;
+
+            if (cbAssignedDoctor.SelectedValue != null && (int)cbAssignedDoctor.SelectedValue > 0)
+            {
+                patient.DoctorId = (int)cbAssignedDoctor.SelectedValue;
+            }
+            else
+            {
+                patientDetailError.SetError(cbAssignedDoctor, "Assigned doctor is required.");
+            }
 
             if (string.IsNullOrEmpty(patient?.Error))
             {
+
                 _bindingList.Add(patient);
                 _patientRepository.Add(patient);
                 MessageBoxAdv.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -62,7 +71,7 @@ namespace Pulse.Forms.PatientFRM
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtFullName.Text) || !string.IsNullOrWhiteSpace(txtPhoneNumber.Text) || !string.IsNullOrWhiteSpace(txtEmailAddress.Text) || !string.IsNullOrEmpty(txtAddress.Text) || !string.IsNullOrEmpty(cbAssignedDoctor.Text))
+            if (!string.IsNullOrWhiteSpace(txtFullName.Text) || !string.IsNullOrWhiteSpace(txtPhoneNumber.Text) || !string.IsNullOrWhiteSpace(txtEmailAddress.Text) || !string.IsNullOrEmpty(txtAddress.Text))
             {
                 var result = MessageBoxAdv.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)

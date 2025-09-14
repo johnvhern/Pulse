@@ -22,6 +22,7 @@ namespace Pulse.Model
         [StringLength(100, ErrorMessage = "The entered email address is too long. Please enter a shorter email address.")]
         public string EmailAddress { get; set; }
 
+        [Required(ErrorMessage = "Assigned Doctor is required")]
         public int DoctorId { get; set; }
 
         [StringLength(100, ErrorMessage = "The entered address is too long. Please enter a shorter address.")]
