@@ -30,31 +30,34 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            dataGridView1 = new DataGridView();
+            dgvDoctors = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             specializationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             errorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Actions = new DataGridViewButtonColumn();
             doctorBindingSource = new BindingSource(components);
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            txtSearchDoctor = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             pictureBox1 = new PictureBox();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             btnAddDoctor = new Syncfusion.WinForms.Controls.SfButton();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
+            timerSearch = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -62,14 +65,14 @@
             gradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
             gradientPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDoctors).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
             gradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
             gradientPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textBoxExt1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtSearchDoctor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
@@ -120,7 +123,7 @@
             // 
             gradientPanel7.BorderColor = Color.FromArgb(226, 232, 240);
             gradientPanel7.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel7.Controls.Add(dataGridView1);
+            gradientPanel7.Controls.Add(dgvDoctors);
             gradientPanel7.Dock = DockStyle.Fill;
             gradientPanel7.Location = new Point(0, 80);
             gradientPanel7.Name = "gradientPanel7";
@@ -128,16 +131,16 @@
             gradientPanel7.Size = new Size(1093, 448);
             gradientPanel7.TabIndex = 6;
             // 
-            // dataGridView1
+            // dgvDoctors
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvDoctors.AllowUserToAddRows = false;
+            dgvDoctors.AllowUserToDeleteRows = false;
+            dgvDoctors.AllowUserToResizeRows = false;
+            dgvDoctors.AutoGenerateColumns = false;
+            dgvDoctors.BackgroundColor = Color.White;
+            dgvDoctors.BorderStyle = BorderStyle.None;
+            dgvDoctors.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDoctors.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 245, 246);
             dataGridViewCellStyle1.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -146,38 +149,40 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 245, 246);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(147, 150, 159);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, specializationDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, emailAddressDataGridViewTextBoxColumn, errorDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = doctorBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle2.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.FromArgb(226, 232, 240);
-            dataGridView1.Location = new Point(10, 10);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
+            dgvDoctors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvDoctors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDoctors.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, specializationDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, emailAddressDataGridViewTextBoxColumn, errorDataGridViewTextBoxColumn, Actions });
+            dgvDoctors.DataSource = doctorBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 40;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1071, 426);
-            dataGridView1.TabIndex = 0;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle3.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvDoctors.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvDoctors.Dock = DockStyle.Fill;
+            dgvDoctors.EnableHeadersVisualStyles = false;
+            dgvDoctors.GridColor = Color.FromArgb(226, 232, 240);
+            dgvDoctors.Location = new Point(10, 10);
+            dgvDoctors.Name = "dgvDoctors";
+            dgvDoctors.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvDoctors.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvDoctors.RowHeadersVisible = false;
+            dgvDoctors.RowTemplate.Height = 40;
+            dgvDoctors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDoctors.Size = new Size(1071, 426);
+            dgvDoctors.TabIndex = 0;
+            dgvDoctors.CellContentClick += dgvDoctors_CellContentClick;
+            dgvDoctors.CellPainting += dgvDoctors_CellPainting;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -189,28 +194,36 @@
             // 
             // fullNameDataGridViewTextBoxColumn
             // 
+            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.FillWeight = 93.27411F;
             fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
             fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
             fullNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // specializationDataGridViewTextBoxColumn
             // 
+            specializationDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             specializationDataGridViewTextBoxColumn.DataPropertyName = "Specialization";
+            specializationDataGridViewTextBoxColumn.FillWeight = 93.27411F;
             specializationDataGridViewTextBoxColumn.HeaderText = "Specialization";
             specializationDataGridViewTextBoxColumn.Name = "specializationDataGridViewTextBoxColumn";
             specializationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // phoneNumberDataGridViewTextBoxColumn
             // 
+            phoneNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.FillWeight = 93.27411F;
             phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
             phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
             phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // emailAddressDataGridViewTextBoxColumn
             // 
+            emailAddressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            emailAddressDataGridViewTextBoxColumn.FillWeight = 93.27411F;
             emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
             emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
             emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
@@ -222,6 +235,18 @@
             errorDataGridViewTextBoxColumn.Name = "errorDataGridViewTextBoxColumn";
             errorDataGridViewTextBoxColumn.ReadOnly = true;
             errorDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Actions
+            // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Padding = new Padding(20, 3, 20, 3);
+            Actions.DefaultCellStyle = dataGridViewCellStyle2;
+            Actions.HeaderText = "Actions";
+            Actions.Name = "Actions";
+            Actions.ReadOnly = true;
+            Actions.Resizable = DataGridViewTriState.False;
+            Actions.ToolTipText = "View";
+            Actions.Width = 80;
             // 
             // doctorBindingSource
             // 
@@ -254,28 +279,29 @@
             gradientPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gradientPanel4.BorderColor = Color.Gainsboro;
             gradientPanel4.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel4.Controls.Add(textBoxExt1);
+            gradientPanel4.Controls.Add(txtSearchDoctor);
             gradientPanel4.Controls.Add(pictureBox1);
             gradientPanel4.Location = new Point(13, 13);
             gradientPanel4.Name = "gradientPanel4";
             gradientPanel4.Size = new Size(1065, 37);
             gradientPanel4.TabIndex = 3;
             // 
-            // textBoxExt1
+            // txtSearchDoctor
             // 
-            textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSearchDoctor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             bannerTextInfo1.Text = "Search doctors by name or specialization";
             bannerTextInfo1.Visible = true;
-            bannerTextProvider1.SetBannerText(textBoxExt1, bannerTextInfo1);
-            textBoxExt1.BeforeTouchSize = new Size(1016, 23);
-            textBoxExt1.Border3DStyle = Border3DStyle.Flat;
-            textBoxExt1.BorderColor = Color.Transparent;
-            textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
-            textBoxExt1.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxExt1.Location = new Point(44, 6);
-            textBoxExt1.Name = "textBoxExt1";
-            textBoxExt1.Size = new Size(1016, 23);
-            textBoxExt1.TabIndex = 4;
+            bannerTextProvider1.SetBannerText(txtSearchDoctor, bannerTextInfo1);
+            txtSearchDoctor.BeforeTouchSize = new Size(1016, 23);
+            txtSearchDoctor.Border3DStyle = Border3DStyle.Flat;
+            txtSearchDoctor.BorderColor = Color.Transparent;
+            txtSearchDoctor.BorderStyle = BorderStyle.FixedSingle;
+            txtSearchDoctor.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearchDoctor.Location = new Point(44, 6);
+            txtSearchDoctor.Name = "txtSearchDoctor";
+            txtSearchDoctor.Size = new Size(1016, 23);
+            txtSearchDoctor.TabIndex = 4;
+            txtSearchDoctor.TextChanged += txtSearchDoctor_TextChanged;
             // 
             // pictureBox1
             // 
@@ -338,6 +364,11 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Doctors";
             // 
+            // timerSearch
+            // 
+            timerSearch.Interval = 500;
+            timerSearch.Tick += timerSearch_Tick;
+            // 
             // DoctorUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -354,7 +385,7 @@
             gradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
             gradientPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDoctors).EndInit();
             ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
@@ -362,7 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
             gradientPanel4.ResumeLayout(false);
             gradientPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textBoxExt1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtSearchDoctor).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
@@ -385,14 +416,16 @@
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel5;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel6;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel7;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtSearchDoctor;
         private BindingSource doctorBindingSource;
-        private DataGridView dataGridView1;
+        private DataGridView dgvDoctors;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn specializationDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn errorDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn Actions;
+        private System.Windows.Forms.Timer timerSearch;
     }
 }

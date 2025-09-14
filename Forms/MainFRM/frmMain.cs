@@ -15,6 +15,7 @@ namespace Pulse.Forms.MainFRM
         {
             InitializeComponent();
             this.Text = $"Pulse - {Application.ProductVersion}";
+            this.CaptionFont = new Font("Inter", 9F, FontStyle.Regular);
             this.WindowState = FormWindowState.Maximized;
 
             // Add Topbar

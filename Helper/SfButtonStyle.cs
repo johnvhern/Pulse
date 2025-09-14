@@ -64,6 +64,27 @@ namespace Pulse.Helper
             button.Style.FocusedBorder = null;
         }
 
+        public static void RedButton(SfButton button)
+        {
+            button.Style.BackColor = Color.FromArgb(239, 68, 68);
+            button.Style.ForeColor = Color.White;
+            button.Style.ImageForeColor = Color.White;
+            button.Style.Border = null;
+            button.Style.HoverBackColor = Color.FromArgb(240, 77, 77);
+            button.Style.HoverForeColor = Color.White;
+            button.Style.HoverImageForeColor = Color.White;
+            button.Style.HoverBorder = null;
+            button.Style.PressedBackColor = Color.FromArgb(239, 68, 68);
+            button.Style.PressedForeColor = Color.White;
+            button.Style.PressedImageForeColor = Color.White;
+            button.Style.PressedBorder = null;
+            button.Style.FocusedBackColor = Color.FromArgb(239, 68, 68);
+            button.Style.FocusedForeColor = Color.White;
+            button.Style.FocusedImageForeColor = Color.White;
+            button.Style.FocusedBorder = null;
+        }
+
+
         public static void SecondaryButton(SfButton button)
         {
             button.Style.BackColor = Color.White;
