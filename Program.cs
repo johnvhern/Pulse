@@ -7,6 +7,7 @@ using Pulse.Forms.MainFRM;
 using Syncfusion.Windows.Forms;
 using System.Reflection;
 using Pulse.Repository.DoctorRepo;
+using Pulse.Repository.PatientRepo;
 
 namespace Pulse
 {
@@ -39,6 +40,7 @@ namespace Pulse
                 }, ServiceLifetime.Singleton);
 
                 services.AddSingleton<IDoctorRepository, DoctorRepository>();
+                services.AddSingleton<IPatientRepository, PatientRepository>();
                 services.AddSingleton<frmMain>();
             }).Build();
 

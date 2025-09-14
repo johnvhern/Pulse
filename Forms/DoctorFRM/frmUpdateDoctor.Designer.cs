@@ -348,8 +348,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(446, 388);
             Controls.Add(gradientPanel1);
+            MaximumSize = new Size(458, 424);
+            MinimumSize = new Size(458, 424);
             Name = "frmUpdateDoctor";
             ShowIcon = false;
+            ShowInTaskbar = false;
             ShowMaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).EndInit();
