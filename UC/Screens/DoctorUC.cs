@@ -25,6 +25,11 @@ namespace Pulse.UC.Screens
             SfButtonStyle.GreenButton(btnAddDoctor);
 
             _doctorRepository = doctorRepository;
+
+            // Enable double buffering for smoother rendering
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+            null, dgvDoctors, new object[] { true });
         }
 
         #region -- Click Events --

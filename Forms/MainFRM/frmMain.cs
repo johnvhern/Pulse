@@ -38,6 +38,11 @@ namespace Pulse.Forms.MainFRM
             UCSidebar sidebar = new UCSidebar(this, doctorRepo, patientRepo);
             sidebar.Dock = DockStyle.Left;
             this.Controls.Add(sidebar);
+
+            // Enable double buffering for mainPanel to reduce flickering
+            typeof(Panel).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+            null, mainPanel, new object[] { true });
         }
 
         #region -- Windows dragging fix --

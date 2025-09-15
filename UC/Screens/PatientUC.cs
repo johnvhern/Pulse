@@ -19,6 +19,7 @@ namespace Pulse.UC.Screens
     {
         private readonly IDoctorRepository _doctorRepository;
         private readonly IPatientRepository _patientRepository;
+
         public PatientUC(IDoctorRepository doctorRepository, IPatientRepository patientRepository)
         {
             InitializeComponent();
@@ -26,11 +27,67 @@ namespace Pulse.UC.Screens
 
             _doctorRepository = doctorRepository;
             _patientRepository = patientRepository;
+
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
+            null, dgvPatients, new object[] { true });
         }
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
             new frmAddPatient(patientBindingSource, _doctorRepository, _patientRepository).ShowDialog();
+        }
+
+        private void dgvPatients_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvPatients.Columns["Actions"].Index && e.RowIndex >= 0)
+            {
+                var cellRectangle = dgvPatients.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
+                int buttonWidth = (cellRectangle.Width - 8) / 2;
+
+                Rectangle button1Rect = new Rectangle(cellRectangle.X + 2, cellRectangle.Y + 2, buttonWidth, cellRectangle.Height - 4);
+                Rectangle button2Rect = new Rectangle(cellRectangle.X + 4 + buttonWidth, cellRectangle.Y + 2, buttonWidth, cellRectangle.Height - 4);
+
+                // Get mouse click point relative to DataGridView control
+                Point clickPoint = dgvPatients.PointToClient(Cursor.Position);
+
+                var patient = dgvPatients.Rows[e.RowIndex].DataBoundItem as Model.Patient;
+
+                if (button1Rect.Contains(clickPoint))
+                {
+                    new frmViewPatient(patient, patientBindingSource, _patientRepository).ShowDialog();
+                }
+                else if (button2Rect.Contains(clickPoint))
+                {
+                    // Handle click on button 2 (e.g., Delete)
+                    MessageBox.Show($"Edit button clicked on row {e.RowIndex}");
+                }
+            }
+        }
+
+        private void dgvPatients_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex == dgvPatients.Columns["Actions"].Index && e.RowIndex >= 0)
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                var buttonWidth = (e.CellBounds.Width - 8) / 2;
+                Rectangle button1Rect = new Rectangle(e.CellBounds.X + 2, e.CellBounds.Y + 2, buttonWidth, e.CellBounds.Height - 4);
+                Rectangle button2Rect = new Rectangle(e.CellBounds.X + 4 + buttonWidth, e.CellBounds.Y + 2, buttonWidth, e.CellBounds.Height - 4);
+
+                ButtonRenderer.DrawButton(e.Graphics, button1Rect, System.Windows.Forms.VisualStyles.PushButtonState.Normal);
+                ButtonRenderer.DrawButton(e.Graphics, button2Rect, System.Windows.Forms.VisualStyles.PushButtonState.Normal);
+
+                var viewIcon = Properties.Resources.eye__1_;  // your edit icon
+                var editIcon = Properties.Resources.square_pen__1_;    // your delete icon (put your icon)
+
+                int iconSize = 16;
+
+                e.Graphics.DrawImage(viewIcon, new Rectangle(button1Rect.Left + 10, button1Rect.Top + (button1Rect.Height - iconSize) / 2, iconSize, iconSize));
+                e.Graphics.DrawImage(editIcon, new Rectangle(button2Rect.Left + 10, button2Rect.Top + (button2Rect.Height - iconSize) / 2, iconSize, iconSize));
+
+                e.Handled = true;
+            }
         }
 
         private async void PatientUC_Load(object sender, EventArgs e)

@@ -29,26 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             dgvPatients = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            doctorIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            AssignedDoctor = new DataGridViewComboBoxColumn();
-            doctorBindingSource = new BindingSource(components);
-            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            doctorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Actions = new DataGridViewButtonColumn();
             patientBindingSource = new BindingSource(components);
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -60,8 +49,19 @@
             btnAddPatient = new Syncfusion.WinForms.Controls.SfButton();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            doctorBindingSource = new BindingSource(components);
             bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
             timerSearch = new System.Windows.Forms.Timer(components);
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            doctorIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            AssignedDoctor = new DataGridViewComboBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            doctorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Actions = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -70,7 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
             gradientPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPatients).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
@@ -81,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -145,136 +145,49 @@
             dgvPatients.BorderStyle = BorderStyle.None;
             dgvPatients.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPatients.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(243, 245, 246);
-            dataGridViewCellStyle4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(147, 150, 159);
-            dataGridViewCellStyle4.Padding = new Padding(10);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(243, 245, 246);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(147, 150, 159);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 245, 246);
+            dataGridViewCellStyle1.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(147, 150, 159);
+            dataGridViewCellStyle1.Padding = new Padding(10);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 245, 246);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(147, 150, 159);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPatients.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, emailAddressDataGridViewTextBoxColumn, doctorIdDataGridViewTextBoxColumn, AssignedDoctor, addressDataGridViewTextBoxColumn, doctorDataGridViewTextBoxColumn, Actions });
             dgvPatients.DataSource = patientBindingSource;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle5.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle5.SelectionBackColor = Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvPatients.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle2.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPatients.DefaultCellStyle = dataGridViewCellStyle2;
             dgvPatients.Dock = DockStyle.Fill;
             dgvPatients.EnableHeadersVisualStyles = false;
             dgvPatients.GridColor = Color.FromArgb(226, 232, 240);
             dgvPatients.Location = new Point(10, 10);
+            dgvPatients.MultiSelect = false;
             dgvPatients.Name = "dgvPatients";
             dgvPatients.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvPatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvPatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvPatients.RowHeadersVisible = false;
             dgvPatients.RowTemplate.Height = 40;
             dgvPatients.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPatients.Size = new Size(1071, 426);
             dgvPatients.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            dateOfBirthDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "Date Of Birth";
-            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            phoneNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
-            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailAddressDataGridViewTextBoxColumn
-            // 
-            emailAddressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
-            emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
-            emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
-            emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // doctorIdDataGridViewTextBoxColumn
-            // 
-            doctorIdDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            doctorIdDataGridViewTextBoxColumn.DataPropertyName = "DoctorId";
-            doctorIdDataGridViewTextBoxColumn.HeaderText = "Assigned Doctor";
-            doctorIdDataGridViewTextBoxColumn.Name = "doctorIdDataGridViewTextBoxColumn";
-            doctorIdDataGridViewTextBoxColumn.ReadOnly = true;
-            doctorIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // AssignedDoctor
-            // 
-            AssignedDoctor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            AssignedDoctor.DataPropertyName = "DoctorId";
-            AssignedDoctor.DataSource = doctorBindingSource;
-            AssignedDoctor.DisplayMember = "FullName";
-            AssignedDoctor.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            AssignedDoctor.FlatStyle = FlatStyle.Flat;
-            AssignedDoctor.HeaderText = "Assigned Doctor";
-            AssignedDoctor.Name = "AssignedDoctor";
-            AssignedDoctor.ReadOnly = true;
-            AssignedDoctor.ValueMember = "Id";
-            // 
-            // doctorBindingSource
-            // 
-            doctorBindingSource.DataSource = typeof(Model.Doctor);
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            addressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // doctorDataGridViewTextBoxColumn
-            // 
-            doctorDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            doctorDataGridViewTextBoxColumn.DataPropertyName = "Doctor";
-            doctorDataGridViewTextBoxColumn.HeaderText = "Doctor";
-            doctorDataGridViewTextBoxColumn.Name = "doctorDataGridViewTextBoxColumn";
-            doctorDataGridViewTextBoxColumn.ReadOnly = true;
-            doctorDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // Actions
-            // 
-            Actions.HeaderText = "Actions";
-            Actions.Name = "Actions";
-            Actions.ReadOnly = true;
-            Actions.Width = 80;
+            dgvPatients.CellContentClick += dgvPatients_CellContentClick;
+            dgvPatients.CellPainting += dgvPatients_CellPainting;
             // 
             // patientBindingSource
             // 
@@ -317,10 +230,10 @@
             // txtSearchDoctor
             // 
             txtSearchDoctor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            bannerTextInfo2.Text = "Search patients by name or email";
-            bannerTextInfo2.Visible = true;
-            bannerTextProvider1.SetBannerText(txtSearchDoctor, bannerTextInfo2);
-            txtSearchDoctor.BeforeTouchSize = new Size(1016, 23);
+            bannerTextInfo1.Text = "Search patients by name or email";
+            bannerTextInfo1.Visible = true;
+            bannerTextProvider1.SetBannerText(txtSearchDoctor, bannerTextInfo1);
+            txtSearchDoctor.BeforeTouchSize = new Size(363, 23);
             txtSearchDoctor.Border3DStyle = Border3DStyle.Flat;
             txtSearchDoctor.BorderColor = Color.Transparent;
             txtSearchDoctor.BorderStyle = BorderStyle.FixedSingle;
@@ -409,9 +322,100 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Patients";
             // 
+            // doctorBindingSource
+            // 
+            doctorBindingSource.DataSource = typeof(Model.Doctor);
+            // 
             // timerSearch
             // 
             timerSearch.Interval = 500;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            dateOfBirthDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "Date Of Birth";
+            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            emailAddressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
+            emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // doctorIdDataGridViewTextBoxColumn
+            // 
+            doctorIdDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            doctorIdDataGridViewTextBoxColumn.DataPropertyName = "DoctorId";
+            doctorIdDataGridViewTextBoxColumn.HeaderText = "Assigned Doctor";
+            doctorIdDataGridViewTextBoxColumn.Name = "doctorIdDataGridViewTextBoxColumn";
+            doctorIdDataGridViewTextBoxColumn.ReadOnly = true;
+            doctorIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // AssignedDoctor
+            // 
+            AssignedDoctor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AssignedDoctor.DataPropertyName = "DoctorId";
+            AssignedDoctor.DataSource = doctorBindingSource;
+            AssignedDoctor.DisplayMember = "FullName";
+            AssignedDoctor.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            AssignedDoctor.FlatStyle = FlatStyle.Flat;
+            AssignedDoctor.HeaderText = "Assigned Doctor";
+            AssignedDoctor.Name = "AssignedDoctor";
+            AssignedDoctor.ReadOnly = true;
+            AssignedDoctor.ValueMember = "Id";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // doctorDataGridViewTextBoxColumn
+            // 
+            doctorDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            doctorDataGridViewTextBoxColumn.DataPropertyName = "Doctor";
+            doctorDataGridViewTextBoxColumn.HeaderText = "Doctor";
+            doctorDataGridViewTextBoxColumn.Name = "doctorDataGridViewTextBoxColumn";
+            doctorDataGridViewTextBoxColumn.ReadOnly = true;
+            doctorDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Actions
+            // 
+            Actions.HeaderText = "Actions";
+            Actions.Name = "Actions";
+            Actions.ReadOnly = true;
+            Actions.Resizable = DataGridViewTriState.False;
+            Actions.Width = 80;
             // 
             // PatientUC
             // 
@@ -430,7 +434,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
             gradientPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvPatients).EndInit();
-            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
@@ -443,6 +446,7 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
             gradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ResumeLayout(false);
         }
 
