@@ -1,4 +1,5 @@
 ﻿using Pulse.Data;
+using Pulse.Forms.DoctorFRM;
 using Pulse.Forms.PatientFRM;
 using Pulse.Helper;
 using Pulse.Repository.DoctorRepo;
@@ -60,7 +61,12 @@ namespace Pulse.UC.Screens
                 }
                 else if (button2Rect.Contains(clickPoint))
                 {
-                    new frmUpdatePatient().ShowDialog();
+                    var selectedPatient = dgvPatients.Rows[e.RowIndex].DataBoundItem as Model.Patient;
+
+                    if (selectedPatient != null)
+                    {
+                        new frmUpdatePatient(selectedPatient, patientBindingSource, _doctorRepository , _patientRepository).ShowDialog();
+                    }
                 }
             }
         }
