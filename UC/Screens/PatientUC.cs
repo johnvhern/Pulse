@@ -38,6 +38,7 @@ namespace Pulse.UC.Screens
             new frmAddPatient(patientBindingSource, _doctorRepository, _patientRepository).ShowDialog();
         }
 
+        // Cell click event to handle button clicks
         private void dgvPatients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgvPatients.Columns["Actions"].Index && e.RowIndex >= 0)
@@ -59,12 +60,12 @@ namespace Pulse.UC.Screens
                 }
                 else if (button2Rect.Contains(clickPoint))
                 {
-                    // Handle click on button 2 (e.g., Delete)
-                    MessageBox.Show($"Edit button clicked on row {e.RowIndex}");
+                    new frmUpdatePatient().ShowDialog();
                 }
             }
         }
 
+        // Cell painting event to draw buttons
         private void dgvPatients_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex == dgvPatients.Columns["Actions"].Index && e.RowIndex >= 0)

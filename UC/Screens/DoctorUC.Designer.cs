@@ -32,20 +32,13 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             dgvDoctors = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            specializationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            errorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Actions = new DataGridViewButtonColumn();
             doctorBindingSource = new BindingSource(components);
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -58,6 +51,13 @@
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
             timerSearch = new System.Windows.Forms.Timer(components);
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            specializationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            errorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Actions = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -184,70 +184,6 @@
             dgvDoctors.CellContentClick += dgvDoctors_CellContentClick;
             dgvDoctors.CellPainting += dgvDoctors_CellPainting;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.FillWeight = 93.27411F;
-            fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // specializationDataGridViewTextBoxColumn
-            // 
-            specializationDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            specializationDataGridViewTextBoxColumn.DataPropertyName = "Specialization";
-            specializationDataGridViewTextBoxColumn.FillWeight = 93.27411F;
-            specializationDataGridViewTextBoxColumn.HeaderText = "Specialization";
-            specializationDataGridViewTextBoxColumn.Name = "specializationDataGridViewTextBoxColumn";
-            specializationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            phoneNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.FillWeight = 93.27411F;
-            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
-            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailAddressDataGridViewTextBoxColumn
-            // 
-            emailAddressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
-            emailAddressDataGridViewTextBoxColumn.FillWeight = 93.27411F;
-            emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
-            emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
-            emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // errorDataGridViewTextBoxColumn
-            // 
-            errorDataGridViewTextBoxColumn.DataPropertyName = "Error";
-            errorDataGridViewTextBoxColumn.HeaderText = "Error";
-            errorDataGridViewTextBoxColumn.Name = "errorDataGridViewTextBoxColumn";
-            errorDataGridViewTextBoxColumn.ReadOnly = true;
-            errorDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // Actions
-            // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Padding = new Padding(20, 3, 20, 3);
-            Actions.DefaultCellStyle = dataGridViewCellStyle2;
-            Actions.HeaderText = "Actions";
-            Actions.Name = "Actions";
-            Actions.ReadOnly = true;
-            Actions.Resizable = DataGridViewTriState.False;
-            Actions.ToolTipText = "View";
-            Actions.Width = 80;
-            // 
             // doctorBindingSource
             // 
             doctorBindingSource.DataSource = typeof(Model.Doctor);
@@ -292,7 +228,7 @@
             bannerTextInfo1.Text = "Search doctors by name or specialization";
             bannerTextInfo1.Visible = true;
             bannerTextProvider1.SetBannerText(txtSearchDoctor, bannerTextInfo1);
-            txtSearchDoctor.BeforeTouchSize = new Size(1016, 23);
+            txtSearchDoctor.BeforeTouchSize = new Size(363, 23);
             txtSearchDoctor.Border3DStyle = Border3DStyle.Flat;
             txtSearchDoctor.BorderColor = Color.Transparent;
             txtSearchDoctor.BorderStyle = BorderStyle.FixedSingle;
@@ -369,6 +305,70 @@
             timerSearch.Interval = 500;
             timerSearch.Tick += timerSearch_Tick;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.FillWeight = 93.27411F;
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // specializationDataGridViewTextBoxColumn
+            // 
+            specializationDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            specializationDataGridViewTextBoxColumn.DataPropertyName = "Specialization";
+            specializationDataGridViewTextBoxColumn.FillWeight = 93.27411F;
+            specializationDataGridViewTextBoxColumn.HeaderText = "Specialization";
+            specializationDataGridViewTextBoxColumn.Name = "specializationDataGridViewTextBoxColumn";
+            specializationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.FillWeight = 93.27411F;
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            emailAddressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            emailAddressDataGridViewTextBoxColumn.FillWeight = 93.27411F;
+            emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
+            emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // errorDataGridViewTextBoxColumn
+            // 
+            errorDataGridViewTextBoxColumn.DataPropertyName = "Error";
+            errorDataGridViewTextBoxColumn.HeaderText = "Error";
+            errorDataGridViewTextBoxColumn.Name = "errorDataGridViewTextBoxColumn";
+            errorDataGridViewTextBoxColumn.ReadOnly = true;
+            errorDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Actions
+            // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Padding = new Padding(20, 3, 20, 3);
+            Actions.DefaultCellStyle = dataGridViewCellStyle2;
+            Actions.HeaderText = "Actions";
+            Actions.Name = "Actions";
+            Actions.ReadOnly = true;
+            Actions.Resizable = DataGridViewTriState.False;
+            Actions.ToolTipText = "View";
+            Actions.Width = 80;
+            // 
             // DoctorUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -419,6 +419,7 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtSearchDoctor;
         private BindingSource doctorBindingSource;
         private DataGridView dgvDoctors;
+        private System.Windows.Forms.Timer timerSearch;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn specializationDataGridViewTextBoxColumn;
@@ -426,6 +427,5 @@
         private DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn errorDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn Actions;
-        private System.Windows.Forms.Timer timerSearch;
     }
 }

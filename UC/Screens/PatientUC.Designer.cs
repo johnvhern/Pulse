@@ -38,6 +38,7 @@
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             dgvPatients = new DataGridView();
+            doctorBindingSource = new BindingSource(components);
             patientBindingSource = new BindingSource(components);
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -49,7 +50,6 @@
             btnAddPatient = new Syncfusion.WinForms.Controls.SfButton();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            doctorBindingSource = new BindingSource(components);
             bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
             timerSearch = new System.Windows.Forms.Timer(components);
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -70,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
             gradientPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPatients).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
@@ -80,7 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -189,6 +189,10 @@
             dgvPatients.CellContentClick += dgvPatients_CellContentClick;
             dgvPatients.CellPainting += dgvPatients_CellPainting;
             // 
+            // doctorBindingSource
+            // 
+            doctorBindingSource.DataSource = typeof(Model.Doctor);
+            // 
             // patientBindingSource
             // 
             patientBindingSource.DataSource = typeof(Model.Patient);
@@ -233,7 +237,7 @@
             bannerTextInfo1.Text = "Search patients by name or email";
             bannerTextInfo1.Visible = true;
             bannerTextProvider1.SetBannerText(txtSearchDoctor, bannerTextInfo1);
-            txtSearchDoctor.BeforeTouchSize = new Size(363, 23);
+            txtSearchDoctor.BeforeTouchSize = new Size(1016, 23);
             txtSearchDoctor.Border3DStyle = Border3DStyle.Flat;
             txtSearchDoctor.BorderColor = Color.Transparent;
             txtSearchDoctor.BorderStyle = BorderStyle.FixedSingle;
@@ -322,10 +326,6 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Patients";
             // 
-            // doctorBindingSource
-            // 
-            doctorBindingSource.DataSource = typeof(Model.Doctor);
-            // 
             // timerSearch
             // 
             timerSearch.Interval = 500;
@@ -342,7 +342,7 @@
             // 
             fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Name";
             fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
             fullNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -353,6 +353,7 @@
             dateOfBirthDataGridViewTextBoxColumn.HeaderText = "Date Of Birth";
             dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
             dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
+            dateOfBirthDataGridViewTextBoxColumn.Visible = false;
             // 
             // phoneNumberDataGridViewTextBoxColumn
             // 
@@ -399,6 +400,7 @@
             addressDataGridViewTextBoxColumn.HeaderText = "Address";
             addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             addressDataGridViewTextBoxColumn.ReadOnly = true;
+            addressDataGridViewTextBoxColumn.Visible = false;
             // 
             // doctorDataGridViewTextBoxColumn
             // 
@@ -434,6 +436,7 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
             gradientPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvPatients).EndInit();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
@@ -446,7 +449,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
             gradientPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ResumeLayout(false);
         }
 
