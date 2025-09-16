@@ -1,4 +1,7 @@
-﻿using Pulse.Helper;
+﻿using Pulse.Forms.AppointmentFRM;
+using Pulse.Helper;
+using Pulse.Repository.DoctorRepo;
+using Pulse.Repository.PatientRepo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +16,20 @@ namespace Pulse.UC.Screens
 {
     public partial class AppointmentUC : UserControl
     {
-        public AppointmentUC()
+        private readonly IPatientRepository _patientRepository;
+        private readonly IDoctorRepository _doctorRepository;
+        public AppointmentUC(IPatientRepository patientRepository, IDoctorRepository doctorRepository)
         {
             InitializeComponent();
             SfButtonStyle.GreenButton(btnScheduleAppointment);
+
+            _patientRepository = patientRepository;
+            _doctorRepository = doctorRepository;
+        }
+
+        private void btnScheduleAppointment_Click(object sender, EventArgs e)
+        {
+            new frmAddAppointment(appointmentBindingSource, _patientRepository, _doctorRepository).ShowDialog();
         }
     }
 }

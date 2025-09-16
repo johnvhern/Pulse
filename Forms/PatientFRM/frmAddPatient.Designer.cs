@@ -47,7 +47,6 @@
             autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel8 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             cbAssignedDoctor = new Syncfusion.WinForms.ListView.SfComboBox();
-            doctorBindingSource = new BindingSource(components);
             autoLabel7 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel9 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             txtAddress = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -56,6 +55,7 @@
             btnCancel = new Syncfusion.WinForms.Controls.SfButton();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            doctorBindingSource = new BindingSource(components);
             patientDetailError = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
@@ -75,7 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel8).BeginInit();
             gradientPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbAssignedDoctor).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel9).BeginInit();
             gradientPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtAddress).BeginInit();
@@ -83,6 +82,7 @@
             gradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientDetailError).BeginInit();
             SuspendLayout();
             // 
@@ -300,7 +300,7 @@
             gradientPanel8.Controls.Add(cbAssignedDoctor);
             gradientPanel8.Location = new Point(13, 282);
             gradientPanel8.Name = "gradientPanel8";
-            gradientPanel8.Padding = new Padding(5, 5, 20, 5);
+            gradientPanel8.Padding = new Padding(0, 0, 20, 0);
             gradientPanel8.Size = new Size(390, 35);
             gradientPanel8.TabIndex = 13;
             // 
@@ -314,19 +314,15 @@
             cbAssignedDoctor.Dock = DockStyle.Fill;
             cbAssignedDoctor.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
             cbAssignedDoctor.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbAssignedDoctor.Location = new Point(5, 5);
+            cbAssignedDoctor.Location = new Point(0, 0);
             cbAssignedDoctor.Name = "cbAssignedDoctor";
-            cbAssignedDoctor.Size = new Size(363, 23);
+            cbAssignedDoctor.Size = new Size(368, 33);
             cbAssignedDoctor.Style.EditorStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbAssignedDoctor.Style.ReadOnlyEditorStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbAssignedDoctor.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
             cbAssignedDoctor.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbAssignedDoctor.TabIndex = 0;
             cbAssignedDoctor.TabStop = false;
-            // 
-            // doctorBindingSource
-            // 
-            doctorBindingSource.DataSource = typeof(Model.Doctor);
             // 
             // autoLabel7
             // 
@@ -425,6 +421,10 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Add New Patient";
             // 
+            // doctorBindingSource
+            // 
+            doctorBindingSource.DataSource = typeof(Model.Doctor);
+            // 
             // patientDetailError
             // 
             patientDetailError.ContainerControl = this;
@@ -465,7 +465,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel8).EndInit();
             gradientPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbAssignedDoctor).EndInit();
-            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel9).EndInit();
             gradientPanel9.ResumeLayout(false);
             gradientPanel9.PerformLayout();
@@ -474,6 +473,7 @@
             gradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientDetailError).EndInit();
             ResumeLayout(false);
         }

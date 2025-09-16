@@ -1,5 +1,6 @@
 ﻿using Pulse.Forms.MainFRM;
 using Pulse.Helper;
+using Pulse.Repository.AppointmentRepo;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
 using Pulse.UC.Screens;
@@ -24,6 +25,7 @@ namespace Pulse.UC.Sidebar
 
         private readonly IDoctorRepository _doctorRepository;
         private readonly IPatientRepository _patientRepository;
+        private readonly IAppointmentRepository _appointmentRepository;
 
         #region -- Screen Instances --
 
@@ -47,7 +49,7 @@ namespace Pulse.UC.Sidebar
             dashboard = new DashboardUC();
             doctor = new DoctorUC(_doctorRepository);
             patient = new PatientUC(_doctorRepository, _patientRepository);
-            appointment= new AppointmentUC();
+            appointment= new AppointmentUC(_patientRepository, _doctorRepository);
             reports= new ReportsUC();
         }
 

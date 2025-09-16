@@ -173,7 +173,6 @@
             dgvAppointments.Location = new Point(10, 10);
             dgvAppointments.MultiSelect = false;
             dgvAppointments.Name = "dgvAppointments";
-            dgvAppointments.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -331,6 +330,7 @@
             btnScheduleAppointment.Text = "Schedule Appointment";
             btnScheduleAppointment.TextAlign = ContentAlignment.MiddleRight;
             btnScheduleAppointment.UseVisualStyleBackColor = false;
+            btnScheduleAppointment.Click += btnScheduleAppointment_Click;
             // 
             // sfButton2
             // 
@@ -402,8 +402,8 @@
             Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Status.DataPropertyName = "Status";
             Status.HeaderText = "Status";
+            Status.Items.AddRange(new object[] { "Scheduled", "Completed", "Cancelled", "No-show" });
             Status.Name = "Status";
-            Status.ReadOnly = true;
             // 
             // notesDataGridViewTextBoxColumn
             // 
@@ -418,6 +418,7 @@
             Actions.HeaderText = "Actions";
             Actions.Name = "Actions";
             Actions.ReadOnly = true;
+            Actions.Resizable = DataGridViewTriState.False;
             Actions.Width = 80;
             // 
             // AppointmentUC
