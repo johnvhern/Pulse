@@ -2,6 +2,7 @@
 using Pulse.Forms.DoctorFRM;
 using Pulse.Forms.PatientFRM;
 using Pulse.Helper;
+using Pulse.Model;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
 using System;
@@ -65,7 +66,7 @@ namespace Pulse.UC.Screens
 
                     if (selectedPatient != null)
                     {
-                        new frmUpdatePatient(selectedPatient, patientBindingSource, _doctorRepository , _patientRepository).ShowDialog();
+                        new frmUpdatePatient(selectedPatient, patientBindingSource, _doctorRepository, _patientRepository).ShowDialog();
                     }
                 }
             }
@@ -111,6 +112,60 @@ namespace Pulse.UC.Screens
             // Load patients
             var patients = await _patientRepository.GetAll();
             patientBindingSource.DataSource = patients.ToList();
+
+            // Load doctors to combobox
+            var allDoctor = new Doctor { Id = 0, FullName = "All Doctors" };
+            var doctorList = doctors.ToList();
+            doctorList.Insert(0, allDoctor);
+            cbFilterDoctors.DataSource = doctorList;
+            cbFilterDoctors.DisplayMember = "FullName";
+            cbFilterDoctors.ValueMember = "Id";
+            cbFilterDoctors.SelectedIndex = 0;
         }
+
+        private async void cbFilterDoctors_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var selectedDoctor = (int)cbFilterDoctors.SelectedValue;
+
+            if (selectedDoctor > 0)
+            {
+                var result = await _patientRepository.GetByDoctorId(selectedDoctor);
+                patientBindingSource.DataSource = result.ToList();
+            }
+            else if (selectedDoctor == 0)
+            {
+                patientBindingSource.DataSource = await _patientRepository.GetAll();
+            }
+        }
+
+        #region -- Search Function --
+
+        private void txtSearchPatient_TextChanged(object sender, EventArgs e)
+        {
+            timerSearch.Stop();
+            timerSearch.Start();
+        }
+
+        private async void timerSearch_Tick(object sender, EventArgs e)
+        {
+            timerSearch.Stop();
+
+            string query = txtSearchPatient.Text.Trim();
+            var patients = await _patientRepository.GetAll();
+
+            if (string.IsNullOrEmpty(query))
+            {
+                patientBindingSource.DataSource = new BindingList<Patient>(patients.ToList());
+            }
+            else
+            {
+                var filtered = patients
+                    .Where(p => p.FullName.Contains(query, StringComparison.OrdinalIgnoreCase) || p.EmailAddress.Contains(query, StringComparison.OrdinalIgnoreCase)).ToList();
+
+                patientBindingSource.DataSource = new BindingList<Patient>(filtered);
+            }
+        }
+
+        #endregion
     }
 }

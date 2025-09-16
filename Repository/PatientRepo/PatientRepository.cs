@@ -30,9 +30,11 @@ namespace Pulse.Repository.PatientRepo
             return await _db.Patients.ToListAsync();
         }
 
-        public Task<IEnumerable<Patient>> GetByDoctorId(int doctorId)
+        public async Task<IEnumerable<Patient>> GetByDoctorId(int doctorId)
         {
-            throw new NotImplementedException();
+            return await _db.Patients
+                           .Where(p => p.DoctorId == doctorId)
+                           .ToListAsync();
         }
 
         public Task<IEnumerable<Patient>> SearchByName(string name)
