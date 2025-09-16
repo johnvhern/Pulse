@@ -14,6 +14,7 @@ namespace Pulse.Data
 
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +22,18 @@ namespace Pulse.Data
                 .HasOne(p => p.Doctor)
                 .WithMany(d => d.Patients)
                 .HasForeignKey(p => p.DoctorId);
+
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.Patient)
+                .WithMany(p => p.Appointments)  
+                .HasForeignKey(a => a.PatientId);
+
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.Doctor)
+                .WithMany(d => d.Appointments) 
+                .HasForeignKey(a => a.DoctorId);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -23,5 +23,7 @@ namespace Pulse.Model
         public string EmailAddress { get; set; }
 
         public ICollection<Patient> Patients { get; set; } = new List<Patient>();
+
+        public ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
     }
 }

@@ -8,6 +8,7 @@ using Syncfusion.Windows.Forms;
 using System.Reflection;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
+using Pulse.Repository.AppointmentRepo;
 
 namespace Pulse
 {
@@ -41,6 +42,7 @@ namespace Pulse
 
                 services.AddSingleton<IDoctorRepository, DoctorRepository>();
                 services.AddSingleton<IPatientRepository, PatientRepository>();
+                services.AddSingleton<IAppointmentRepository, AppointmentRepository>();
                 services.AddSingleton<frmMain>();
             }).Build();
 
