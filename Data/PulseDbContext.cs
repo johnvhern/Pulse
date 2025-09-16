@@ -23,8 +23,6 @@ namespace Pulse.Data
                 .WithMany(d => d.Patients)
                 .HasForeignKey(p => p.DoctorId);
 
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<Appointment>()
                 .HasOne(a => a.Patient)
                 .WithMany(p => p.Appointments)  
@@ -34,6 +32,10 @@ namespace Pulse.Data
                 .HasOne(a => a.Doctor)
                 .WithMany(d => d.Appointments) 
                 .HasForeignKey(a => a.DoctorId);
+
+            modelBuilder.Entity<Appointment>()
+                .Property(a => a.Status)
+                .HasDefaultValue("Scheduled");
 
             base.OnModelCreating(modelBuilder);
         }

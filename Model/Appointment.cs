@@ -17,6 +17,9 @@ namespace Pulse.Model
         [Required(ErrorMessage = "Date for the appointment is required.")]
         public DateTime Date { get; set; }
 
+        [StringLength(50)]
+        public string Status { get; set; }
+
         [StringLength(100, ErrorMessage = "Notes is too long. Please enter a shorter one.")]
         public string Notes { get; set; }
 

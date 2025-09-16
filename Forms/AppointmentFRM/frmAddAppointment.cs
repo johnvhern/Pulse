@@ -1,4 +1,4 @@
-﻿using Pulse.Helper;
+﻿using Syncfusion.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,14 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Pulse.UC.Screens
+namespace Pulse.Forms.AppointmentFRM
 {
-    public partial class AppointmentUC : UserControl
+    public partial class frmAddAppointment : MetroForm
     {
-        public AppointmentUC()
+        public frmAddAppointment()
         {
             InitializeComponent();
-            SfButtonStyle.GreenButton(btnScheduleAppointment);
         }
     }
 }
