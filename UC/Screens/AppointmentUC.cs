@@ -1,8 +1,10 @@
 ﻿using Pulse.Forms.AppointmentFRM;
 using Pulse.Helper;
+using Pulse.Model;
 using Pulse.Repository.AppointmentRepo;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
+using Syncfusion.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,8 @@ namespace Pulse.UC.Screens
         private readonly IPatientRepository _patientRepository;
         private readonly IDoctorRepository _doctorRepository;
         private readonly IAppointmentRepository _appointmentRepository;
+
+        private int lastSelectedIndex = -1;
         public AppointmentUC(IAppointmentRepository appointmentRepository, IPatientRepository patientRepository, IDoctorRepository doctorRepository)
         {
             InitializeComponent();
@@ -39,6 +43,29 @@ namespace Pulse.UC.Screens
         {
             var appointment = await _appointmentRepository.GetAll();
             appointmentBindingSource.DataSource = appointment.ToList();
+
+            #region -- Show Names of Patients and Doctors in DataGrid --
+
+            var _patients = await _patientRepository.GetAll();
+            var _doctors = await _doctorRepository.GetAll();
+
+            var patientColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["PatientId"];
+            patientColumn.DataSource = _patients.ToList();
+            patientColumn.DisplayMember = "FullName";
+            patientColumn.ValueMember = "Id";
+
+            var doctorColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["DoctorId"];
+            doctorColumn.DataSource = _doctors.ToList();
+            doctorColumn.DisplayMember = "FullName";
+            doctorColumn.ValueMember = "Id";
+
+            #endregion
+
+            #region -- Status Combobox Click Event --
+
+            var statusColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["Status"];
+
+            #endregion
         }
 
         private void dgvAppointments_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -50,6 +77,50 @@ namespace Pulse.UC.Screens
                 if (combo != null)
                 {
                     combo.DroppedDown = true;
+                }
+            }
+        }
+
+        private void dgvAppointments_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            ComboBox combo = e.Control as ComboBox;
+            if (combo != null)
+            {
+                // Detach previous event handlers to avoid multiple subscriptions
+                combo.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
+                combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+
+                // Initialize lastSelectedIndex to current combo selection
+                lastSelectedIndex = combo.SelectedIndex;
+            }
+        }
+
+        private void ComboBox_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox != null)
+            {
+                if (comboBox.SelectedIndex != lastSelectedIndex)
+                {
+                    lastSelectedIndex = comboBox.SelectedIndex;
+
+                    var selectedItem = comboBox.SelectedItem;
+                    var appointment = appointmentBindingSource.Current as Appointment;
+                    
+
+                    if (selectedItem != null && appointment != null)
+                    {
+                        appointment.Status = selectedItem.ToString();
+                        _appointmentRepository.Update(appointment);
+                        MessageBoxAdv.Show("Updated success", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBoxAdv.Show("Cannot save changes. Please try again later");
+                    }
+
+                        // Commit the edit to register the change immediately
+                        dgvAppointments.CommitEdit(DataGridViewDataErrorContexts.Commit);
                 }
             }
         }
