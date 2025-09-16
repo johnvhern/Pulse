@@ -170,6 +170,7 @@
             btnDeletePatient.Style.Image = Properties.Resources.trash_2__1_;
             btnDeletePatient.TabIndex = 2;
             btnDeletePatient.UseVisualStyleBackColor = false;
+            btnDeletePatient.Click += btnDeletePatient_Click;
             // 
             // autoLabel3
             // 
@@ -283,6 +284,7 @@
             btnCancel.Style.BackColor = Color.White;
             btnCancel.TabIndex = 4;
             btnCancel.Text = "Cancel";
+            btnCancel.Click += btnCancel_Click;
             // 
             // autoLabel5
             // 

@@ -108,5 +108,43 @@ namespace Pulse.Forms.PatientFRM
                 }
             }
         }
+
+        private void btnDeletePatient_Click(object sender, EventArgs e)
+        {
+            var result = MessageBoxAdv.Show($"Are you sure you want to delete patient {_patient.FullName}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                _patientRepository.Delete(_patient);
+                _bindingList.Remove(_patient);
+                MessageBoxAdv.Show("Patient deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtFullName.Text) || !string.IsNullOrWhiteSpace(txtAddress.Text) ||
+              !string.IsNullOrWhiteSpace(txtPhoneNumber.Text) || !string.IsNullOrWhiteSpace(txtEmailAddress.Text))
+            {
+                var result = MessageBoxAdv.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    Close();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
     }
 }
