@@ -323,6 +323,7 @@
             cbAssignedDoctor.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbAssignedDoctor.TabIndex = 0;
             cbAssignedDoctor.TabStop = false;
+            cbAssignedDoctor.Tag = "DoctorId";
             // 
             // autoLabel7
             // 

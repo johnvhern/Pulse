@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pulse.Data;
+using Pulse.Repository.AppointmentRepo;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
 using Pulse.UC.Screens;
@@ -35,7 +36,8 @@ namespace Pulse.Forms.MainFRM
             // Add Sidebar
             var doctorRepo = new DoctorRepository(context);
             var patientRepo = new PatientRepository(context);
-            UCSidebar sidebar = new UCSidebar(this, doctorRepo, patientRepo);
+            var appointmentRepo = new AppointmentRepository(context);
+            UCSidebar sidebar = new UCSidebar(this, doctorRepo, patientRepo, appointmentRepo);
             sidebar.Dock = DockStyle.Left;
             this.Controls.Add(sidebar);
 

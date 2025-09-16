@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -38,14 +39,16 @@
             cbSelectedDoctor = new Syncfusion.WinForms.ListView.SfComboBox();
             autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            dtDOB = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            dtDate = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            appointmentBindingSource = new BindingSource(components);
             autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            txtNotes = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             btnAddAppointment = new Syncfusion.WinForms.Controls.SfButton();
             btnCancel = new Syncfusion.WinForms.Controls.SfButton();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            appointmentDetailError = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
@@ -57,11 +60,13 @@
             ((System.ComponentModel.ISupportInitialize)cbSelectedDoctor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             gradientPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textBoxExt1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)appointmentBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtNotes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).BeginInit();
             gradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)appointmentDetailError).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -86,7 +91,7 @@
             flowLayoutPanel1.Controls.Add(autoLabel4);
             flowLayoutPanel1.Controls.Add(gradientPanel6);
             flowLayoutPanel1.Controls.Add(autoLabel5);
-            flowLayoutPanel1.Controls.Add(textBoxExt1);
+            flowLayoutPanel1.Controls.Add(txtNotes);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(15, 41);
@@ -136,6 +141,7 @@
             cbSelectedPatient.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbSelectedPatient.TabIndex = 2;
             cbSelectedPatient.TabStop = false;
+            cbSelectedPatient.Tag = "PatientId";
             // 
             // autoLabel3
             // 
@@ -179,6 +185,7 @@
             cbSelectedDoctor.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbSelectedDoctor.TabIndex = 1;
             cbSelectedDoctor.TabStop = false;
+            cbSelectedDoctor.Tag = "DoctorId";
             // 
             // autoLabel4
             // 
@@ -196,27 +203,33 @@
             // 
             gradientPanel6.BorderColor = Color.FromArgb(107, 114, 128);
             gradientPanel6.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel6.Controls.Add(dtDOB);
+            gradientPanel6.Controls.Add(dtDate);
             gradientPanel6.Location = new Point(13, 154);
             gradientPanel6.Name = "gradientPanel6";
             gradientPanel6.Padding = new Padding(0, 5, 20, 5);
             gradientPanel6.Size = new Size(390, 35);
             gradientPanel6.TabIndex = 10;
             // 
-            // dtDOB
+            // dtDate
             // 
-            dtDOB.DateTimeIcon = null;
-            dtDOB.Dock = DockStyle.Fill;
-            dtDOB.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtDOB.Location = new Point(0, 5);
-            dtDOB.Name = "dtDOB";
-            dtDOB.Size = new Size(368, 23);
-            dtDOB.Style.BorderColor = Color.Transparent;
-            dtDOB.Style.FocusedBorderColor = Color.Transparent;
-            dtDOB.Style.HoverBorderColor = Color.Transparent;
-            dtDOB.TabIndex = 1;
-            dtDOB.Tag = "DateofBirth";
-            dtDOB.ToolTipText = "";
+            dtDate.DataBindings.Add(new Binding("Text", appointmentBindingSource, "Date", true));
+            dtDate.DataBindings.Add(new Binding("Value", appointmentBindingSource, "Date", true));
+            dtDate.DateTimeIcon = null;
+            dtDate.Dock = DockStyle.Fill;
+            dtDate.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtDate.Location = new Point(0, 5);
+            dtDate.Name = "dtDate";
+            dtDate.Size = new Size(368, 23);
+            dtDate.Style.BorderColor = Color.Transparent;
+            dtDate.Style.FocusedBorderColor = Color.Transparent;
+            dtDate.Style.HoverBorderColor = Color.Transparent;
+            dtDate.TabIndex = 1;
+            dtDate.Tag = "Date";
+            dtDate.ToolTipText = "";
+            // 
+            // appointmentBindingSource
+            // 
+            appointmentBindingSource.DataSource = typeof(Model.Appointment);
             // 
             // autoLabel5
             // 
@@ -230,18 +243,20 @@
             autoLabel5.Text = "Notes";
             autoLabel5.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // textBoxExt1
+            // txtNotes
             // 
-            textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxExt1.BeforeTouchSize = new Size(363, 23);
-            textBoxExt1.BorderColor = Color.FromArgb(107, 114, 128);
-            textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
-            textBoxExt1.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxExt1.Location = new Point(13, 218);
-            textBoxExt1.Multiline = true;
-            textBoxExt1.Name = "textBoxExt1";
-            textBoxExt1.Size = new Size(390, 102);
-            textBoxExt1.TabIndex = 11;
+            txtNotes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtNotes.BeforeTouchSize = new Size(390, 102);
+            txtNotes.BorderColor = Color.FromArgb(107, 114, 128);
+            txtNotes.BorderStyle = BorderStyle.FixedSingle;
+            txtNotes.DataBindings.Add(new Binding("Text", appointmentBindingSource, "Notes", true));
+            txtNotes.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNotes.Location = new Point(13, 218);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
+            txtNotes.Size = new Size(390, 102);
+            txtNotes.TabIndex = 11;
+            txtNotes.Tag = "Notes";
             // 
             // gradientPanel3
             // 
@@ -264,6 +279,7 @@
             btnAddAppointment.Size = new Size(284, 38);
             btnAddAppointment.TabIndex = 3;
             btnAddAppointment.Text = "Add Appointment";
+            btnAddAppointment.Click += btnAddAppointment_Click;
             // 
             // btnCancel
             // 
@@ -275,6 +291,7 @@
             btnCancel.Style.BackColor = Color.White;
             btnCancel.TabIndex = 2;
             btnCancel.Text = "Cancel";
+            btnCancel.Click += btnCancel_Click;
             // 
             // gradientPanel2
             // 
@@ -298,6 +315,10 @@
             autoLabel1.Size = new Size(416, 36);
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Schedule New Appointment";
+            // 
+            // appointmentDetailError
+            // 
+            appointmentDetailError.ContainerControl = this;
             // 
             // frmAddAppointment
             // 
@@ -323,11 +344,13 @@
             ((System.ComponentModel.ISupportInitialize)cbSelectedDoctor).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             gradientPanel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)textBoxExt1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)appointmentBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtNotes).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).EndInit();
             gradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)appointmentDetailError).EndInit();
             ResumeLayout(false);
         }
 
@@ -349,7 +372,9 @@
         private Syncfusion.WinForms.Controls.SfButton btnCancel;
         private Syncfusion.WinForms.ListView.SfComboBox cbSelectedDoctor;
         private Syncfusion.WinForms.ListView.SfComboBox cbSelectedPatient;
-        private Syncfusion.WinForms.Input.SfDateTimeEdit dtDOB;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit dtDate;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNotes;
+        private BindingSource appointmentBindingSource;
+        private ErrorProvider appointmentDetailError;
     }
 }

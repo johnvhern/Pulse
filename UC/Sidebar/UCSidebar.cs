@@ -37,7 +37,7 @@ namespace Pulse.UC.Sidebar
 
         #endregion
 
-        public UCSidebar(frmMain main, IDoctorRepository doctorRepository, IPatientRepository patientRepository)
+        public UCSidebar(frmMain main, IDoctorRepository doctorRepository, IPatientRepository patientRepository, IAppointmentRepository appointmentRepository)
         {
             InitializeComponent();
             SfButtonStyle.ApplyNavButtonStyle(this);
@@ -45,11 +45,12 @@ namespace Pulse.UC.Sidebar
             _main = main;
             _doctorRepository = doctorRepository;
             _patientRepository = patientRepository;
+            _appointmentRepository = appointmentRepository;
 
             dashboard = new DashboardUC();
             doctor = new DoctorUC(_doctorRepository);
             patient = new PatientUC(_doctorRepository, _patientRepository);
-            appointment= new AppointmentUC(_patientRepository, _doctorRepository);
+            appointment= new AppointmentUC(_appointmentRepository , _patientRepository, _doctorRepository);
             reports= new ReportsUC();
         }
 

@@ -15,7 +15,7 @@ namespace Pulse.Model
         public int DoctorId { get; set; }
 
         [Required(ErrorMessage = "Date for the appointment is required.")]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [StringLength(50)]
         public string Status { get; set; }

@@ -1,4 +1,6 @@
 ﻿using Pulse.Helper;
+using Pulse.Model;
+using Pulse.Repository.AppointmentRepo;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
 using Syncfusion.Windows.Forms;
@@ -19,7 +21,8 @@ namespace Pulse.Forms.AppointmentFRM
         private readonly IBindingList _bindingList;
         private readonly IPatientRepository _patientRepository;
         private readonly IDoctorRepository _doctorRepository;
-        public frmAddAppointment(IBindingList bindingList, IPatientRepository patientRepository, IDoctorRepository doctorRepository)
+        private readonly IAppointmentRepository _appointmentRepository;
+        public frmAddAppointment(IBindingList bindingList, IAppointmentRepository appointmentRepository , IPatientRepository patientRepository, IDoctorRepository doctorRepository)
         {
             InitializeComponent();
             SfButtonStyle.GreenButton(btnAddAppointment);
@@ -28,6 +31,8 @@ namespace Pulse.Forms.AppointmentFRM
             _bindingList = bindingList;
             _patientRepository = patientRepository;
             _doctorRepository = doctorRepository;
+            _appointmentRepository = appointmentRepository;
+            appointmentBindingSource.DataSource = new List<Appointment>();
         }
 
         private async void frmAddAppointment_Load(object sender, EventArgs e)
@@ -46,6 +51,79 @@ namespace Pulse.Forms.AppointmentFRM
             cbSelectedDoctor.ValueMember = "Id";
 
             #endregion
+
+            appointmentBindingSource.AddNew();
+        }
+
+        private void btnAddAppointment_Click(object sender, EventArgs e)
+        {
+            var appointment = appointmentBindingSource.Current as Appointment;
+            appointment.Date = dtDate.Value;
+
+            if (cbSelectedPatient.SelectedValue != null && cbSelectedDoctor.SelectedValue != null)
+            {
+                appointment.PatientId = (int)cbSelectedPatient.SelectedValue;
+                appointment.DoctorId = (int)cbSelectedDoctor.SelectedValue;
+            }
+            else
+            {
+                appointmentDetailError.SetError(cbSelectedPatient, "Patient is required.");
+                appointmentDetailError.SetError(cbSelectedDoctor, "Doctor is required.");
+            }
+
+            if (string.IsNullOrEmpty(appointment?.Error))
+            {
+
+                _bindingList.Add(appointment);
+                _appointmentRepository.Add(appointment);
+                MessageBoxAdv.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            else
+            {
+                ValidateControls(this, appointment);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if ((int)cbSelectedPatient.SelectedItem != 0 || (int)cbSelectedDoctor.SelectedItem != 0  || !string.IsNullOrWhiteSpace(txtNotes.Text))
+            {
+                var result = MessageBoxAdv.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    Close();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+
+        private void ValidateControls(Control parent, Appointment appointment)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                var tag = control.Tag?.ToString();
+                if (!string.IsNullOrEmpty(tag))
+                {
+                    if (!string.IsNullOrEmpty(appointment[tag]))
+                        appointmentDetailError.SetError(control, appointment[tag]);
+                    else
+                        appointmentDetailError.SetError(control, null);
+                }
+
+                // Recurse if the control has children (e.g., Panel, GroupBox, TabPage)
+                if (control.HasChildren)
+                {
+                    ValidateControls(control, appointment);
+                }
+            }
         }
     }
 }

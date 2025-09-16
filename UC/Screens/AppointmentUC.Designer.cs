@@ -30,9 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -158,34 +159,35 @@
             dgvAppointments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAppointments.Columns.AddRange(new DataGridViewColumn[] { patientIdDataGridViewTextBoxColumn, doctorIdDataGridViewTextBoxColumn, dateDataGridViewTextBoxColumn, Status, notesDataGridViewTextBoxColumn, Actions });
             dgvAppointments.DataSource = appointmentBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle2.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvAppointments.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle3.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvAppointments.DefaultCellStyle = dataGridViewCellStyle3;
             dgvAppointments.Dock = DockStyle.Fill;
             dgvAppointments.EnableHeadersVisualStyles = false;
             dgvAppointments.GridColor = Color.FromArgb(226, 232, 240);
             dgvAppointments.Location = new Point(10, 10);
             dgvAppointments.MultiSelect = false;
             dgvAppointments.Name = "dgvAppointments";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvAppointments.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvAppointments.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvAppointments.RowHeadersVisible = false;
             dgvAppointments.RowTemplate.Height = 40;
             dgvAppointments.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAppointments.Size = new Size(1071, 426);
             dgvAppointments.TabIndex = 0;
+            dgvAppointments.CellContentClick += dgvAppointments_CellContentClick;
             // 
             // appointmentBindingSource
             // 
@@ -380,6 +382,7 @@
             patientIdDataGridViewTextBoxColumn.HeaderText = "Patient";
             patientIdDataGridViewTextBoxColumn.Name = "patientIdDataGridViewTextBoxColumn";
             patientIdDataGridViewTextBoxColumn.ReadOnly = true;
+            patientIdDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
             // 
             // doctorIdDataGridViewTextBoxColumn
             // 
@@ -388,6 +391,7 @@
             doctorIdDataGridViewTextBoxColumn.HeaderText = "Doctor";
             doctorIdDataGridViewTextBoxColumn.Name = "doctorIdDataGridViewTextBoxColumn";
             doctorIdDataGridViewTextBoxColumn.ReadOnly = true;
+            doctorIdDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -396,14 +400,21 @@
             dateDataGridViewTextBoxColumn.HeaderText = "Date";
             dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             dateDataGridViewTextBoxColumn.ReadOnly = true;
+            dateDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
             // 
             // Status
             // 
             Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Status.DataPropertyName = "Status";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Padding = new Padding(0, 8, 100, 5);
+            Status.DefaultCellStyle = dataGridViewCellStyle2;
+            Status.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
             Status.HeaderText = "Status";
             Status.Items.AddRange(new object[] { "Scheduled", "Completed", "Cancelled", "No-show" });
             Status.Name = "Status";
+            Status.Resizable = DataGridViewTriState.False;
             // 
             // notesDataGridViewTextBoxColumn
             // 
@@ -429,6 +440,7 @@
             Controls.Add(gradientPanel1);
             Name = "AppointmentUC";
             Size = new Size(1129, 637);
+            Load += AppointmentUC_Load;
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).EndInit();
             gradientPanel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
