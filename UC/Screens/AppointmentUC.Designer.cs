@@ -193,6 +193,7 @@
             dgvAppointments.Size = new Size(1071, 426);
             dgvAppointments.TabIndex = 0;
             dgvAppointments.CellContentClick += dgvAppointments_CellContentClick;
+            dgvAppointments.CellPainting += dgvAppointments_CellPainting;
             dgvAppointments.EditingControlShowing += dgvAppointments_EditingControlShowing;
             // 
             // PatientId

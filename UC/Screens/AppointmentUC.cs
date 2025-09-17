@@ -61,9 +61,15 @@ namespace Pulse.UC.Screens
 
             #endregion
 
-            #region -- Status Combobox Click Event --
+            #region -- Filter Date Range --
 
-            var statusColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["Status"];
+            List<string> dateRange = new List<string>();
+            dateRange.Add("Today");
+            dateRange.Add("This Week");
+            dateRange.Add("This Month");
+            dateRange.Add("All Time");
+            cbDateRange.DataSource = dateRange;
+            cbDateRange.SelectedIndex = 0;
 
             #endregion
         }
@@ -106,22 +112,42 @@ namespace Pulse.UC.Screens
 
                     var selectedItem = comboBox.SelectedItem;
                     var appointment = appointmentBindingSource.Current as Appointment;
-                    
+
 
                     if (selectedItem != null && appointment != null)
                     {
                         appointment.Status = selectedItem.ToString();
                         _appointmentRepository.Update(appointment);
-                        MessageBoxAdv.Show("Updated success", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBoxAdv.Show("Status updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         MessageBoxAdv.Show("Cannot save changes. Please try again later");
                     }
 
-                        // Commit the edit to register the change immediately
-                        dgvAppointments.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                    // Commit the edit to register the change immediately
+                    dgvAppointments.CommitEdit(DataGridViewDataErrorContexts.Commit);
                 }
+            }
+        }
+
+        private void dgvAppointments_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex == dgvAppointments.Columns["Actions"].Index && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var img = Properties.Resources.square_pen__1_;
+
+                int imgWidth = 16;
+                int imgHeight = 16;
+
+                int x = e.CellBounds.Left + (e.CellBounds.Width - imgWidth) / 2;
+                int y = e.CellBounds.Top + (e.CellBounds.Height - imgHeight) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, imgWidth, imgHeight));
+
+                e.Handled = true;
             }
         }
     }

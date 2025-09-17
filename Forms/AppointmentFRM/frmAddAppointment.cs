@@ -87,7 +87,7 @@ namespace Pulse.Forms.AppointmentFRM
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if ((int)cbSelectedPatient.SelectedItem != 0 || (int)cbSelectedDoctor.SelectedItem != 0  || !string.IsNullOrWhiteSpace(txtNotes.Text))
+            if (!string.IsNullOrEmpty(cbSelectedPatient.Text) || !string.IsNullOrEmpty(cbSelectedDoctor.Text)  || !string.IsNullOrWhiteSpace(txtNotes.Text))
             {
                 var result = MessageBoxAdv.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
