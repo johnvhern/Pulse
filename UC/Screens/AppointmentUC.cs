@@ -85,6 +85,16 @@ namespace Pulse.UC.Screens
                     combo.DroppedDown = true;
                 }
             }
+            
+            if (e.ColumnIndex == dgvAppointments.Columns["Actions"].Index && e.RowIndex >= 0)
+            {
+                var appointment = dgvAppointments.Rows[e.RowIndex].DataBoundItem as Appointment;
+
+                if (appointment != null)
+                {
+                    new frmUpdateAppointment(appointment, appointmentBindingSource, _appointmentRepository, _patientRepository, _doctorRepository).ShowDialog();
+                }
+            }
         }
 
         private void dgvAppointments_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)

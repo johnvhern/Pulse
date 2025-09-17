@@ -53,9 +53,10 @@ namespace Pulse.Forms.PatientFRM
 
         private async void frmUpdatePatient_Load(object sender, EventArgs e)
         {
-            cbAssignedDoctor.DataSource = await _doctorRepository.GetAll();
+            var doctor = await _doctorRepository.GetAll();
             cbAssignedDoctor.DisplayMember = "FullName";
             cbAssignedDoctor.ValueMember = "Id";
+            cbAssignedDoctor.DataSource = doctor.ToList();
         }
 
         private void btnUpdatePatient_Click(object sender, EventArgs e)
