@@ -49,23 +49,23 @@ namespace Pulse.Forms.PatientFRM
             if (cbAssignedDoctor.SelectedValue != null && (int)cbAssignedDoctor.SelectedValue > 0)
             {
                 patient.DoctorId = (int)cbAssignedDoctor.SelectedValue;
+
+                if (string.IsNullOrEmpty(patient?.Error))
+                {
+
+                    _bindingList.Add(patient);
+                    _patientRepository.Add(patient);
+                    MessageBoxAdv.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                {
+                    ValidateControls(this, patient);
+                }
             }
             else
             {
                 patientDetailError.SetError(cbAssignedDoctor, "Assigned doctor is required.");
-            }
-
-            if (string.IsNullOrEmpty(patient?.Error))
-            {
-
-                _bindingList.Add(patient);
-                _patientRepository.Add(patient);
-                MessageBoxAdv.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-            }
-            else
-            {
-                ValidateControls(this, patient);
             }
         }
 

@@ -80,22 +80,22 @@ namespace Pulse.Forms.AppointmentFRM
                 _appointment.PatientId = (int)cbSelectedPatient.SelectedValue;
                 _appointment.DoctorId = (int)cbSelectedDoctor.SelectedValue;
 
+                if (string.IsNullOrEmpty(_appointment?.Error))
+                {
+                    _appointmentRepository.Update(_appointment);
+                    MessageBoxAdv.Show("Appointment updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                {
+                    ValidateControls(this, _appointment);
+                }
+
             }
             else
             {
                 appointmentDetailError.SetError(cbSelectedPatient, "Patient is required.");
                 appointmentDetailError.SetError(cbSelectedDoctor, "Doctor is required.");
-            }
-
-            if (string.IsNullOrEmpty(_appointment?.Error))
-            {
-                _appointmentRepository.Update(_appointment);
-                MessageBoxAdv.Show("Appointment updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-            }
-            else
-            {
-                ValidateControls(this, _appointment);
             }
         }
 

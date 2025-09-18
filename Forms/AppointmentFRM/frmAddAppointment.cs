@@ -42,13 +42,13 @@ namespace Pulse.Forms.AppointmentFRM
             var _patients = await _patientRepository.GetAll();
             var _doctors = await _doctorRepository.GetAll();
 
-            cbSelectedPatient.DataSource = _patients.ToList();
             cbSelectedPatient.DisplayMember = "FullName";
             cbSelectedPatient.ValueMember = "Id";
+            cbSelectedPatient.DataSource = _patients.ToList();
 
-            cbSelectedDoctor.DataSource = _doctors.ToList();
             cbSelectedDoctor.DisplayMember = "FullName";
             cbSelectedDoctor.ValueMember = "Id";
+            cbSelectedDoctor.DataSource = _doctors.ToList();
 
             #endregion
 
@@ -64,24 +64,25 @@ namespace Pulse.Forms.AppointmentFRM
             {
                 appointment.PatientId = (int)cbSelectedPatient.SelectedValue;
                 appointment.DoctorId = (int)cbSelectedDoctor.SelectedValue;
+
+                if (string.IsNullOrEmpty(appointment?.Error))
+                {
+
+                    _bindingList.Add(appointment);
+                    _appointmentRepository.Add(appointment);
+                    MessageBoxAdv.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                {
+                    ValidateControls(this, appointment);
+                }
+
             }
             else
             {
                 appointmentDetailError.SetError(cbSelectedPatient, "Patient is required.");
                 appointmentDetailError.SetError(cbSelectedDoctor, "Doctor is required.");
-            }
-
-            if (string.IsNullOrEmpty(appointment?.Error))
-            {
-
-                _bindingList.Add(appointment);
-                _appointmentRepository.Add(appointment);
-                MessageBoxAdv.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-            }
-            else
-            {
-                ValidateControls(this, appointment);
             }
         }
 

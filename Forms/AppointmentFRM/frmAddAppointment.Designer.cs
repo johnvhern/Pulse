@@ -34,6 +34,7 @@
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             cbSelectedPatient = new Syncfusion.WinForms.ListView.SfComboBox();
+            patientBindingSource = new BindingSource(components);
             autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             cbSelectedDoctor = new Syncfusion.WinForms.ListView.SfComboBox();
@@ -55,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
             gradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbSelectedPatient).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
             gradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbSelectedDoctor).BeginInit();
@@ -142,6 +144,10 @@
             cbSelectedPatient.TabIndex = 2;
             cbSelectedPatient.TabStop = false;
             cbSelectedPatient.Tag = "PatientId";
+            // 
+            // patientBindingSource
+            // 
+            patientBindingSource.DataSource = typeof(Model.Patient);
             // 
             // autoLabel3
             // 
@@ -339,6 +345,7 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
             gradientPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbSelectedPatient).EndInit();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
             gradientPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbSelectedDoctor).EndInit();
@@ -376,5 +383,6 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNotes;
         private BindingSource appointmentBindingSource;
         private ErrorProvider appointmentDetailError;
+        private BindingSource patientBindingSource;
     }
 }
