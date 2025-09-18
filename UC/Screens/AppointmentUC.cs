@@ -22,8 +22,6 @@ namespace Pulse.UC.Screens
         private readonly IPatientRepository _patientRepository;
         private readonly IDoctorRepository _doctorRepository;
         private readonly IAppointmentRepository _appointmentRepository;
-
-        private int lastSelectedIndex = -1;
         public AppointmentUC(IAppointmentRepository appointmentRepository, IPatientRepository patientRepository, IDoctorRepository doctorRepository)
         {
             InitializeComponent();
@@ -103,41 +101,30 @@ namespace Pulse.UC.Screens
             if (combo != null)
             {
                 // Detach previous event handlers to avoid multiple subscriptions
-                combo.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
-                combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
-
-                // Initialize lastSelectedIndex to current combo selection
-                lastSelectedIndex = combo.SelectedIndex;
+                combo.SelectionChangeCommitted -= ComboBox_SelectionChangeCommitted;
+                combo.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
             }
         }
 
-        private void ComboBox_SelectedIndexChanged(object? sender, EventArgs e)
+        private void ComboBox_SelectionChangeCommitted(object? sender, EventArgs e)
         {
             ComboBox comboBox = sender as ComboBox;
             if (comboBox != null)
             {
-                if (comboBox.SelectedIndex != lastSelectedIndex)
+                var selectedItem = comboBox.SelectedItem;
+                var appointment = appointmentBindingSource.Current as Appointment;
+                if (selectedItem != null && appointment != null)
                 {
-                    lastSelectedIndex = comboBox.SelectedIndex;
-
-                    var selectedItem = comboBox.SelectedItem;
-                    var appointment = appointmentBindingSource.Current as Appointment;
-
-
-                    if (selectedItem != null && appointment != null)
-                    {
-                        appointment.Status = selectedItem.ToString();
-                        _appointmentRepository.Update(appointment);
-                        MessageBoxAdv.Show("Status updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBoxAdv.Show("Cannot save changes. Please try again later");
-                    }
-
-                    // Commit the edit to register the change immediately
-                    dgvAppointments.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                    appointment.Status = selectedItem.ToString();
+                    _appointmentRepository.Update(appointment);
+                    MessageBoxAdv.Show("Status updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else
+                {
+                    MessageBoxAdv.Show("Cannot save changes. Please try again later");
+                }
+                // Commit the edit to register the change immediately
+                dgvAppointments.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
 
