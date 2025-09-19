@@ -83,7 +83,7 @@ namespace Pulse.UC.Screens
                     combo.DroppedDown = true;
                 }
             }
-            
+
             if (e.ColumnIndex == dgvAppointments.Columns["Actions"].Index && e.RowIndex >= 0)
             {
                 var appointment = dgvAppointments.Rows[e.RowIndex].DataBoundItem as Appointment;
@@ -146,6 +146,35 @@ namespace Pulse.UC.Screens
 
                 e.Handled = true;
             }
+        }
+
+        private async void cbDateRange_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbDateRange.SelectedItem == null)
+            {
+                return;
+            }
+
+            AppointmentDateFilter filter = AppointmentDateFilter.Today;
+
+            switch (cbDateRange.SelectedItem.ToString())
+            {
+                case "Today":
+                    filter = AppointmentDateFilter.Today;
+                    break;
+                case "This Week":
+                    filter = AppointmentDateFilter.ThisWeek;
+                    break;
+                case "This Month":
+                    filter = AppointmentDateFilter.ThisMonth;
+                    break;
+                case "All Time":
+                    filter = AppointmentDateFilter.AllTime;
+                    break;
+            }
+
+            var filteredAppointment = await _appointmentRepository.GetByDate(filter);
+            appointmentBindingSource.DataSource = filteredAppointment.ToList();
         }
     }
 }

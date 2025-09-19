@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pulse.Data;
+using Pulse.Helper;
 using Pulse.Model;
 
 namespace Pulse.Repository.AppointmentRepo
@@ -11,6 +12,7 @@ namespace Pulse.Repository.AppointmentRepo
         {
             _db = db;
         }
+
         public async Task Add(Appointment appointment)
         {
             _db.Add(appointment);
@@ -28,9 +30,34 @@ namespace Pulse.Repository.AppointmentRepo
             return await _db.Appointments.ToListAsync();
         }
 
-        public Task<IEnumerable<Appointment>> GetByDate(DateTime dateTime)
+        public async Task<IEnumerable<Appointment>> GetByDate(AppointmentDateFilter filter)
         {
-            throw new NotImplementedException();
+            var phTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Asia/Manila");
+            DateTime nowPH = TimeZoneInfo.ConvertTime(DateTime.UtcNow, phTimeZone);
+            DateTime today = nowPH.Date;
+            IQueryable<Appointment> query = _db.Appointments;
+
+            switch (filter)
+            {
+                case AppointmentDateFilter.Today:
+                    query = query.Where(a => a.Date == today);
+                    break;
+                case AppointmentDateFilter.ThisWeek:
+                    var startOfWeek = today.AddDays(-(int)today.DayOfWeek);
+                    var endOfWeek = startOfWeek.AddDays(6);
+                    query = query.Where(a => a.Date >= startOfWeek && a.Date <= endOfWeek);
+                    break;
+                case AppointmentDateFilter.ThisMonth:
+                    var firstOfMonth = new DateTime(today.Year, today.Month, 1);
+                    var lastOfMonth = firstOfMonth.AddMonths(1).AddDays(-1);
+                    query = query.Where(a => a.Date >= firstOfMonth && a.Date <= lastOfMonth);
+                    break;
+                case AppointmentDateFilter.AllTime:
+                    // no filter, return all
+                    break;
+            }
+
+            return await query.ToListAsync();
         }
 
         public Task<IEnumerable<Appointment>> SearchAppointment(string name)

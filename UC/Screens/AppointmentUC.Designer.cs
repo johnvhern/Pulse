@@ -324,6 +324,7 @@
             cbDateRange.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
             cbDateRange.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbDateRange.TabIndex = 0;
+            cbDateRange.SelectedValueChanged += cbDateRange_SelectedValueChanged;
             // 
             // gradientPanel5
             // 

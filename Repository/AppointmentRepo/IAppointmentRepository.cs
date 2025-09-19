@@ -1,4 +1,5 @@
-﻿using Pulse.Model;
+﻿using Pulse.Helper;
+using Pulse.Model;
 
 namespace Pulse.Repository.AppointmentRepo
 {
@@ -8,7 +9,7 @@ namespace Pulse.Repository.AppointmentRepo
         Task Add(Appointment appointment);
         Task Update(Appointment appointment);
         Task Delete(Appointment appointment);
-        Task<IEnumerable<Appointment>> GetByDate(DateTime dateTime);
+        Task<IEnumerable<Appointment>> GetByDate(AppointmentDateFilter dateFilter);
         // get all patients assigned to a specific doctor
 
         Task<IEnumerable<Appointment>> SearchAppointment(string name);
