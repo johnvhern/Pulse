@@ -16,11 +16,11 @@ namespace Pulse.Model
         public string Specialization { get; set; }
 
         [StringLength(15, ErrorMessage = "The entered phone number is too long. Please enter a shorter phone number.")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [EmailAddress(ErrorMessage = "Email address not valid.")]
         [StringLength (100, ErrorMessage = "The entered email address is too long. Please enter a shorter email address.")]
-        public string EmailAddress { get; set; }
+        public string? EmailAddress { get; set; }
 
         public ICollection<Patient> Patients { get; set; } = new List<Patient>();
 

@@ -113,13 +113,19 @@ namespace Pulse.UC.Screens
             var patients = await _patientRepository.GetAll();
             patientBindingSource.DataSource = patients.ToList();
 
+            LoadComboBox();
+        }
+
+        private async void LoadComboBox()
+        {
+            var doctors = await _doctorRepository.GetAll();
             // Load doctors to combobox
             var allDoctor = new Doctor { Id = 0, FullName = "All Doctors" };
             var doctorList = doctors.ToList();
             doctorList.Insert(0, allDoctor);
-            cbFilterDoctors.DataSource = doctorList;
             cbFilterDoctors.DisplayMember = "FullName";
             cbFilterDoctors.ValueMember = "Id";
+            cbFilterDoctors.DataSource = doctorList;
             cbFilterDoctors.SelectedIndex = 0;
         }
 
@@ -177,5 +183,10 @@ namespace Pulse.UC.Screens
         }
 
         #endregion
+
+        private void cbFilterDoctors_DropDownOpening(object sender, Syncfusion.WinForms.ListView.Events.DropDownOpeningEventArgs e)
+        {
+            LoadComboBox();
+        }
     }
 }

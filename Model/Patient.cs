@@ -16,17 +16,17 @@ namespace Pulse.Model
         public DateTime? DateOfBirth { get; set; }
 
         [StringLength(15, ErrorMessage = "The entered phone number is too long. Please enter a shorter phone number.")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [EmailAddress(ErrorMessage = "Email address not valid.")]
         [StringLength(100, ErrorMessage = "The entered email address is too long. Please enter a shorter email address.")]
-        public string EmailAddress { get; set; }
+        public string? EmailAddress { get; set; }
 
         [Required(ErrorMessage = "Assigned Doctor is required")]
         public int DoctorId { get; set; }
 
         [StringLength(100, ErrorMessage = "The entered address is too long. Please enter a shorter address.")]
-        public string Address { get; set; }
+        public string? Address { get; set; }
 
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; set; }

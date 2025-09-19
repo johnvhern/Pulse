@@ -296,6 +296,7 @@
             cbFilterDoctors.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbFilterDoctors.TabIndex = 0;
             cbFilterDoctors.SelectedValueChanged += cbFilterDoctors_SelectedValueChanged;
+            cbFilterDoctors.DropDownOpening += cbFilterDoctors_DropDownOpening;
             // 
             // gradientPanel4
             // 

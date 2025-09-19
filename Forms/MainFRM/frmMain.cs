@@ -13,6 +13,7 @@ namespace Pulse.Forms.MainFRM
     public partial class frmMain : MetroForm
     {
         private bool isDragging = false;
+
         public frmMain()
         {
             InitializeComponent();
@@ -80,7 +81,20 @@ namespace Pulse.Forms.MainFRM
 
         public void frmMain_Load(object sender, EventArgs e)
         {
-            OpenScreen(new DashboardUC());
+            // Build options
+            var options = new DbContextOptionsBuilder<PulseDbContext>()
+                .UseSqlite($"Data Source={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PulseDB.db")}")
+                .Options;
+
+            // Create context
+            var context = new PulseDbContext(options);
+
+            // Add Sidebar
+            var doctorRepo = new DoctorRepository(context);
+            var patientRepo = new PatientRepository(context);
+            var appointmentRepo = new AppointmentRepository(context);
+
+            OpenScreen(new DashboardUC(patientRepo, doctorRepo, appointmentRepo));
         }
 
         public void OpenScreen(UserControl control)

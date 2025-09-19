@@ -21,7 +21,7 @@ namespace Pulse.Model
         public string Status { get; set; }
 
         [StringLength(100, ErrorMessage = "Notes is too long. Please enter a shorter one.")]
-        public string Notes { get; set; }
+        public string? Notes{ get; set; }
 
         [ForeignKey("PatientId")]
         public Patient Patient { get; set; }

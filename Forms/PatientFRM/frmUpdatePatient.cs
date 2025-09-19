@@ -72,10 +72,13 @@ namespace Pulse.Forms.PatientFRM
             {
                 _patient.DoctorId = (int)cbAssignedDoctor.SelectedValue;
 
+                if (string.IsNullOrEmpty(_patient.EmailAddress))
+                    _patient.EmailAddress = null;
+
                 if (string.IsNullOrEmpty(_patient?.Error))
                 {
                     _patientRepository.Update(_patient);
-                    MessageBoxAdv.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxAdv.Show("Patient updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 else

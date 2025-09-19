@@ -51,6 +51,9 @@ namespace Pulse.Forms.DoctorFRM
             _doctor.PhoneNumber = txtPhoneNumber.Text;
             _doctor.EmailAddress = txtEmailAddress.Text;
 
+            if (string.IsNullOrEmpty(_doctor.EmailAddress))
+                _doctor.EmailAddress = null;
+
             if (string.IsNullOrEmpty(_doctor?.Error))
             {
                 _doctorRepository.Update(_doctor);

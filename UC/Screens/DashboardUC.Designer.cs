@@ -28,13 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            dgvDashboard = new DataGridView();
+            PatientId = new DataGridViewComboBoxColumn();
+            patientBindingSource = new BindingSource(components);
+            DoctorId = new DataGridViewComboBoxColumn();
+            doctorBindingSource = new BindingSource(components);
+            Status = new DataGridViewTextBoxColumn();
+            appointmentBindingSource = new BindingSource(components);
+            gradientPanel13 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel12 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             lblDate = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel7 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -63,8 +73,6 @@
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            gradientPanel13 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            dgvDashboard = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -72,6 +80,11 @@
             gradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
             gradientPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDashboard).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)appointmentBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel12).BeginInit();
             gradientPanel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -96,8 +109,6 @@
             ((System.ComponentModel.ISupportInitialize)cbDateRange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel13).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDashboard).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -154,6 +165,117 @@
             gradientPanel7.Padding = new Padding(10);
             gradientPanel7.Size = new Size(1077, 413);
             gradientPanel7.TabIndex = 10;
+            // 
+            // dgvDashboard
+            // 
+            dgvDashboard.AllowUserToAddRows = false;
+            dgvDashboard.AllowUserToDeleteRows = false;
+            dgvDashboard.AllowUserToResizeRows = false;
+            dgvDashboard.AutoGenerateColumns = false;
+            dgvDashboard.BackgroundColor = Color.White;
+            dgvDashboard.BorderStyle = BorderStyle.None;
+            dgvDashboard.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDashboard.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 245, 246);
+            dataGridViewCellStyle1.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(147, 150, 159);
+            dataGridViewCellStyle1.Padding = new Padding(10);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 245, 246);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(147, 150, 159);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvDashboard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDashboard.Columns.AddRange(new DataGridViewColumn[] { PatientId, DoctorId, Status });
+            dgvDashboard.DataSource = appointmentBindingSource;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle3.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvDashboard.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvDashboard.Dock = DockStyle.Fill;
+            dgvDashboard.EnableHeadersVisualStyles = false;
+            dgvDashboard.GridColor = Color.FromArgb(226, 232, 240);
+            dgvDashboard.Location = new Point(10, 70);
+            dgvDashboard.Margin = new Padding(0);
+            dgvDashboard.MultiSelect = false;
+            dgvDashboard.Name = "dgvDashboard";
+            dgvDashboard.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvDashboard.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgvDashboard.RowHeadersVisible = false;
+            dgvDashboard.RowTemplate.Height = 40;
+            dgvDashboard.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvDashboard.Size = new Size(1055, 331);
+            dgvDashboard.TabIndex = 11;
+            dgvDashboard.CellPainting += dgvDashboard_CellPainting;
+            dgvDashboard.SelectionChanged += dgvDashboard_SelectionChanged;
+            // 
+            // PatientId
+            // 
+            PatientId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientId.DataPropertyName = "PatientId";
+            PatientId.DataSource = patientBindingSource;
+            PatientId.DisplayMember = "FullName";
+            PatientId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            PatientId.HeaderText = "Patient";
+            PatientId.Name = "PatientId";
+            PatientId.ReadOnly = true;
+            PatientId.ValueMember = "Id";
+            // 
+            // patientBindingSource
+            // 
+            patientBindingSource.DataSource = typeof(Model.Patient);
+            // 
+            // DoctorId
+            // 
+            DoctorId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DoctorId.DataPropertyName = "DoctorId";
+            DoctorId.DataSource = doctorBindingSource;
+            DoctorId.DisplayMember = "FullName";
+            DoctorId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            DoctorId.HeaderText = "Doctor";
+            DoctorId.Name = "DoctorId";
+            DoctorId.ReadOnly = true;
+            DoctorId.ValueMember = "Id";
+            // 
+            // doctorBindingSource
+            // 
+            doctorBindingSource.DataSource = typeof(Model.Doctor);
+            // 
+            // Status
+            // 
+            Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Status.DataPropertyName = "Status";
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Padding = new Padding(5);
+            Status.DefaultCellStyle = dataGridViewCellStyle2;
+            Status.HeaderText = "Status";
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            // 
+            // appointmentBindingSource
+            // 
+            appointmentBindingSource.DataSource = typeof(Model.Appointment);
+            // 
+            // gradientPanel13
+            // 
+            gradientPanel13.BorderStyle = BorderStyle.None;
+            gradientPanel13.Dock = DockStyle.Top;
+            gradientPanel13.Location = new Point(10, 55);
+            gradientPanel13.Name = "gradientPanel13";
+            gradientPanel13.Size = new Size(1055, 15);
+            gradientPanel13.TabIndex = 10;
             // 
             // gradientPanel12
             // 
@@ -495,64 +617,6 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Dashboard";
             // 
-            // gradientPanel13
-            // 
-            gradientPanel13.BorderStyle = BorderStyle.None;
-            gradientPanel13.Dock = DockStyle.Top;
-            gradientPanel13.Location = new Point(10, 55);
-            gradientPanel13.Name = "gradientPanel13";
-            gradientPanel13.Size = new Size(1055, 15);
-            gradientPanel13.TabIndex = 10;
-            // 
-            // dgvDashboard
-            // 
-            dgvDashboard.AllowUserToAddRows = false;
-            dgvDashboard.AllowUserToDeleteRows = false;
-            dgvDashboard.AllowUserToResizeRows = false;
-            dgvDashboard.BackgroundColor = Color.White;
-            dgvDashboard.BorderStyle = BorderStyle.None;
-            dgvDashboard.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvDashboard.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(243, 245, 246);
-            dataGridViewCellStyle4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(147, 150, 159);
-            dataGridViewCellStyle4.Padding = new Padding(10);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(243, 245, 246);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(147, 150, 159);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvDashboard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgvDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle5.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle5.SelectionBackColor = Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvDashboard.DefaultCellStyle = dataGridViewCellStyle5;
-            dgvDashboard.Dock = DockStyle.Fill;
-            dgvDashboard.EnableHeadersVisualStyles = false;
-            dgvDashboard.GridColor = Color.FromArgb(226, 232, 240);
-            dgvDashboard.Location = new Point(10, 70);
-            dgvDashboard.Margin = new Padding(0);
-            dgvDashboard.Name = "dgvDashboard";
-            dgvDashboard.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvDashboard.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dgvDashboard.RowHeadersVisible = false;
-            dgvDashboard.RowTemplate.Height = 40;
-            dgvDashboard.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDashboard.Size = new Size(1055, 331);
-            dgvDashboard.TabIndex = 11;
-            // 
             // DashboardUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -569,6 +633,11 @@
             gradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
             gradientPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDashboard).EndInit();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)appointmentBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel13).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel12).EndInit();
             gradientPanel12.ResumeLayout(false);
             gradientPanel12.PerformLayout();
@@ -599,8 +668,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
             gradientPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel13).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDashboard).EndInit();
             ResumeLayout(false);
         }
 
@@ -640,5 +707,11 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel lblDate;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel13;
         private DataGridView dgvDashboard;
+        private BindingSource appointmentBindingSource;
+        private BindingSource patientBindingSource;
+        private BindingSource doctorBindingSource;
+        private DataGridViewComboBoxColumn PatientId;
+        private DataGridViewComboBoxColumn DoctorId;
+        private DataGridViewTextBoxColumn Status;
     }
 }

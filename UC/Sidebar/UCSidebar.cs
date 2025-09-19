@@ -47,7 +47,7 @@ namespace Pulse.UC.Sidebar
             _patientRepository = patientRepository;
             _appointmentRepository = appointmentRepository;
 
-            dashboard = new DashboardUC();
+            dashboard = new DashboardUC(_patientRepository, _doctorRepository, _appointmentRepository);
             doctor = new DoctorUC(_doctorRepository);
             patient = new PatientUC(_doctorRepository, _patientRepository);
             appointment= new AppointmentUC(_appointmentRepository , _patientRepository, _doctorRepository);
