@@ -83,6 +83,7 @@ namespace Pulse.Forms.AppointmentFRM
                 if (string.IsNullOrEmpty(_appointment?.Error))
                 {
                     _appointmentRepository.Update(_appointment);
+                    DataUpdateNotifier.NotifyDataUpdated();
                     MessageBoxAdv.Show("Appointment updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
@@ -148,6 +149,7 @@ namespace Pulse.Forms.AppointmentFRM
             {
                 _appointmentRepository.Delete(_appointment);
                 _bindingList.Remove(_appointment);
+                DataUpdateNotifier.NotifyDataUpdated();
                 MessageBoxAdv.Show("Appointment deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }

@@ -273,6 +273,7 @@
             Controls.Add(sidebarPanel);
             Name = "UCSidebar";
             Size = new Size(299, 912);
+            Load += UCSidebar_Load;
             ((System.ComponentModel.ISupportInitialize)sidebarPanel).EndInit();
             sidebarPanel.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);

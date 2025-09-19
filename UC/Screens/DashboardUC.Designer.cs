@@ -30,19 +30,15 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             dgvDashboard = new DataGridView();
-            PatientId = new DataGridViewComboBoxColumn();
             patientBindingSource = new BindingSource(components);
-            DoctorId = new DataGridViewComboBoxColumn();
             doctorBindingSource = new BindingSource(components);
-            Status = new DataGridViewTextBoxColumn();
             appointmentBindingSource = new BindingSource(components);
             gradientPanel13 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel12 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -73,6 +69,10 @@
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            PatientId = new DataGridViewComboBoxColumn();
+            DoctorId = new DataGridViewComboBoxColumn();
+            Status = new DataGridViewComboBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -186,17 +186,17 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dgvDashboard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDashboard.Columns.AddRange(new DataGridViewColumn[] { PatientId, DoctorId, Status });
+            dgvDashboard.Columns.AddRange(new DataGridViewColumn[] { PatientId, DoctorId, Status, statusDataGridViewTextBoxColumn });
             dgvDashboard.DataSource = appointmentBindingSource;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle3.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvDashboard.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle2.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvDashboard.DefaultCellStyle = dataGridViewCellStyle2;
             dgvDashboard.Dock = DockStyle.Fill;
             dgvDashboard.EnableHeadersVisualStyles = false;
             dgvDashboard.GridColor = Color.FromArgb(226, 232, 240);
@@ -205,14 +205,14 @@
             dgvDashboard.MultiSelect = false;
             dgvDashboard.Name = "dgvDashboard";
             dgvDashboard.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvDashboard.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvDashboard.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvDashboard.RowHeadersVisible = false;
             dgvDashboard.RowTemplate.Height = 40;
             dgvDashboard.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -221,48 +221,13 @@
             dgvDashboard.CellPainting += dgvDashboard_CellPainting;
             dgvDashboard.SelectionChanged += dgvDashboard_SelectionChanged;
             // 
-            // PatientId
-            // 
-            PatientId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            PatientId.DataPropertyName = "PatientId";
-            PatientId.DataSource = patientBindingSource;
-            PatientId.DisplayMember = "FullName";
-            PatientId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            PatientId.HeaderText = "Patient";
-            PatientId.Name = "PatientId";
-            PatientId.ReadOnly = true;
-            PatientId.ValueMember = "Id";
-            // 
             // patientBindingSource
             // 
             patientBindingSource.DataSource = typeof(Model.Patient);
             // 
-            // DoctorId
-            // 
-            DoctorId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DoctorId.DataPropertyName = "DoctorId";
-            DoctorId.DataSource = doctorBindingSource;
-            DoctorId.DisplayMember = "FullName";
-            DoctorId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            DoctorId.HeaderText = "Doctor";
-            DoctorId.Name = "DoctorId";
-            DoctorId.ReadOnly = true;
-            DoctorId.ValueMember = "Id";
-            // 
             // doctorBindingSource
             // 
             doctorBindingSource.DataSource = typeof(Model.Doctor);
-            // 
-            // Status
-            // 
-            Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Status.DataPropertyName = "Status";
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Padding = new Padding(5);
-            Status.DefaultCellStyle = dataGridViewCellStyle2;
-            Status.HeaderText = "Status";
-            Status.Name = "Status";
-            Status.ReadOnly = true;
             // 
             // appointmentBindingSource
             // 
@@ -617,6 +582,48 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Dashboard";
             // 
+            // PatientId
+            // 
+            PatientId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientId.DataPropertyName = "PatientId";
+            PatientId.DataSource = patientBindingSource;
+            PatientId.DisplayMember = "FullName";
+            PatientId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            PatientId.HeaderText = "Patient";
+            PatientId.Name = "PatientId";
+            PatientId.ReadOnly = true;
+            PatientId.ValueMember = "Id";
+            // 
+            // DoctorId
+            // 
+            DoctorId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DoctorId.DataPropertyName = "DoctorId";
+            DoctorId.DataSource = doctorBindingSource;
+            DoctorId.DisplayMember = "FullName";
+            DoctorId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            DoctorId.HeaderText = "Doctor";
+            DoctorId.Name = "DoctorId";
+            DoctorId.ReadOnly = true;
+            DoctorId.ValueMember = "Id";
+            // 
+            // Status
+            // 
+            Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Status.DataPropertyName = "Status";
+            Status.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            Status.HeaderText = "Status";
+            Status.Items.AddRange(new object[] { "Scheduled", "Completed", "Cancelled", "No-show" });
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.Visible = false;
+            // 
             // DashboardUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -712,6 +719,7 @@
         private BindingSource doctorBindingSource;
         private DataGridViewComboBoxColumn PatientId;
         private DataGridViewComboBoxColumn DoctorId;
-        private DataGridViewTextBoxColumn Status;
+        private DataGridViewComboBoxColumn Status;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
     }
 }

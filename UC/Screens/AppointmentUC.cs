@@ -48,14 +48,14 @@ namespace Pulse.UC.Screens
             var _doctors = await _doctorRepository.GetAll();
 
             var patientColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["PatientId"];
-            patientColumn.DataSource = _patients.ToList();
             patientColumn.DisplayMember = "FullName";
             patientColumn.ValueMember = "Id";
+            patientColumn.DataSource = _patients.ToList();
 
             var doctorColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["DoctorId"];
-            doctorColumn.DataSource = _doctors.ToList();
             doctorColumn.DisplayMember = "FullName";
             doctorColumn.ValueMember = "Id";
+            doctorColumn.DataSource = _doctors.ToList();
 
             #endregion
 

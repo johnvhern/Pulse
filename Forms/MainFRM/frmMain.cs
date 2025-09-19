@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pulse.Data;
+using Pulse.Model;
 using Pulse.Repository.AppointmentRepo;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
@@ -7,6 +8,7 @@ using Pulse.UC.Screens;
 using Pulse.UC.Sidebar;
 using Pulse.UC.Topbar;
 using Syncfusion.Windows.Forms;
+using System.ComponentModel;
 
 namespace Pulse.Forms.MainFRM
 {
@@ -79,8 +81,9 @@ namespace Pulse.Forms.MainFRM
 
         #endregion
 
-        public void frmMain_Load(object sender, EventArgs e)
+        public async void frmMain_Load(object sender, EventArgs e)
         {
+
             // Build options
             var options = new DbContextOptionsBuilder<PulseDbContext>()
                 .UseSqlite($"Data Source={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PulseDB.db")}")

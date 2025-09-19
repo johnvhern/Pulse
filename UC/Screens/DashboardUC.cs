@@ -28,6 +28,8 @@ namespace Pulse.UC.Screens
             _patientRepository = patientRepository;
             _doctorRepository = doctorRepository;
             _appointmentRepository = appointmentRepository;
+
+            DataUpdateNotifier.DataUpdated += ShowPatientDoctor;
         }
 
         private void DashboardUC_Load(object sender, EventArgs e)
@@ -84,6 +86,10 @@ namespace Pulse.UC.Screens
                             e.CellStyle.ForeColor = Color.FromArgb(0, 213, 99);
                             break;
                         case "Cancelled":
+                            e.CellStyle.BackColor = Color.FromArgb(255, 241, 241);
+                            e.CellStyle.ForeColor = Color.FromArgb(243, 0, 0);
+                            break;
+                        case "No-show":
                             e.CellStyle.BackColor = Color.FromArgb(255, 241, 241);
                             e.CellStyle.ForeColor = Color.FromArgb(243, 0, 0);
                             break;

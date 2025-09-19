@@ -1,5 +1,6 @@
 ﻿using Pulse.Forms.MainFRM;
 using Pulse.Helper;
+using Pulse.Model;
 using Pulse.Repository.AppointmentRepo;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
@@ -50,8 +51,8 @@ namespace Pulse.UC.Sidebar
             dashboard = new DashboardUC(_patientRepository, _doctorRepository, _appointmentRepository);
             doctor = new DoctorUC(_doctorRepository);
             patient = new PatientUC(_doctorRepository, _patientRepository);
-            appointment= new AppointmentUC(_appointmentRepository , _patientRepository, _doctorRepository);
-            reports= new ReportsUC();
+            appointment = new AppointmentUC(_appointmentRepository, _patientRepository, _doctorRepository);
+            reports = new ReportsUC();
         }
 
         private void ColorActiveButton(SfButton button)
@@ -119,5 +120,9 @@ namespace Pulse.UC.Sidebar
         }
 
         #endregion
+
+        private void UCSidebar_Load(object sender, EventArgs e)
+        {
+        }
     }
 }
