@@ -133,6 +133,16 @@ namespace Pulse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap frown {
+            get {
+                object obj = ResourceManager.GetObject("frown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap layout_dashboard__2_ {
             get {
                 object obj = ResourceManager.GetObject("layout-dashboard (2)", resourceCulture);

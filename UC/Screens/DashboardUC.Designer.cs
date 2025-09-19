@@ -37,16 +37,20 @@ namespace Pulse.UC.Screens
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             dgvDashboard = new DataGridView();
+            PatientId = new DataGridViewComboBoxColumn();
             patientBindingSource = new BindingSource(components);
+            DoctorId = new DataGridViewComboBoxColumn();
             doctorBindingSource = new BindingSource(components);
+            Status = new DataGridViewComboBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             appointmentBindingSource = new BindingSource(components);
             gradientPanel13 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel12 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -56,10 +60,6 @@ namespace Pulse.UC.Screens
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            gradientPanel11 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            lblPendingAppointments = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            pictureBox4 = new PictureBox();
             gradientPanel10 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             lblCancelledAppointments = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -77,10 +77,14 @@ namespace Pulse.UC.Screens
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            PatientId = new DataGridViewComboBoxColumn();
-            DoctorId = new DataGridViewComboBoxColumn();
-            Status = new DataGridViewComboBoxColumn();
-            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pictureBox4 = new PictureBox();
+            autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            lblNoShowAppointments = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            gradientPanel11 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            gradientPanel14 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            lblPendingAppointments = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            autoLabel9 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            pictureBox6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -100,9 +104,6 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
             gradientPanel4.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel11).BeginInit();
-            gradientPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel10).BeginInit();
             gradientPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -117,6 +118,12 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)cbDateRange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel11).BeginInit();
+            gradientPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel14).BeginInit();
+            gradientPanel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -128,7 +135,7 @@ namespace Pulse.UC.Screens
             gradientPanel1.Location = new Point(0, 0);
             gradientPanel1.Name = "gradientPanel1";
             gradientPanel1.Padding = new Padding(15, 20, 15, 15);
-            gradientPanel1.Size = new Size(1113, 635);
+            gradientPanel1.Size = new Size(1361, 635);
             gradientPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -143,7 +150,7 @@ namespace Pulse.UC.Screens
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1083, 544);
+            tableLayoutPanel1.Size = new Size(1331, 544);
             tableLayoutPanel1.TabIndex = 7;
             // 
             // gradientPanel3
@@ -157,7 +164,7 @@ namespace Pulse.UC.Screens
             gradientPanel3.Location = new Point(3, 15);
             gradientPanel3.Margin = new Padding(3, 15, 3, 3);
             gradientPanel3.Name = "gradientPanel3";
-            gradientPanel3.Size = new Size(1077, 526);
+            gradientPanel3.Size = new Size(1325, 526);
             gradientPanel3.TabIndex = 0;
             // 
             // gradientPanel7
@@ -171,7 +178,7 @@ namespace Pulse.UC.Screens
             gradientPanel7.Location = new Point(0, 113);
             gradientPanel7.Name = "gradientPanel7";
             gradientPanel7.Padding = new Padding(10);
-            gradientPanel7.Size = new Size(1077, 413);
+            gradientPanel7.Size = new Size(1325, 413);
             gradientPanel7.TabIndex = 10;
             // 
             // dgvDashboard
@@ -184,27 +191,27 @@ namespace Pulse.UC.Screens
             dgvDashboard.BorderStyle = BorderStyle.None;
             dgvDashboard.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvDashboard.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 245, 246);
-            dataGridViewCellStyle1.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(147, 150, 159);
-            dataGridViewCellStyle1.Padding = new Padding(10);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 245, 246);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(147, 150, 159);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvDashboard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(243, 245, 246);
+            dataGridViewCellStyle4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(147, 150, 159);
+            dataGridViewCellStyle4.Padding = new Padding(10);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(243, 245, 246);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(147, 150, 159);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvDashboard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDashboard.Columns.AddRange(new DataGridViewColumn[] { PatientId, DoctorId, Status, statusDataGridViewTextBoxColumn });
             dgvDashboard.DataSource = appointmentBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle2.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 114, 128);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvDashboard.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle5.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvDashboard.DefaultCellStyle = dataGridViewCellStyle5;
             dgvDashboard.Dock = DockStyle.Fill;
             dgvDashboard.EnableHeadersVisualStyles = false;
             dgvDashboard.GridColor = Color.FromArgb(226, 232, 240);
@@ -213,29 +220,71 @@ namespace Pulse.UC.Screens
             dgvDashboard.MultiSelect = false;
             dgvDashboard.Name = "dgvDashboard";
             dgvDashboard.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvDashboard.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvDashboard.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvDashboard.RowHeadersVisible = false;
             dgvDashboard.RowTemplate.Height = 40;
             dgvDashboard.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvDashboard.Size = new Size(1055, 331);
+            dgvDashboard.Size = new Size(1303, 331);
             dgvDashboard.TabIndex = 11;
             dgvDashboard.CellPainting += dgvDashboard_CellPainting;
             dgvDashboard.SelectionChanged += dgvDashboard_SelectionChanged;
+            // 
+            // PatientId
+            // 
+            PatientId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientId.DataPropertyName = "PatientId";
+            PatientId.DataSource = patientBindingSource;
+            PatientId.DisplayMember = "FullName";
+            PatientId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            PatientId.HeaderText = "Patient";
+            PatientId.Name = "PatientId";
+            PatientId.ReadOnly = true;
+            PatientId.ValueMember = "Id";
             // 
             // patientBindingSource
             // 
             patientBindingSource.DataSource = typeof(Model.Patient);
             // 
+            // DoctorId
+            // 
+            DoctorId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DoctorId.DataPropertyName = "DoctorId";
+            DoctorId.DataSource = doctorBindingSource;
+            DoctorId.DisplayMember = "FullName";
+            DoctorId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            DoctorId.HeaderText = "Doctor";
+            DoctorId.Name = "DoctorId";
+            DoctorId.ReadOnly = true;
+            DoctorId.ValueMember = "Id";
+            // 
             // doctorBindingSource
             // 
             doctorBindingSource.DataSource = typeof(Model.Doctor);
+            // 
+            // Status
+            // 
+            Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Status.DataPropertyName = "Status";
+            Status.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            Status.HeaderText = "Status";
+            Status.Items.AddRange(new object[] { "Scheduled", "Completed", "Cancelled", "No-show" });
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.Visible = false;
             // 
             // appointmentBindingSource
             // 
@@ -247,7 +296,7 @@ namespace Pulse.UC.Screens
             gradientPanel13.Dock = DockStyle.Top;
             gradientPanel13.Location = new Point(10, 55);
             gradientPanel13.Name = "gradientPanel13";
-            gradientPanel13.Size = new Size(1055, 15);
+            gradientPanel13.Size = new Size(1303, 15);
             gradientPanel13.TabIndex = 10;
             // 
             // gradientPanel12
@@ -259,7 +308,7 @@ namespace Pulse.UC.Screens
             gradientPanel12.Dock = DockStyle.Top;
             gradientPanel12.Location = new Point(10, 10);
             gradientPanel12.Name = "gradientPanel12";
-            gradientPanel12.Size = new Size(1055, 45);
+            gradientPanel12.Size = new Size(1303, 45);
             gradientPanel12.TabIndex = 0;
             // 
             // lblDate
@@ -268,7 +317,7 @@ namespace Pulse.UC.Screens
             lblDate.AutoSize = false;
             lblDate.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDate.ForeColor = Color.FromArgb(107, 112, 129);
-            lblDate.Location = new Point(605, 13);
+            lblDate.Location = new Point(853, 13);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(444, 18);
             lblDate.TabIndex = 3;
@@ -304,7 +353,7 @@ namespace Pulse.UC.Screens
             gradientPanel6.Dock = DockStyle.Top;
             gradientPanel6.Location = new Point(0, 98);
             gradientPanel6.Name = "gradientPanel6";
-            gradientPanel6.Size = new Size(1077, 15);
+            gradientPanel6.Size = new Size(1325, 15);
             gradientPanel6.TabIndex = 9;
             // 
             // gradientPanel4
@@ -316,16 +365,18 @@ namespace Pulse.UC.Screens
             gradientPanel4.Dock = DockStyle.Top;
             gradientPanel4.Location = new Point(0, 0);
             gradientPanel4.Name = "gradientPanel4";
-            gradientPanel4.Size = new Size(1077, 98);
+            gradientPanel4.Size = new Size(1325, 98);
             gradientPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.ColumnCount = 4;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel2.ColumnCount = 5;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel2.Controls.Add(gradientPanel14, 4, 0);
             tableLayoutPanel2.Controls.Add(gradientPanel11, 3, 0);
             tableLayoutPanel2.Controls.Add(gradientPanel10, 2, 0);
             tableLayoutPanel2.Controls.Add(gradientPanel9, 1, 0);
@@ -335,56 +386,8 @@ namespace Pulse.UC.Screens
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(1077, 98);
+            tableLayoutPanel2.Size = new Size(1325, 98);
             tableLayoutPanel2.TabIndex = 12;
-            // 
-            // gradientPanel11
-            // 
-            gradientPanel11.BorderColor = Color.Gainsboro;
-            gradientPanel11.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel11.Controls.Add(lblPendingAppointments);
-            gradientPanel11.Controls.Add(autoLabel6);
-            gradientPanel11.Controls.Add(pictureBox4);
-            gradientPanel11.Dock = DockStyle.Fill;
-            gradientPanel11.Location = new Point(812, 0);
-            gradientPanel11.Margin = new Padding(5, 0, 0, 0);
-            gradientPanel11.Name = "gradientPanel11";
-            gradientPanel11.Padding = new Padding(15);
-            gradientPanel11.Size = new Size(265, 98);
-            gradientPanel11.TabIndex = 3;
-            // 
-            // lblPendingAppointments
-            // 
-            lblPendingAppointments.Font = new Font("Inter", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPendingAppointments.ForeColor = Color.FromArgb(107, 112, 129);
-            lblPendingAppointments.Location = new Point(72, 45);
-            lblPendingAppointments.Name = "lblPendingAppointments";
-            lblPendingAppointments.Size = new Size(37, 27);
-            lblPendingAppointments.TabIndex = 5;
-            lblPendingAppointments.Text = "24";
-            // 
-            // autoLabel6
-            // 
-            autoLabel6.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            autoLabel6.ForeColor = Color.FromArgb(147, 150, 159);
-            autoLabel6.Location = new Point(72, 24);
-            autoLabel6.Name = "autoLabel6";
-            autoLabel6.Size = new Size(151, 18);
-            autoLabel6.TabIndex = 4;
-            autoLabel6.Text = "Pending Appointments";
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            pictureBox4.BackColor = Color.FromArgb(255, 248, 236);
-            pictureBox4.Image = Properties.Resources.clock;
-            pictureBox4.Location = new Point(18, 24);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(48, 48);
-            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox4.TabIndex = 3;
-            pictureBox4.TabStop = false;
             // 
             // gradientPanel10
             // 
@@ -394,11 +397,11 @@ namespace Pulse.UC.Screens
             gradientPanel10.Controls.Add(autoLabel5);
             gradientPanel10.Controls.Add(pictureBox3);
             gradientPanel10.Dock = DockStyle.Fill;
-            gradientPanel10.Location = new Point(543, 0);
+            gradientPanel10.Location = new Point(535, 0);
             gradientPanel10.Margin = new Padding(5, 0, 5, 0);
             gradientPanel10.Name = "gradientPanel10";
             gradientPanel10.Padding = new Padding(15);
-            gradientPanel10.Size = new Size(259, 98);
+            gradientPanel10.Size = new Size(255, 98);
             gradientPanel10.TabIndex = 2;
             // 
             // lblCancelledAppointments
@@ -441,11 +444,11 @@ namespace Pulse.UC.Screens
             gradientPanel9.Controls.Add(autoLabel4);
             gradientPanel9.Controls.Add(pictureBox2);
             gradientPanel9.Dock = DockStyle.Fill;
-            gradientPanel9.Location = new Point(274, 0);
+            gradientPanel9.Location = new Point(270, 0);
             gradientPanel9.Margin = new Padding(5, 0, 5, 0);
             gradientPanel9.Name = "gradientPanel9";
             gradientPanel9.Padding = new Padding(15);
-            gradientPanel9.Size = new Size(259, 98);
+            gradientPanel9.Size = new Size(255, 98);
             gradientPanel9.TabIndex = 1;
             // 
             // lblCompletedAppointments
@@ -492,7 +495,7 @@ namespace Pulse.UC.Screens
             gradientPanel5.Margin = new Padding(0, 0, 5, 0);
             gradientPanel5.Name = "gradientPanel5";
             gradientPanel5.Padding = new Padding(15);
-            gradientPanel5.Size = new Size(264, 98);
+            gradientPanel5.Size = new Size(260, 98);
             gradientPanel5.TabIndex = 0;
             // 
             // lblPatientsToday
@@ -533,7 +536,7 @@ namespace Pulse.UC.Screens
             gradientPanel8.BorderColor = Color.Gainsboro;
             gradientPanel8.BorderStyle = BorderStyle.FixedSingle;
             gradientPanel8.Controls.Add(cbDateRange);
-            gradientPanel8.Location = new Point(1726, 13);
+            gradientPanel8.Location = new Point(1974, 13);
             gradientPanel8.Name = "gradientPanel8";
             gradientPanel8.Size = new Size(209, 59);
             gradientPanel8.TabIndex = 11;
@@ -567,7 +570,7 @@ namespace Pulse.UC.Screens
             gradientPanel2.Dock = DockStyle.Top;
             gradientPanel2.Location = new Point(15, 20);
             gradientPanel2.Name = "gradientPanel2";
-            gradientPanel2.Size = new Size(1083, 56);
+            gradientPanel2.Size = new Size(1331, 56);
             gradientPanel2.TabIndex = 0;
             // 
             // autoLabel2
@@ -590,47 +593,99 @@ namespace Pulse.UC.Screens
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Dashboard";
             // 
-            // PatientId
+            // pictureBox4
             // 
-            PatientId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            PatientId.DataPropertyName = "PatientId";
-            PatientId.DataSource = patientBindingSource;
-            PatientId.DisplayMember = "FullName";
-            PatientId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            PatientId.HeaderText = "Patient";
-            PatientId.Name = "PatientId";
-            PatientId.ReadOnly = true;
-            PatientId.ValueMember = "Id";
+            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox4.BackColor = Color.FromArgb(251, 255, 193);
+            pictureBox4.Image = Properties.Resources.frown;
+            pictureBox4.Location = new Point(18, 24);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(48, 48);
+            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox4.TabIndex = 3;
+            pictureBox4.TabStop = false;
             // 
-            // DoctorId
+            // autoLabel6
             // 
-            DoctorId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DoctorId.DataPropertyName = "DoctorId";
-            DoctorId.DataSource = doctorBindingSource;
-            DoctorId.DisplayMember = "FullName";
-            DoctorId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            DoctorId.HeaderText = "Doctor";
-            DoctorId.Name = "DoctorId";
-            DoctorId.ReadOnly = true;
-            DoctorId.ValueMember = "Id";
+            autoLabel6.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel6.ForeColor = Color.FromArgb(147, 150, 159);
+            autoLabel6.Location = new Point(72, 24);
+            autoLabel6.Name = "autoLabel6";
+            autoLabel6.Size = new Size(158, 18);
+            autoLabel6.TabIndex = 4;
+            autoLabel6.Text = "No-show Appointments";
             // 
-            // Status
+            // lblNoShowAppointments
             // 
-            Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Status.DataPropertyName = "Status";
-            Status.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            Status.HeaderText = "Status";
-            Status.Items.AddRange(new object[] { "Scheduled", "Completed", "Cancelled", "No-show" });
-            Status.Name = "Status";
-            Status.ReadOnly = true;
+            lblNoShowAppointments.Font = new Font("Inter", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNoShowAppointments.ForeColor = Color.FromArgb(107, 112, 129);
+            lblNoShowAppointments.Location = new Point(72, 45);
+            lblNoShowAppointments.Name = "lblNoShowAppointments";
+            lblNoShowAppointments.Size = new Size(37, 27);
+            lblNoShowAppointments.TabIndex = 5;
+            lblNoShowAppointments.Text = "24";
             // 
-            // statusDataGridViewTextBoxColumn
+            // gradientPanel11
             // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.ReadOnly = true;
-            statusDataGridViewTextBoxColumn.Visible = false;
+            gradientPanel11.BorderColor = Color.Gainsboro;
+            gradientPanel11.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel11.Controls.Add(lblNoShowAppointments);
+            gradientPanel11.Controls.Add(autoLabel6);
+            gradientPanel11.Controls.Add(pictureBox4);
+            gradientPanel11.Dock = DockStyle.Fill;
+            gradientPanel11.Location = new Point(800, 0);
+            gradientPanel11.Margin = new Padding(5, 0, 0, 0);
+            gradientPanel11.Name = "gradientPanel11";
+            gradientPanel11.Padding = new Padding(15);
+            gradientPanel11.Size = new Size(260, 98);
+            gradientPanel11.TabIndex = 3;
+            // 
+            // gradientPanel14
+            // 
+            gradientPanel14.BorderColor = Color.Gainsboro;
+            gradientPanel14.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel14.Controls.Add(lblPendingAppointments);
+            gradientPanel14.Controls.Add(autoLabel9);
+            gradientPanel14.Controls.Add(pictureBox6);
+            gradientPanel14.Dock = DockStyle.Fill;
+            gradientPanel14.Location = new Point(1065, 0);
+            gradientPanel14.Margin = new Padding(5, 0, 0, 0);
+            gradientPanel14.Name = "gradientPanel14";
+            gradientPanel14.Padding = new Padding(15);
+            gradientPanel14.Size = new Size(260, 98);
+            gradientPanel14.TabIndex = 4;
+            // 
+            // lblPendingAppointments
+            // 
+            lblPendingAppointments.Font = new Font("Inter", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPendingAppointments.ForeColor = Color.FromArgb(107, 112, 129);
+            lblPendingAppointments.Location = new Point(81, 45);
+            lblPendingAppointments.Name = "lblPendingAppointments";
+            lblPendingAppointments.Size = new Size(37, 27);
+            lblPendingAppointments.TabIndex = 8;
+            lblPendingAppointments.Text = "24";
+            // 
+            // autoLabel9
+            // 
+            autoLabel9.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel9.ForeColor = Color.FromArgb(147, 150, 159);
+            autoLabel9.Location = new Point(81, 24);
+            autoLabel9.Name = "autoLabel9";
+            autoLabel9.Size = new Size(151, 18);
+            autoLabel9.TabIndex = 7;
+            autoLabel9.Text = "Pending Appointments";
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureBox6.BackColor = Color.FromArgb(255, 248, 236);
+            pictureBox6.Image = Properties.Resources.clock;
+            pictureBox6.Location = new Point(27, 24);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(48, 48);
+            pictureBox6.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox6.TabIndex = 6;
+            pictureBox6.TabStop = false;
             // 
             // DashboardUC
             // 
@@ -639,7 +694,7 @@ namespace Pulse.UC.Screens
             BackColor = Color.White;
             Controls.Add(gradientPanel1);
             Name = "DashboardUC";
-            Size = new Size(1113, 635);
+            Size = new Size(1361, 635);
             Load += DashboardUC_Load;
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).EndInit();
             gradientPanel1.ResumeLayout(false);
@@ -661,10 +716,6 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
             gradientPanel4.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gradientPanel11).EndInit();
-            gradientPanel11.ResumeLayout(false);
-            gradientPanel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel10).EndInit();
             gradientPanel10.ResumeLayout(false);
             gradientPanel10.PerformLayout();
@@ -683,6 +734,14 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
             gradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel11).EndInit();
+            gradientPanel11.ResumeLayout(false);
+            gradientPanel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel14).EndInit();
+            gradientPanel14.ResumeLayout(false);
+            gradientPanel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -701,19 +760,15 @@ namespace Pulse.UC.Screens
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel5;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel8;
         private Syncfusion.WinForms.ListView.SfComboBox cbDateRange;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel11;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel10;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel9;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel5;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
         private Syncfusion.Windows.Forms.Tools.AutoLabel lblPatientsToday;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel lblPendingAppointments;
         private Syncfusion.Windows.Forms.Tools.AutoLabel lblCancelledAppointments;
         private Syncfusion.Windows.Forms.Tools.AutoLabel lblCompletedAppointments;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel12;
@@ -729,5 +784,13 @@ namespace Pulse.UC.Screens
         private DataGridViewComboBoxColumn DoctorId;
         private DataGridViewComboBoxColumn Status;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel14;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel lblPendingAppointments;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel9;
+        private PictureBox pictureBox6;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel11;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel lblNoShowAppointments;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
+        private PictureBox pictureBox4;
     }
 }

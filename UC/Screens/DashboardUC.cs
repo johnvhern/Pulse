@@ -55,6 +55,8 @@ namespace Pulse.UC.Screens
               .Count(a => a.Status == "Cancelled").ToString();
             lblPendingAppointments.Text = appointmentBindingSource.List.Cast<Appointment>()
               .Count(a => a.Status == "Scheduled").ToString();
+            lblNoShowAppointments.Text = appointmentBindingSource.List.Cast<Appointment>()
+              .Count(a => a.Status == "No-show").ToString();
 
             #endregion
 
@@ -103,8 +105,8 @@ namespace Pulse.UC.Screens
                             e.CellStyle.ForeColor = Color.FromArgb(243, 0, 0);
                             break;
                         case "No-show":
-                            e.CellStyle.BackColor = Color.FromArgb(255, 241, 241);
-                            e.CellStyle.ForeColor = Color.FromArgb(243, 0, 0);
+                            e.CellStyle.BackColor = Color.FromArgb(251, 255, 193);
+                            e.CellStyle.ForeColor = Color.FromArgb(141, 77, 0);
                             break;
                     }
                 }
