@@ -176,5 +176,55 @@ namespace Pulse.UC.Screens
             var filteredAppointment = await _appointmentRepository.GetByDate(filter);
             appointmentBindingSource.DataSource = filteredAppointment.ToList();
         }
+
+        private void txtSearchAppointments_TextChanged(object sender, EventArgs e)
+        {
+            timerSearch.Stop();
+            timerSearch.Start();
+        }
+
+        private async void timerSearch_Tick(object sender, EventArgs e)
+        {
+            timerSearch.Stop();
+
+            string query = txtSearchAppointments.Text.Trim();
+            var appointments = await _appointmentRepository.GetAll();
+
+            if (cbDateRange.SelectedItem == null)
+            {
+                appointmentBindingSource.DataSource = new BindingList<Appointment>(appointments.ToList());
+            }
+
+            if (string.IsNullOrEmpty(query))
+            {
+                AppointmentDateFilter filter = AppointmentDateFilter.Today;
+
+                switch (cbDateRange.SelectedItem.ToString())
+                {
+                    case "Today":
+                        filter = AppointmentDateFilter.Today;
+                        break;
+                    case "This Week":
+                        filter = AppointmentDateFilter.ThisWeek;
+                        break;
+                    case "This Month":
+                        filter = AppointmentDateFilter.ThisMonth;
+                        break;
+                    case "All Time":
+                        filter = AppointmentDateFilter.AllTime;
+                        break;
+                }
+
+                var filteredAppointment = await _appointmentRepository.GetByDate(filter);
+                appointmentBindingSource.DataSource = new BindingList<Appointment>(filteredAppointment.ToList());
+            }
+            else
+            {
+                var filtered = appointments
+                    .Where(p => p.Patient.FullName.Contains(query, StringComparison.OrdinalIgnoreCase) || p.Doctor.FullName.Contains(query, StringComparison.OrdinalIgnoreCase)).ToList();
+
+                appointmentBindingSource.DataSource = new BindingList<Appointment>(filtered);
+            }
+        }
     }
 }

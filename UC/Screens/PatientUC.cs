@@ -150,12 +150,22 @@ namespace Pulse.UC.Screens
         {
             timerSearch.Stop();
 
+            var selectedDoctor = (int)cbFilterDoctors.SelectedValue;
+
             string query = txtSearchPatient.Text.Trim();
             var patients = await _patientRepository.GetAll();
 
             if (string.IsNullOrEmpty(query))
             {
-                patientBindingSource.DataSource = new BindingList<Patient>(patients.ToList());
+                if (selectedDoctor > 0)
+                {
+                    var result = await _patientRepository.GetByDoctorId(selectedDoctor);
+                    patientBindingSource.DataSource = new BindingList<Patient>(result.ToList());
+                }
+                else if (selectedDoctor == 0)
+                {
+                    patientBindingSource.DataSource = new BindingList<Patient>(patients.ToList());
+                }
             }
             else
             {
