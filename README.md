@@ -3,8 +3,8 @@
 
 Pulse is a desktop application designed to streamline clinic operations by enabling secretaries to efficiently manage doctors, patients, and appointments. The system provides a user-friendly interface, robust data management, and tools to ensure smooth day-to-day clinic workflows.
 
-<p align=center>
-![Logo](pulse_logo.png)
+<p align="center">
+  <img src="pulse_logo.png" alt="Pulse Logo" width="200"/>
 </p>
 
 
