@@ -35,6 +35,7 @@ namespace Pulse.UC.Screens
         private void DashboardUC_Load(object sender, EventArgs e)
         {
             lblDate.Text = DateTime.Now.ToString("D");
+           
 
             ShowPatientDoctor();
         }
@@ -44,6 +45,18 @@ namespace Pulse.UC.Screens
             AppointmentDateFilter filter = AppointmentDateFilter.Today;
             var filteredAppointment = await _appointmentRepository.GetByDate(filter);
             appointmentBindingSource.DataSource = new BindingList<Appointment>(filteredAppointment.ToList());
+
+            #region -- Set Labels -- 
+
+            lblPatientsToday.Text = appointmentBindingSource.Count.ToString();
+            lblCompletedAppointments.Text = appointmentBindingSource.List.Cast<Appointment>()
+              .Count(a => a.Status == "Completed").ToString();
+            lblCancelledAppointments.Text = appointmentBindingSource.List.Cast<Appointment>()
+              .Count(a => a.Status == "Cancelled").ToString();
+            lblPendingAppointments.Text = appointmentBindingSource.List.Cast<Appointment>()
+              .Count(a => a.Status == "Scheduled").ToString();
+
+            #endregion
 
             #region -- Show Names of Patients and Doctors in DataGrid --
 

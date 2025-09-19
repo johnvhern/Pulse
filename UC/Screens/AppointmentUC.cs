@@ -118,6 +118,7 @@ namespace Pulse.UC.Screens
                     appointment.Status = selectedItem.ToString();
                     _appointmentRepository.Update(appointment);
                     MessageBoxAdv.Show("Status updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DataUpdateNotifier.NotifyDataUpdated();
                 }
                 else
                 {
