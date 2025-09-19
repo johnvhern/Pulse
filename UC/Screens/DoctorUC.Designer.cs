@@ -119,7 +119,7 @@
             // 
             // gradientPanel7
             // 
-            gradientPanel7.BorderColor = Color.FromArgb(226, 232, 240);
+            gradientPanel7.BorderColor = Color.Gainsboro;
             gradientPanel7.BorderStyle = BorderStyle.FixedSingle;
             gradientPanel7.Controls.Add(dgvDoctors);
             gradientPanel7.Dock = DockStyle.Fill;
@@ -247,7 +247,7 @@
             // gradientPanel5
             // 
             gradientPanel5.Border3DStyle = Border3DStyle.Flat;
-            gradientPanel5.BorderColor = Color.FromArgb(226, 232, 240);
+            gradientPanel5.BorderColor = Color.Gainsboro;
             gradientPanel5.BorderStyle = BorderStyle.FixedSingle;
             gradientPanel5.Controls.Add(gradientPanel4);
             gradientPanel5.Dock = DockStyle.Top;

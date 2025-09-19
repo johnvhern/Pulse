@@ -73,6 +73,46 @@ namespace Pulse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendar__3_ {
+            get {
+                object obj = ResourceManager.GetObject("calendar (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_check_big {
+            get {
+                object obj = ResourceManager.GetObject("circle-check-big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap circle_x {
+            get {
+                object obj = ResourceManager.GetObject("circle-x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clock {
+            get {
+                object obj = ResourceManager.GetObject("clock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye__1_ {
             get {
                 object obj = ResourceManager.GetObject("eye (1)", resourceCulture);
@@ -176,6 +216,16 @@ namespace Pulse.Properties {
         internal static System.Drawing.Bitmap users__2_ {
             get {
                 object obj = ResourceManager.GetObject("users (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users__3_ {
+            get {
+                object obj = ResourceManager.GetObject("users (3)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

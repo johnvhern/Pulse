@@ -16,5 +16,10 @@ namespace Pulse.UC.Screens
         {
             InitializeComponent();
         }
+
+        private void DashboardUC_Load(object sender, EventArgs e)
+        {
+            lblDate.Text = DateTime.Now.ToString("D");
+        }
     }
 }
