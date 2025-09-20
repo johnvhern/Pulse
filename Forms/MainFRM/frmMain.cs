@@ -81,7 +81,7 @@ namespace Pulse.Forms.MainFRM
 
         #endregion
 
-        public async void frmMain_Load(object sender, EventArgs e)
+        public void frmMain_Load(object sender, EventArgs e)
         {
 
             // Build options

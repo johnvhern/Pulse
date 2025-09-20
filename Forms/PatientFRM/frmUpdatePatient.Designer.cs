@@ -20,6 +20,16 @@
             base.Dispose(disposing);
         }
 
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDBLCLK = 0x00A3;
+            if (m.Msg == WM_NCLBUTTONDBLCLK)
+            {
+                return; // Ignore the double-click event on the title bar
+            }
+            base.WndProc(ref m);
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>

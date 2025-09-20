@@ -9,6 +9,7 @@ using System.Reflection;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
 using Pulse.Repository.AppointmentRepo;
+using Pulse.Forms.LoginFRM;
 
 namespace Pulse
 {
@@ -43,11 +44,11 @@ namespace Pulse
                 services.AddSingleton<IDoctorRepository, DoctorRepository>();
                 services.AddSingleton<IPatientRepository, PatientRepository>();
                 services.AddSingleton<IAppointmentRepository, AppointmentRepository>();
-                services.AddSingleton<frmMain>();
+                services.AddSingleton<frmLogin>();
             }).Build();
 
 
-            var form = ServiceProviderServiceExtensions.GetService<frmMain>(host.Services);
+            var form = ServiceProviderServiceExtensions.GetService<frmLogin>(host.Services);
             Application.Run(form);
 
         }
