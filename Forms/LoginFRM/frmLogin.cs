@@ -1,4 +1,6 @@
-﻿using Syncfusion.Windows.Forms;
+﻿using Pulse.Helper;
+using Pulse.Properties;
+using Syncfusion.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,37 @@ namespace Pulse.Forms.LoginFRM
         public frmLogin()
         {
             InitializeComponent();
+            SfButtonStyle.GreenButton(btnSignIn);            
+        }
+
+        private void imgShowPass_Click(object sender, EventArgs e)
+        {
+            if (txtPass.PasswordChar == '\u25CF')
+            {
+                txtPass.PasswordChar = '\0';
+                imgShowPass.Image = Resources.eye_off;
+            }
+            else
+            {
+                txtPass.PasswordChar = '\u25CF';
+                imgShowPass.Image = Resources.eye__2_;
+            }
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            txtPass.PasswordChar = '\u25CF';
+
+            if (string.IsNullOrEmpty(txtPass.Text))
+            {
+                txtPass.Clear();
+                imgShowPass.Visible = false;
+                imgShowPass.Image = Resources.eye__2_;
+            }
+            else
+            {
+                imgShowPass.Visible = true;
+            }
         }
     }
 }
