@@ -57,6 +57,7 @@ namespace Pulse.Forms.DoctorFRM
             if (string.IsNullOrEmpty(_doctor?.Error))
             {
                 _doctorRepository.Update(_doctor);
+                DataUpdateNotifier.NotifyDataUpdated();
                 MessageBoxAdv.Show("Doctor updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
@@ -116,6 +117,7 @@ namespace Pulse.Forms.DoctorFRM
             {
                 _doctorRepository.Delete(_doctor);
                 _bindingList.Remove(_doctor);
+                DataUpdateNotifier.NotifyDataUpdated();
                 MessageBoxAdv.Show("Doctor deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }

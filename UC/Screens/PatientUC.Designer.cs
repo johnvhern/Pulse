@@ -1,4 +1,6 @@
-﻿namespace Pulse.UC.Screens
+﻿using Pulse.Helper;
+
+namespace Pulse.UC.Screens
 {
     partial class PatientUC
     {
@@ -13,9 +15,15 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                // Your event unsubscription here
+                DataUpdateNotifier.DataUpdated -= LoadComboBox;
+
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
         }
@@ -296,7 +304,6 @@
             cbFilterDoctors.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbFilterDoctors.TabIndex = 0;
             cbFilterDoctors.SelectedValueChanged += cbFilterDoctors_SelectedValueChanged;
-            cbFilterDoctors.DropDownOpening += cbFilterDoctors_DropDownOpening;
             // 
             // gradientPanel4
             // 

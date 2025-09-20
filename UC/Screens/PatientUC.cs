@@ -30,6 +30,8 @@ namespace Pulse.UC.Screens
             _doctorRepository = doctorRepository;
             _patientRepository = patientRepository;
 
+            DataUpdateNotifier.DataUpdated += LoadComboBox;
+
             typeof(DataGridView).InvokeMember("DoubleBuffered",
             System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.SetProperty,
             null, dgvPatients, new object[] { true });
@@ -183,10 +185,5 @@ namespace Pulse.UC.Screens
         }
 
         #endregion
-
-        private void cbFilterDoctors_DropDownOpening(object sender, Syncfusion.WinForms.ListView.Events.DropDownOpeningEventArgs e)
-        {
-            LoadComboBox();
-        }
     }
 }

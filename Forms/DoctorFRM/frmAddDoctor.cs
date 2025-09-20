@@ -36,6 +36,7 @@ namespace Pulse.Forms.DoctorFRM
             {
                 _bindingList.Add(doctor);
                 _doctorRepository.Add(doctor);
+                DataUpdateNotifier.NotifyDataUpdated();
                 MessageBoxAdv.Show("Doctor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }

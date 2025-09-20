@@ -45,7 +45,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            txtUsername = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             pictureBox2 = new PictureBox();
             autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -64,7 +64,7 @@
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
             gradientPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textBoxExt1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtUsername).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             gradientPanel6.SuspendLayout();
@@ -108,6 +108,7 @@
             btnSignIn.Size = new Size(352, 41);
             btnSignIn.TabIndex = 0;
             btnSignIn.Text = "Sign In";
+            btnSignIn.Click += btnSignIn_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -139,24 +140,24 @@
             gradientPanel4.BackgroundImageLayout = ImageLayout.Center;
             gradientPanel4.BorderColor = Color.Gainsboro;
             gradientPanel4.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel4.Controls.Add(textBoxExt1);
+            gradientPanel4.Controls.Add(txtUsername);
             gradientPanel4.Controls.Add(pictureBox2);
             gradientPanel4.Location = new Point(3, 36);
             gradientPanel4.Name = "gradientPanel4";
             gradientPanel4.Size = new Size(346, 35);
             gradientPanel4.TabIndex = 0;
             // 
-            // textBoxExt1
+            // txtUsername
             // 
-            textBoxExt1.Anchor = AnchorStyles.Left;
-            textBoxExt1.BeforeTouchSize = new Size(283, 23);
-            textBoxExt1.BorderColor = Color.Transparent;
-            textBoxExt1.BorderStyle = BorderStyle.FixedSingle;
-            textBoxExt1.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxExt1.Location = new Point(28, 5);
-            textBoxExt1.Name = "textBoxExt1";
-            textBoxExt1.Size = new Size(313, 23);
-            textBoxExt1.TabIndex = 0;
+            txtUsername.Anchor = AnchorStyles.Left;
+            txtUsername.BeforeTouchSize = new Size(283, 23);
+            txtUsername.BorderColor = Color.Transparent;
+            txtUsername.BorderStyle = BorderStyle.FixedSingle;
+            txtUsername.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Location = new Point(28, 5);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(313, 23);
+            txtUsername.TabIndex = 0;
             // 
             // pictureBox2
             // 
@@ -287,6 +288,7 @@
             // 
             // frmLogin
             // 
+            AcceptButton = btnSignIn;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CaptionAlign = HorizontalAlignment.Left;
@@ -308,7 +310,7 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
             gradientPanel4.ResumeLayout(false);
             gradientPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textBoxExt1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtUsername).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             gradientPanel6.ResumeLayout(false);
@@ -340,7 +342,7 @@
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel3;
         private Syncfusion.WinForms.Controls.SfButton btnSignIn;
         private PictureBox pictureBox2;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtUsername;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtPass;
         private PictureBox imgShowPass;
     }

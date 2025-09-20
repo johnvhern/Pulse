@@ -1,4 +1,5 @@
-﻿using Pulse.Helper;
+﻿using Pulse.Forms.MainFRM;
+using Pulse.Helper;
 using Pulse.Properties;
 using Syncfusion.Windows.Forms;
 using System;
@@ -18,7 +19,7 @@ namespace Pulse.Forms.LoginFRM
         public frmLogin()
         {
             InitializeComponent();
-            SfButtonStyle.GreenButton(btnSignIn);            
+            SfButtonStyle.GreenButton(btnSignIn);
         }
 
         private void imgShowPass_Click(object sender, EventArgs e)
@@ -48,6 +49,19 @@ namespace Pulse.Forms.LoginFRM
             else
             {
                 imgShowPass.Visible = true;
+            }
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "admin" && txtPass.Text == "admin")
+            {
+                new frmMain().ShowDialog();
+                Close();
+            }
+            else
+            {
+                MessageBoxAdv.Show("Wrong");
             }
         }
     }
