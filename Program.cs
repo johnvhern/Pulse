@@ -11,12 +11,12 @@ using Pulse.Repository.PatientRepo;
 using Pulse.Repository.AppointmentRepo;
 using Pulse.Forms.LoginFRM;
 using Pulse.Repository.UserRepo;
+using Pulse.Forms.RegisterFRM;
 
 namespace Pulse
 {
     internal static class Program
     {
-       
         [STAThread]
         static void Main(string[] args)
         {
@@ -47,12 +47,26 @@ namespace Pulse
                 services.AddSingleton<IPatientRepository, PatientRepository>();
                 services.AddSingleton<IAppointmentRepository, AppointmentRepository>();
                 services.AddSingleton<frmLogin>();
+                services.AddSingleton<frmRegister>();
+                services.AddSingleton<OnLoadFormDirect>();
             }).Build();
 
+            var helper = new OnLoadFormDirect();
+            var whichForm = helper.whichForm();
 
-            var form = ServiceProviderServiceExtensions.GetService<frmLogin>(host.Services);
-            Application.Run(form);
+            if (whichForm == "login")
+            {
+                var loginForm = ServiceProviderServiceExtensions.GetRequiredService<frmLogin>(host.Services);
+                Application.Run(loginForm);
+            }
+            else
+            {
+                var registerForm = ServiceProviderServiceExtensions.GetRequiredService<frmRegister>(host.Services);
+                Application.Run(registerForm);
+            }
 
+            //var form = ServiceProviderServiceExtensions.GetService<frmLogin>(host.Services);
+            //Application.Run(form);
         }
     }
 }

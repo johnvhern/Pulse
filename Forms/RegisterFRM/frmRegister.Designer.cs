@@ -38,19 +38,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegister));
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            btnSignIn = new Syncfusion.WinForms.Controls.SfButton();
+            btnRegister = new Syncfusion.WinForms.Controls.SfButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
             autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            txtName = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            userBindingSource = new BindingSource(components);
+            autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             txtUsername = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             imgShowPass = new PictureBox();
             txtPass = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            cbShowPass = new CheckBox();
+            autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            imgShowConfirmPass = new PictureBox();
+            txtConfirmPass = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            lblConfirmPass = new Label();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -62,11 +71,19 @@
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
             gradientPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
+            gradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtUsername).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             gradientPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgShowPass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtPass).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
+            gradientPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imgShowConfirmPass).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtConfirmPass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -82,83 +99,132 @@
             gradientPanel1.Location = new Point(0, 0);
             gradientPanel1.Name = "gradientPanel1";
             gradientPanel1.Padding = new Padding(15);
-            gradientPanel1.Size = new Size(382, 501);
+            gradientPanel1.Size = new Size(382, 532);
             gradientPanel1.TabIndex = 1;
             // 
             // gradientPanel3
             // 
             gradientPanel3.BorderStyle = BorderStyle.None;
-            gradientPanel3.Controls.Add(btnSignIn);
+            gradientPanel3.Controls.Add(btnRegister);
             gradientPanel3.Dock = DockStyle.Top;
-            gradientPanel3.Location = new Point(15, 425);
+            gradientPanel3.Location = new Point(15, 465);
             gradientPanel3.Name = "gradientPanel3";
+            gradientPanel3.Padding = new Padding(2, 0, 2, 0);
             gradientPanel3.Size = new Size(352, 41);
             gradientPanel3.TabIndex = 3;
             // 
-            // btnSignIn
+            // btnRegister
             // 
-            btnSignIn.Dock = DockStyle.Fill;
-            btnSignIn.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSignIn.Location = new Point(0, 0);
-            btnSignIn.Name = "btnSignIn";
-            btnSignIn.Size = new Size(352, 41);
-            btnSignIn.TabIndex = 0;
-            btnSignIn.Text = "Sign In";
+            btnRegister.Dock = DockStyle.Fill;
+            btnRegister.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegister.Location = new Point(2, 0);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(348, 41);
+            btnRegister.TabIndex = 0;
+            btnRegister.Text = "Register";
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(autoLabel3);
             flowLayoutPanel1.Controls.Add(gradientPanel4);
+            flowLayoutPanel1.Controls.Add(autoLabel5);
+            flowLayoutPanel1.Controls.Add(gradientPanel5);
             flowLayoutPanel1.Controls.Add(autoLabel4);
             flowLayoutPanel1.Controls.Add(gradientPanel6);
-            flowLayoutPanel1.Controls.Add(cbShowPass);
+            flowLayoutPanel1.Controls.Add(autoLabel6);
+            flowLayoutPanel1.Controls.Add(gradientPanel7);
+            flowLayoutPanel1.Controls.Add(lblConfirmPass);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(15, 153);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(352, 272);
+            flowLayoutPanel1.Size = new Size(352, 312);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // autoLabel3
             // 
             autoLabel3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold);
             autoLabel3.ForeColor = Color.FromArgb(107, 112, 129);
-            autoLabel3.Location = new Point(3, 15);
-            autoLabel3.Margin = new Padding(3, 15, 3, 0);
+            autoLabel3.Location = new Point(3, 10);
+            autoLabel3.Margin = new Padding(3, 10, 3, 0);
             autoLabel3.Name = "autoLabel3";
-            autoLabel3.Size = new Size(73, 18);
+            autoLabel3.Size = new Size(45, 18);
             autoLabel3.TabIndex = 0;
-            autoLabel3.Text = "Username";
+            autoLabel3.Text = "Name";
             // 
             // gradientPanel4
             // 
             gradientPanel4.BackgroundImageLayout = ImageLayout.Center;
             gradientPanel4.BorderColor = Color.Gainsboro;
             gradientPanel4.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel4.Controls.Add(txtUsername);
-            gradientPanel4.Location = new Point(3, 36);
+            gradientPanel4.Controls.Add(txtName);
+            gradientPanel4.Location = new Point(3, 31);
             gradientPanel4.Name = "gradientPanel4";
+            gradientPanel4.Padding = new Padding(5, 5, 20, 5);
             gradientPanel4.Size = new Size(346, 35);
             gradientPanel4.TabIndex = 0;
             // 
+            // txtName
+            // 
+            txtName.BeforeTouchSize = new Size(289, 23);
+            txtName.BorderColor = Color.Transparent;
+            txtName.BorderStyle = BorderStyle.FixedSingle;
+            txtName.DataBindings.Add(new Binding("Text", userBindingSource, "Name", true));
+            txtName.Dock = DockStyle.Fill;
+            txtName.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtName.Location = new Point(5, 5);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(319, 23);
+            txtName.TabIndex = 1;
+            txtName.WordWrap = false;
+            // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(Model.User);
+            // 
+            // autoLabel5
+            // 
+            autoLabel5.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold);
+            autoLabel5.ForeColor = Color.FromArgb(107, 112, 129);
+            autoLabel5.Location = new Point(3, 79);
+            autoLabel5.Margin = new Padding(3, 10, 3, 0);
+            autoLabel5.Name = "autoLabel5";
+            autoLabel5.Size = new Size(73, 18);
+            autoLabel5.TabIndex = 4;
+            autoLabel5.Text = "Username";
+            // 
+            // gradientPanel5
+            // 
+            gradientPanel5.BackgroundImageLayout = ImageLayout.Center;
+            gradientPanel5.BorderColor = Color.Gainsboro;
+            gradientPanel5.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel5.Controls.Add(txtUsername);
+            gradientPanel5.Location = new Point(3, 100);
+            gradientPanel5.Name = "gradientPanel5";
+            gradientPanel5.Padding = new Padding(5, 5, 20, 5);
+            gradientPanel5.Size = new Size(346, 35);
+            gradientPanel5.TabIndex = 1;
+            // 
             // txtUsername
             // 
-            txtUsername.Anchor = AnchorStyles.Left;
-            txtUsername.BeforeTouchSize = new Size(283, 23);
+            txtUsername.BeforeTouchSize = new Size(289, 23);
             txtUsername.BorderColor = Color.Transparent;
             txtUsername.BorderStyle = BorderStyle.FixedSingle;
+            txtUsername.DataBindings.Add(new Binding("Text", userBindingSource, "Username", true));
+            txtUsername.Dock = DockStyle.Fill;
             txtUsername.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(28, -17);
+            txtUsername.Location = new Point(5, 5);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(313, 23);
-            txtUsername.TabIndex = 0;
+            txtUsername.Size = new Size(319, 23);
+            txtUsername.TabIndex = 2;
+            txtUsername.WordWrap = false;
             // 
             // autoLabel4
             // 
             autoLabel4.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold);
             autoLabel4.ForeColor = Color.FromArgb(107, 112, 129);
-            autoLabel4.Location = new Point(3, 94);
-            autoLabel4.Margin = new Padding(3, 20, 3, 0);
+            autoLabel4.Location = new Point(3, 148);
+            autoLabel4.Margin = new Padding(3, 10, 3, 0);
             autoLabel4.Name = "autoLabel4";
             autoLabel4.Size = new Size(69, 18);
             autoLabel4.TabIndex = 3;
@@ -170,10 +236,11 @@
             gradientPanel6.BorderStyle = BorderStyle.FixedSingle;
             gradientPanel6.Controls.Add(imgShowPass);
             gradientPanel6.Controls.Add(txtPass);
-            gradientPanel6.Location = new Point(3, 115);
+            gradientPanel6.Location = new Point(3, 169);
             gradientPanel6.Name = "gradientPanel6";
+            gradientPanel6.Padding = new Padding(5, 5, 50, 5);
             gradientPanel6.Size = new Size(346, 35);
-            gradientPanel6.TabIndex = 1;
+            gradientPanel6.TabIndex = 2;
             // 
             // imgShowPass
             // 
@@ -183,32 +250,84 @@
             imgShowPass.Name = "imgShowPass";
             imgShowPass.Size = new Size(20, 20);
             imgShowPass.SizeMode = PictureBoxSizeMode.Zoom;
-            imgShowPass.TabIndex = 2;
+            imgShowPass.TabIndex = 3;
             imgShowPass.TabStop = false;
             imgShowPass.Visible = false;
+            imgShowPass.Click += ShowPassword;
             // 
             // txtPass
             // 
-            txtPass.Anchor = AnchorStyles.Left;
-            txtPass.BeforeTouchSize = new Size(283, 23);
+            txtPass.BeforeTouchSize = new Size(289, 23);
             txtPass.BorderColor = Color.Transparent;
             txtPass.BorderStyle = BorderStyle.FixedSingle;
+            txtPass.Dock = DockStyle.Fill;
             txtPass.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPass.Location = new Point(28, -17);
+            txtPass.Location = new Point(5, 5);
             txtPass.Name = "txtPass";
-            txtPass.Size = new Size(283, 23);
-            txtPass.TabIndex = 1;
+            txtPass.Size = new Size(289, 23);
+            txtPass.TabIndex = 2;
+            txtPass.WordWrap = false;
+            txtPass.TextChanged += txtPass_TextChanged;
             // 
-            // cbShowPass
+            // autoLabel6
             // 
-            cbShowPass.AutoSize = true;
-            cbShowPass.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbShowPass.Location = new Point(3, 156);
-            cbShowPass.Name = "cbShowPass";
-            cbShowPass.Size = new Size(111, 21);
-            cbShowPass.TabIndex = 5;
-            cbShowPass.Text = "Remember Me";
-            cbShowPass.UseVisualStyleBackColor = true;
+            autoLabel6.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold);
+            autoLabel6.ForeColor = Color.FromArgb(107, 112, 129);
+            autoLabel6.Location = new Point(3, 217);
+            autoLabel6.Margin = new Padding(3, 10, 3, 0);
+            autoLabel6.Name = "autoLabel6";
+            autoLabel6.Size = new Size(123, 18);
+            autoLabel6.TabIndex = 6;
+            autoLabel6.Text = "Confirm Password";
+            // 
+            // gradientPanel7
+            // 
+            gradientPanel7.BorderColor = Color.Gainsboro;
+            gradientPanel7.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel7.Controls.Add(imgShowConfirmPass);
+            gradientPanel7.Controls.Add(txtConfirmPass);
+            gradientPanel7.Location = new Point(3, 238);
+            gradientPanel7.Name = "gradientPanel7";
+            gradientPanel7.Padding = new Padding(5, 5, 50, 5);
+            gradientPanel7.Size = new Size(346, 35);
+            gradientPanel7.TabIndex = 5;
+            // 
+            // imgShowConfirmPass
+            // 
+            imgShowConfirmPass.Anchor = AnchorStyles.Left;
+            imgShowConfirmPass.Image = Properties.Resources.eye__1_;
+            imgShowConfirmPass.Location = new Point(317, 6);
+            imgShowConfirmPass.Name = "imgShowConfirmPass";
+            imgShowConfirmPass.Size = new Size(20, 20);
+            imgShowConfirmPass.SizeMode = PictureBoxSizeMode.Zoom;
+            imgShowConfirmPass.TabIndex = 3;
+            imgShowConfirmPass.TabStop = false;
+            imgShowConfirmPass.Visible = false;
+            imgShowConfirmPass.Click += ShowPassword;
+            // 
+            // txtConfirmPass
+            // 
+            txtConfirmPass.BeforeTouchSize = new Size(289, 23);
+            txtConfirmPass.BorderColor = Color.Transparent;
+            txtConfirmPass.BorderStyle = BorderStyle.FixedSingle;
+            txtConfirmPass.Dock = DockStyle.Fill;
+            txtConfirmPass.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtConfirmPass.Location = new Point(5, 5);
+            txtConfirmPass.Name = "txtConfirmPass";
+            txtConfirmPass.Size = new Size(289, 23);
+            txtConfirmPass.TabIndex = 2;
+            txtConfirmPass.WordWrap = false;
+            txtConfirmPass.TextChanged += txtConfirmPass_TextChanged;
+            // 
+            // lblConfirmPass
+            // 
+            lblConfirmPass.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblConfirmPass.Location = new Point(3, 276);
+            lblConfirmPass.Name = "lblConfirmPass";
+            lblConfirmPass.Size = new Size(346, 21);
+            lblConfirmPass.TabIndex = 7;
+            lblConfirmPass.Text = "label1";
+            lblConfirmPass.Visible = false;
             // 
             // gradientPanel2
             // 
@@ -220,7 +339,7 @@
             gradientPanel2.Location = new Point(15, 15);
             gradientPanel2.Name = "gradientPanel2";
             gradientPanel2.Size = new Size(352, 138);
-            gradientPanel2.TabIndex = 99;
+            gradientPanel2.TabIndex = 1;
             // 
             // autoLabel2
             // 
@@ -261,7 +380,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font("Inter", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ClientSize = new Size(382, 501);
+            ClientSize = new Size(382, 532);
             Controls.Add(gradientPanel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "frmRegister";
@@ -269,6 +388,7 @@
             ShowMaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Register";
+            Load += frmRegister_Load;
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).EndInit();
             gradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).EndInit();
@@ -278,12 +398,22 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
             gradientPanel4.ResumeLayout(false);
             gradientPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
+            gradientPanel5.ResumeLayout(false);
+            gradientPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtUsername).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             gradientPanel6.ResumeLayout(false);
             gradientPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgShowPass).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtPass).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
+            gradientPanel7.ResumeLayout(false);
+            gradientPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)imgShowConfirmPass).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtConfirmPass).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
             gradientPanel2.PerformLayout();
@@ -295,19 +425,27 @@
 
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel1;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel3;
-        private Syncfusion.WinForms.Controls.SfButton btnSignIn;
+        private Syncfusion.WinForms.Controls.SfButton btnRegister;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel4;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtUsername;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel6;
-        private PictureBox imgShowPass;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtPass;
-        private CheckBox cbShowPass;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel2;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel1;
         private PictureBox pictureBox1;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel4;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel5;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel5;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel6;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtName;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtUsername;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtPass;
+        private PictureBox imgShowPass;
+        private BindingSource userBindingSource;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel7;
+        private PictureBox imgShowConfirmPass;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtConfirmPass;
+        private Label lblConfirmPass;
     }
 }

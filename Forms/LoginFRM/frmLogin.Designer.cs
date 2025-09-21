@@ -158,6 +158,7 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(313, 23);
             txtUsername.TabIndex = 0;
+            txtUsername.WordWrap = false;
             // 
             // pictureBox2
             // 
@@ -217,6 +218,7 @@
             txtPass.Name = "txtPass";
             txtPass.Size = new Size(283, 23);
             txtPass.TabIndex = 1;
+            txtPass.WordWrap = false;
             txtPass.TextChanged += txtPass_TextChanged;
             // 
             // pictureBox3
