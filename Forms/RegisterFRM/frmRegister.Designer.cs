@@ -38,7 +38,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegister));
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -47,7 +46,6 @@
             autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             txtName = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            userBindingSource = new BindingSource(components);
             autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             txtUsername = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -72,7 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
             gradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtName).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
             gradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtUsername).BeginInit();
@@ -122,6 +119,7 @@
             btnRegister.Size = new Size(348, 41);
             btnRegister.TabIndex = 0;
             btnRegister.Text = "Register";
+            btnRegister.Click += btnRegister_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -169,7 +167,6 @@
             txtName.BeforeTouchSize = new Size(289, 23);
             txtName.BorderColor = Color.Transparent;
             txtName.BorderStyle = BorderStyle.FixedSingle;
-            txtName.DataBindings.Add(new Binding("Text", userBindingSource, "Name", true));
             txtName.Dock = DockStyle.Fill;
             txtName.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtName.Location = new Point(5, 5);
@@ -177,10 +174,6 @@
             txtName.Size = new Size(319, 23);
             txtName.TabIndex = 1;
             txtName.WordWrap = false;
-            // 
-            // userBindingSource
-            // 
-            userBindingSource.DataSource = typeof(Model.User);
             // 
             // autoLabel5
             // 
@@ -210,7 +203,6 @@
             txtUsername.BeforeTouchSize = new Size(289, 23);
             txtUsername.BorderColor = Color.Transparent;
             txtUsername.BorderStyle = BorderStyle.FixedSingle;
-            txtUsername.DataBindings.Add(new Binding("Text", userBindingSource, "Username", true));
             txtUsername.Dock = DockStyle.Fill;
             txtUsername.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsername.Location = new Point(5, 5);
@@ -399,7 +391,6 @@
             gradientPanel4.ResumeLayout(false);
             gradientPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtName).EndInit();
-            ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
             gradientPanel5.ResumeLayout(false);
             gradientPanel5.PerformLayout();
@@ -441,7 +432,6 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtUsername;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtPass;
         private PictureBox imgShowPass;
-        private BindingSource userBindingSource;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel7;
         private PictureBox imgShowConfirmPass;

@@ -1,4 +1,5 @@
-﻿using Pulse.Forms.MainFRM;
+﻿using Pulse.Data;
+using Pulse.Forms.MainFRM;
 using Pulse.Helper;
 using Pulse.Properties;
 using Syncfusion.Windows.Forms;
