@@ -10,6 +10,7 @@ using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
 using Pulse.Repository.AppointmentRepo;
 using Pulse.Forms.LoginFRM;
+using Pulse.Repository.UserRepo;
 
 namespace Pulse
 {
@@ -41,6 +42,7 @@ namespace Pulse
                     options.UseSqlite(context.Configuration.GetConnectionString(connectionString));
                 }, ServiceLifetime.Singleton);
 
+                services.AddSingleton<IUserRepository, UserRepository>();
                 services.AddSingleton<IDoctorRepository, DoctorRepository>();
                 services.AddSingleton<IPatientRepository, PatientRepository>();
                 services.AddSingleton<IAppointmentRepository, AppointmentRepository>();

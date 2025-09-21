@@ -17,7 +17,6 @@ namespace Pulse.UC.Screens
         {
             if (disposing)
             {
-                // Your event unsubscription here
                 DataUpdateNotifier.DataUpdated -= LoadComboBox;
 
                 if (components != null)
