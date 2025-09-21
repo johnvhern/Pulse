@@ -19,41 +19,12 @@ namespace Pulse.Forms.LoginFRM
     public partial class frmLogin : MetroForm
     {
         private readonly PulseDbContext _db;
+
         public frmLogin(PulseDbContext db)
         {
             InitializeComponent();
             SfButtonStyle.GreenButton(btnSignIn);
             _db = db;
-        }
-
-        private void imgShowPass_Click(object sender, EventArgs e)
-        {
-            if (txtPass.PasswordChar == '\u25CF')
-            {
-                txtPass.PasswordChar = '\0';
-                imgShowPass.Image = Resources.eye_off;
-            }
-            else
-            {
-                txtPass.PasswordChar = '\u25CF';
-                imgShowPass.Image = Resources.eye__2_;
-            }
-        }
-
-        private void txtPass_TextChanged(object sender, EventArgs e)
-        {
-            txtPass.PasswordChar = '\u25CF';
-
-            if (string.IsNullOrEmpty(txtPass.Text))
-            {
-                txtPass.Clear();
-                imgShowPass.Visible = false;
-                imgShowPass.Image = Resources.eye__2_;
-            }
-            else
-            {
-                imgShowPass.Visible = true;
-            }
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
@@ -75,7 +46,8 @@ namespace Pulse.Forms.LoginFRM
                     ClearSession();
                 }
 
-                    new frmMain(_db).ShowDialog();
+                Hide();
+                new frmMain(_db).ShowDialog();
                 Close();
             }
             else
@@ -84,7 +56,7 @@ namespace Pulse.Forms.LoginFRM
             }
         }
 
-        void ClearSession()
+        private void ClearSession()
         {
             var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "usersession.dat");
             if (File.Exists(filePath))
@@ -93,6 +65,19 @@ namespace Pulse.Forms.LoginFRM
             }
         }
 
+        private void imgShowPass_Click(object sender, EventArgs e)
+        {
+            if (txtPass.PasswordChar == '\u25CF')
+            {
+                txtPass.PasswordChar = '\0';
+                imgShowPass.Image = Resources.eye_off;
+            }
+            else
+            {
+                txtPass.PasswordChar = '\u25CF';
+                imgShowPass.Image = Resources.eye__2_;
+            }
+        }
 
         private void SaveUserSession()
         {
@@ -104,6 +89,22 @@ namespace Pulse.Forms.LoginFRM
 
             var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "usersession.dat");
             File.WriteAllBytes(filePath, encrypted);
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            txtPass.PasswordChar = '\u25CF';
+
+            if (string.IsNullOrEmpty(txtPass.Text))
+            {
+                txtPass.Clear();
+                imgShowPass.Visible = false;
+                imgShowPass.Image = Resources.eye__2_;
+            }
+            else
+            {
+                imgShowPass.Visible = true;
+            }
         }
     }
 }
