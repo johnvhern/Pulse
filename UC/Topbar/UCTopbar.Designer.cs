@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo2 = new Syncfusion.Windows.Forms.BannerTextInfo();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             pictureBox1 = new PictureBox();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            lblUser = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
@@ -77,9 +77,9 @@
             // textBoxExt1
             // 
             textBoxExt1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            bannerTextInfo1.Text = "Search patients, doctors, appointments";
-            bannerTextInfo1.Visible = true;
-            bannerTextProvider1.SetBannerText(textBoxExt1, bannerTextInfo1);
+            bannerTextInfo2.Text = "Search patients, doctors, appointments";
+            bannerTextInfo2.Visible = true;
+            bannerTextProvider1.SetBannerText(textBoxExt1, bannerTextInfo2);
             textBoxExt1.BeforeTouchSize = new Size(440, 23);
             textBoxExt1.Border3DStyle = Border3DStyle.Flat;
             textBoxExt1.BorderColor = Color.Transparent;
@@ -104,7 +104,7 @@
             // gradientPanel2
             // 
             gradientPanel2.BorderStyle = BorderStyle.None;
-            gradientPanel2.Controls.Add(autoLabel2);
+            gradientPanel2.Controls.Add(lblUser);
             gradientPanel2.Controls.Add(autoLabel1);
             gradientPanel2.Dock = DockStyle.Right;
             gradientPanel2.Location = new Point(807, 5);
@@ -112,18 +112,18 @@
             gradientPanel2.Size = new Size(337, 61);
             gradientPanel2.TabIndex = 1;
             // 
-            // autoLabel2
+            // lblUser
             // 
-            autoLabel2.AutoSize = false;
-            autoLabel2.Dock = DockStyle.Fill;
-            autoLabel2.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            autoLabel2.ForeColor = Color.FromArgb(107, 114, 128);
-            autoLabel2.Location = new Point(0, 0);
-            autoLabel2.Name = "autoLabel2";
-            autoLabel2.Size = new Size(337, 30);
-            autoLabel2.TabIndex = 1;
-            autoLabel2.Text = "Welcome back, Jane Doe!";
-            autoLabel2.TextAlign = ContentAlignment.BottomRight;
+            lblUser.AutoSize = false;
+            lblUser.Dock = DockStyle.Fill;
+            lblUser.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUser.ForeColor = Color.FromArgb(107, 114, 128);
+            lblUser.Location = new Point(0, 0);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(337, 30);
+            lblUser.TabIndex = 1;
+            lblUser.Text = "Welcome back, Jane Doe!";
+            lblUser.TextAlign = ContentAlignment.BottomRight;
             // 
             // autoLabel1
             // 
@@ -146,6 +146,7 @@
             Controls.Add(gradientPanel1);
             Name = "UCTopbar";
             Size = new Size(1151, 73);
+            Load += UCTopbar_Load;
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).EndInit();
             gradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).EndInit();
@@ -162,7 +163,7 @@
 
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel1;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel2;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel lblUser;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel1;
         private Syncfusion.Windows.Forms.BannerTextProvider bannerTextProvider1;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel3;

@@ -1,4 +1,5 @@
 ﻿using Pulse.Forms.MainFRM;
+using Pulse.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,11 @@ namespace Pulse.UC.Topbar
         {
             InitializeComponent();
             _main = main;
+        }
+
+        private void UCTopbar_Load(object sender, EventArgs e)
+        {
+            lblUser.Text = $"Welcome Back, {UserSession.Name}!";
         }
     }
 }

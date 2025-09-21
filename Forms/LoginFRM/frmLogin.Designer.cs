@@ -52,7 +52,7 @@
             imgShowPass = new PictureBox();
             txtPass = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             pictureBox3 = new PictureBox();
-            cbShowPass = new CheckBox();
+            cbRememberMe = new CheckBox();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -116,7 +116,7 @@
             flowLayoutPanel1.Controls.Add(gradientPanel4);
             flowLayoutPanel1.Controls.Add(autoLabel4);
             flowLayoutPanel1.Controls.Add(gradientPanel6);
-            flowLayoutPanel1.Controls.Add(cbShowPass);
+            flowLayoutPanel1.Controls.Add(cbRememberMe);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(15, 153);
@@ -232,16 +232,16 @@
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
             // 
-            // cbShowPass
+            // cbRememberMe
             // 
-            cbShowPass.AutoSize = true;
-            cbShowPass.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbShowPass.Location = new Point(3, 156);
-            cbShowPass.Name = "cbShowPass";
-            cbShowPass.Size = new Size(111, 21);
-            cbShowPass.TabIndex = 5;
-            cbShowPass.Text = "Remember Me";
-            cbShowPass.UseVisualStyleBackColor = true;
+            cbRememberMe.AutoSize = true;
+            cbRememberMe.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbRememberMe.Location = new Point(3, 156);
+            cbRememberMe.Name = "cbRememberMe";
+            cbRememberMe.Size = new Size(111, 21);
+            cbRememberMe.TabIndex = 5;
+            cbRememberMe.Text = "Remember Me";
+            cbRememberMe.UseVisualStyleBackColor = true;
             // 
             // gradientPanel2
             // 
@@ -337,7 +337,7 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
-        private CheckBox cbShowPass;
+        private CheckBox cbRememberMe;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel4;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel6;
         private PictureBox pictureBox3;

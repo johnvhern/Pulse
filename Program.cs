@@ -13,11 +13,13 @@ using Pulse.Forms.LoginFRM;
 using Pulse.Repository.UserRepo;
 using Pulse.Forms.RegisterFRM;
 using Pulse.Helper;
+using Pulse.Service;
 
 namespace Pulse
 {
     internal static class Program
     {
+
         [STAThread]
         static void Main(string[] args)
         {
@@ -47,28 +49,35 @@ namespace Pulse
                 services.AddScoped<IAppointmentRepository, AppointmentRepository>();
                 services.AddScoped<IUserRepository, UserRepository>();
 
+                services.AddScoped<UserSessionService>();
                 services.AddScoped<frmLogin>();
                 services.AddScoped<frmRegister>();
                 services.AddScoped<OnLoadFormDirect>();
             }).Build();
 
-            using var scope = host.Services.CreateScope();
-            var services = scope.ServiceProvider;
+            var sessionService = ServiceProviderServiceExtensions.GetRequiredService<UserSessionService>(host.Services);
 
             var helper = ServiceProviderServiceExtensions.GetService<OnLoadFormDirect>(host.Services);
             var whichForm = helper.whichForm();
 
-            if (whichForm == "login")
+            if (sessionService.TryLoadUserSession())
             {
-                var loginForm = ServiceProviderServiceExtensions.GetRequiredService<frmLogin>(host.Services);
-                Application.Run(loginForm);
+                var mainForm = new frmMain(ServiceProviderServiceExtensions.GetRequiredService<PulseDbContext>(host.Services));
+                Application.Run(mainForm);
             }
             else
             {
-                var registerForm = ServiceProviderServiceExtensions.GetRequiredService<frmRegister>(host.Services);
-                Application.Run(registerForm);
+                if (whichForm == "login")
+                {
+                    var loginForm = ServiceProviderServiceExtensions.GetRequiredService<frmLogin>(host.Services);
+                    Application.Run(loginForm);
+                }
+                else
+                {
+                    var registerForm = ServiceProviderServiceExtensions.GetRequiredService<frmRegister>(host.Services);
+                    Application.Run(registerForm);
+                }
             }
-
             //var form = ServiceProviderServiceExtensions.GetRequiredService<frmLogin>(host.Services);
             //Application.Run(form);
         }

@@ -110,6 +110,8 @@ namespace Pulse.UC.Sidebar
 
             if (result == DialogResult.Yes)
             {
+                UserSession.Clear();
+                File.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "usersession.dat"));
                 this.ParentForm.Close();
                 Application.Restart();
             }

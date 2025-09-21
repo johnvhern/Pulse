@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -63,13 +64,46 @@ namespace Pulse.Forms.LoginFRM
 
             if (user != null && PasswordHasher.VerifyPassword(password, user.PasswordHash, user.PasswordSalt))
             {
-                new frmMain(_db).ShowDialog();
+                UserSession.SetUser(user.Id, user.Username, user.Name);
+
+                if (cbRememberMe.Checked)
+                {
+                    SaveUserSession();
+                }
+                else
+                {
+                    ClearSession();
+                }
+
+                    new frmMain(_db).ShowDialog();
                 Close();
             }
             else
             {
                 MessageBoxAdv.Show("Username or password is incorrect. Please try again.", "Invalid Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        void ClearSession()
+        {
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "usersession.dat");
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+        }
+
+
+        private void SaveUserSession()
+        {
+            var sessionData = $"{UserSession.UserId}|{UserSession.Username}|{UserSession.Name}";
+            var bytes = Encoding.UTF8.GetBytes(sessionData);
+
+            // Encrypt using DPAPI (Current user scope)
+            var encrypted = ProtectedData.Protect(bytes, null, DataProtectionScope.CurrentUser);
+
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "usersession.dat");
+            File.WriteAllBytes(filePath, encrypted);
         }
     }
 }
