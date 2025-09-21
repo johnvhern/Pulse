@@ -12,6 +12,7 @@ using Pulse.Repository.AppointmentRepo;
 using Pulse.Forms.LoginFRM;
 using Pulse.Repository.UserRepo;
 using Pulse.Forms.RegisterFRM;
+using Pulse.Helper;
 
 namespace Pulse
 {
@@ -29,29 +30,32 @@ namespace Pulse
 
             string secretValue = config["SyncfusionLicense"];
 
-
             ApplicationConfiguration.Initialize();
             AppDomain.CurrentDomain.SetData("DataDirectory", AppDomain.CurrentDomain.BaseDirectory);
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(secretValue);
 
             IHost host = Host.CreateDefaultBuilder(args).ConfigureServices((context, services) =>
             {
-                const string connectionString = "PulseDB";
+                var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PulseDB.db");
                 services.AddDbContext<PulseDbContext>(options =>
                 {
-                    options.UseSqlite(context.Configuration.GetConnectionString(connectionString));
-                }, ServiceLifetime.Singleton);
+                    options.UseSqlite($"Data Source={dbPath}");
+                }, ServiceLifetime.Scoped);
 
-                services.AddSingleton<IUserRepository, UserRepository>();
-                services.AddSingleton<IDoctorRepository, DoctorRepository>();
-                services.AddSingleton<IPatientRepository, PatientRepository>();
-                services.AddSingleton<IAppointmentRepository, AppointmentRepository>();
-                services.AddSingleton<frmLogin>();
-                services.AddSingleton<frmRegister>();
-                services.AddSingleton<OnLoadFormDirect>();
+                services.AddScoped<IDoctorRepository, DoctorRepository>();
+                services.AddScoped<IPatientRepository, PatientRepository>();
+                services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+                services.AddScoped<IUserRepository, UserRepository>();
+
+                services.AddScoped<frmLogin>();
+                services.AddScoped<frmRegister>();
+                services.AddScoped<OnLoadFormDirect>();
             }).Build();
 
-            var helper = new OnLoadFormDirect();
+            using var scope = host.Services.CreateScope();
+            var services = scope.ServiceProvider;
+
+            var helper = ServiceProviderServiceExtensions.GetService<OnLoadFormDirect>(host.Services);
             var whichForm = helper.whichForm();
 
             if (whichForm == "login")
@@ -65,7 +69,7 @@ namespace Pulse
                 Application.Run(registerForm);
             }
 
-            //var form = ServiceProviderServiceExtensions.GetService<frmLogin>(host.Services);
+            //var form = ServiceProviderServiceExtensions.GetRequiredService<frmLogin>(host.Services);
             //Application.Run(form);
         }
     }

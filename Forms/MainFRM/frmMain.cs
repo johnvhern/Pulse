@@ -15,31 +15,26 @@ namespace Pulse.Forms.MainFRM
     public partial class frmMain : MetroForm
     {
         private bool isDragging = false;
+        private readonly PulseDbContext _db;
 
-        public frmMain()
+        public frmMain(PulseDbContext db)
         {
             InitializeComponent();
             this.Text = $"Pulse - {Application.ProductVersion}";
             this.CaptionFont = new Font("Inter", 9F, FontStyle.Regular);
             this.WindowState = FormWindowState.Maximized;
 
+            _db = db;
+
             // Add Topbar
             UCTopbar topbar = new UCTopbar(this);
             topbar.Dock = DockStyle.Top;
             this.Controls.Add(topbar);
 
-            // Build options
-            var options = new DbContextOptionsBuilder<PulseDbContext>()
-                .UseSqlite($"Data Source={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PulseDB.db")}")
-                .Options;
-
-            // Create context
-            var context = new PulseDbContext(options);
-
             // Add Sidebar
-            var doctorRepo = new DoctorRepository(context);
-            var patientRepo = new PatientRepository(context);
-            var appointmentRepo = new AppointmentRepository(context);
+            var doctorRepo = new DoctorRepository(_db);
+            var patientRepo = new PatientRepository(_db);
+            var appointmentRepo = new AppointmentRepository(_db);
             UCSidebar sidebar = new UCSidebar(this, doctorRepo, patientRepo, appointmentRepo);
             sidebar.Dock = DockStyle.Left;
             this.Controls.Add(sidebar);
@@ -84,18 +79,18 @@ namespace Pulse.Forms.MainFRM
         public void frmMain_Load(object sender, EventArgs e)
         {
 
-            // Build options
-            var options = new DbContextOptionsBuilder<PulseDbContext>()
-                .UseSqlite($"Data Source={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PulseDB.db")}")
-                .Options;
+            //// Build options
+            //var options = new DbContextOptionsBuilder<PulseDbContext>()
+            //    .UseSqlite($"Data Source={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "PulseDB.db")}")
+            //    .Options;
 
-            // Create context
-            var context = new PulseDbContext(options);
+            //// Create context
+            //var context = new PulseDbContext(options);
 
             // Add Sidebar
-            var doctorRepo = new DoctorRepository(context);
-            var patientRepo = new PatientRepository(context);
-            var appointmentRepo = new AppointmentRepository(context);
+            var doctorRepo = new DoctorRepository(_db);
+            var patientRepo = new PatientRepository(_db);
+            var appointmentRepo = new AppointmentRepository(_db);
 
             OpenScreen(new DashboardUC(patientRepo, doctorRepo, appointmentRepo));
         }

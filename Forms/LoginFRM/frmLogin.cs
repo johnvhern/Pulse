@@ -17,10 +17,12 @@ namespace Pulse.Forms.LoginFRM
 {
     public partial class frmLogin : MetroForm
     {
-        public frmLogin()
+        private readonly PulseDbContext _db;
+        public frmLogin(PulseDbContext db)
         {
             InitializeComponent();
             SfButtonStyle.GreenButton(btnSignIn);
+            _db = db;
         }
 
         private void imgShowPass_Click(object sender, EventArgs e)
@@ -55,14 +57,18 @@ namespace Pulse.Forms.LoginFRM
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "admin" && txtPass.Text == "admin")
+            var username = txtUsername.Text.Trim();
+            var password = txtPass.Text.Trim();
+            var user = _db.Users.FirstOrDefault(u => u.Username == username);
+
+            if (user != null && PasswordHasher.VerifyPassword(password, user.PasswordHash, user.PasswordSalt))
             {
-                new frmMain().ShowDialog();
+                new frmMain(_db).ShowDialog();
                 Close();
             }
             else
             {
-                MessageBoxAdv.Show("Wrong");
+                MessageBoxAdv.Show("Username or password is incorrect. Please try again.", "Invalid Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

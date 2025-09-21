@@ -18,13 +18,15 @@ using System.Windows.Forms;
 namespace Pulse.Forms.RegisterFRM
 {
     public partial class frmRegister : MetroForm
-    { 
+    {
+        private readonly PulseDbContext _db;
         private readonly IUserRepository _userRepository;
-        public frmRegister(IUserRepository userRepository)
+        public frmRegister(IUserRepository userRepository, PulseDbContext db)
         {
             InitializeComponent();
             SfButtonStyle.GreenButton(btnRegister);
 
+            _db = db;
             _userRepository = userRepository;
         }
 
@@ -129,7 +131,7 @@ namespace Pulse.Forms.RegisterFRM
 
             MessageBoxAdv.Show("User registration complete. Please login.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Hide();
-            new frmLogin().ShowDialog();
+            new frmLogin(_db).ShowDialog();
             Close();
         }
     }
