@@ -11,7 +11,7 @@ namespace Pulse.Repository.PatientRepo
         Task<IEnumerable<Patient>> GetByDoctorId(int doctorId);
         // get all patients assigned to a specific doctor
 
-        Task<IEnumerable<Patient>> SearchByName(string name);
+        Task<IEnumerable<Patient>> SearchByNameEmail(string name);
         // find patients by name (useful for search bars)
     }
 }

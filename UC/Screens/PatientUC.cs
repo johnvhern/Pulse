@@ -160,28 +160,38 @@ namespace Pulse.UC.Screens
 
             var selectedDoctor = (int)cbFilterDoctors.SelectedValue;
 
-            string query = txtSearchPatient.Text.Trim();
+            string query = txtSearchPatient.Text;
             var patients = await _patientRepository.GetAll();
 
-            if (string.IsNullOrEmpty(query))
+            if (!string.IsNullOrEmpty(txtSearchPatient.Text))
             {
-                if (selectedDoctor > 0)
-                {
-                    var result = await _patientRepository.GetByDoctorId(selectedDoctor);
-                    patientBindingSource.DataSource = new BindingList<Patient>(result.ToList());
-                }
-                else if (selectedDoctor == 0)
-                {
-                    patientBindingSource.DataSource = new BindingList<Patient>(patients.ToList());
-                }
+                var results = await _patientRepository.SearchByNameEmail(query);
+                patientBindingSource.DataSource = new BindingList<Patient>(results.ToList());
             }
             else
             {
-                var filtered = patients
-                    .Where(p => p.FullName.Contains(query, StringComparison.OrdinalIgnoreCase) || p.EmailAddress.Contains(query, StringComparison.OrdinalIgnoreCase)).ToList();
-
-                patientBindingSource.DataSource = new BindingList<Patient>(filtered);
+                patientBindingSource.DataSource = new BindingList<Patient>(patients.ToList());
             }
+
+            //if (string.IsNullOrEmpty(query))
+            //{
+            //    if (selectedDoctor > 0)
+            //    {
+            //        var result = await _patientRepository.GetByDoctorId(selectedDoctor);
+            //        patientBindingSource.DataSource = new BindingList<Patient>(result.ToList());
+            //    }
+            //    else if (selectedDoctor == 0)
+            //    {
+            //        patientBindingSource.DataSource = new BindingList<Patient>(patients.ToList());
+            //    }
+            //}
+            //else
+            //{
+            //    var filtered = patients
+            //        .Where(p => p.FullName.Contains(query, StringComparison.OrdinalIgnoreCase) || p.EmailAddress.Contains(query, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            //    patientBindingSource.DataSource = new BindingList<Patient>(filtered);
+            //}
         }
 
         #endregion

@@ -37,9 +37,16 @@ namespace Pulse.Repository.PatientRepo
                            .ToListAsync();
         }
 
-        public Task<IEnumerable<Patient>> SearchByName(string name)
+        public Task<IEnumerable<Patient>> SearchByNameEmail(string query)
         {
-            throw new NotImplementedException();
+            var lowerQuery = query?.ToLower() ?? string.Empty;
+            var result = _db.Patients
+                 .Where(p =>
+                     (!string.IsNullOrEmpty(p.FullName) && p.FullName.ToLower().Contains(lowerQuery)) ||
+                     (!string.IsNullOrEmpty(p.EmailAddress) && p.EmailAddress.ToLower().Contains(lowerQuery)))
+                 .ToList();
+
+            return Task.FromResult(result.AsEnumerable());
         }
 
         public async Task Update(Patient paitent)
