@@ -1,4 +1,5 @@
-﻿using Pulse.Forms.AppointmentFRM;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using Pulse.Forms.AppointmentFRM;
 using Pulse.Helper;
 using Pulse.Model;
 using Pulse.Repository.AppointmentRepo;
@@ -30,6 +31,8 @@ namespace Pulse.UC.Screens
             _appointmentRepository = appointmentRepository;
             _patientRepository = patientRepository;
             _doctorRepository = doctorRepository;
+
+            DataUpdateNotifier.DataUpdated += LoadAppointmentsByDate;
         }
 
         private void btnScheduleAppointment_Click(object sender, EventArgs e)
@@ -150,6 +153,11 @@ namespace Pulse.UC.Screens
         }
 
         private async void cbDateRange_SelectedValueChanged(object sender, EventArgs e)
+        {
+            LoadAppointmentsByDate();
+        }
+
+        private async void LoadAppointmentsByDate()
         {
             if (cbDateRange.SelectedItem == null)
             {

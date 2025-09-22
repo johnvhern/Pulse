@@ -21,6 +21,16 @@ namespace Pulse.Repository.PatientRepo
 
         public async Task Delete(Patient patient)
         {
+            // Check if the patient has any appointments with "Scheduled" status
+            bool hasScheduledAppointments = await _db.Appointments
+                .AnyAsync(a => a.PatientId == patient.Id && a.Status == "Scheduled");
+
+            if (hasScheduledAppointments)
+            {
+                throw new InvalidOperationException("Patient cannot be deleted because they have scheduled appointments.");
+            }
+
+            // If no scheduled appointments exist, safe to delete
             _db.Patients.Remove(patient);
             await _db.SaveChangesAsync();
         }

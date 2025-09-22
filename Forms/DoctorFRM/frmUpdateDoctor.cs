@@ -109,20 +109,36 @@ namespace Pulse.Forms.DoctorFRM
             }
         }
 
-        private void btnDeleteDoctor_Click(object sender, EventArgs e)
+        private async void btnDeleteDoctor_Click(object sender, EventArgs e)
         {
-            var result = MessageBoxAdv.Show($"Are you sure you want to delete this doctor {txtFullName.Text}? This action cannot be undone.", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var result = MessageBoxAdv.Show(
+                $"Are you sure you want to delete this doctor {txtFullName.Text}? This action cannot be undone.",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Yes)
+            if (result != DialogResult.Yes)
+                return;
+
+            try
             {
-                _doctorRepository.Delete(_doctor);
+                await _doctorRepository.Delete(_doctor); // Await the async delete method
                 _bindingList.Remove(_doctor);
                 DataUpdateNotifier.NotifyDataUpdated();
                 MessageBoxAdv.Show("Doctor deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
-            else
-                return;
+            catch (InvalidOperationException ex)
+            {
+                // Show the message from the Delete method about existing patients or appointments
+                MessageBoxAdv.Show(ex.Message, "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                // General exception catch in case of other issues
+                MessageBoxAdv.Show("An error occurred while deleting the doctor: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }
