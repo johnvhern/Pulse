@@ -21,22 +21,20 @@ namespace Pulse.UC.Sidebar
 {
     public partial class UCSidebar : UserControl
     {
-        SfButton activeButton;
-        frmMain _main;
-
+        private readonly IAppointmentRepository _appointmentRepository;
         private readonly IDoctorRepository _doctorRepository;
         private readonly IPatientRepository _patientRepository;
-        private readonly IAppointmentRepository _appointmentRepository;
-
+        private frmMain _main;
+        private SfButton activeButton;
         #region -- Screen Instances --
 
-        DashboardUC dashboard;
-        DoctorUC doctor;
-        PatientUC patient;
-        AppointmentUC appointment;
-        ReportsUC reports;
+        private AppointmentUC appointment;
+        private DashboardUC dashboard;
+        private DoctorUC doctor;
+        private PatientUC patient;
+        private ReportsUC reports;
 
-        #endregion
+        #endregion -- Screen Instances --
 
         public UCSidebar(frmMain main, IDoctorRepository doctorRepository, IPatientRepository patientRepository, IAppointmentRepository appointmentRepository)
         {
@@ -72,35 +70,22 @@ namespace Pulse.UC.Sidebar
 
         #region -- Button Click Events --
 
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            _main.OpenScreen(dashboard);
-            ColorActiveButton(btnDashboard);
-
-        }
-
-        private void btnDoctor_Click(object sender, EventArgs e)
-        {
-            _main.OpenScreen(doctor);
-            ColorActiveButton(btnDoctor);
-        }
-
-        private void btnPatient_Click(object sender, EventArgs e)
-        {
-            _main.OpenScreen(patient);
-            ColorActiveButton(btnPatient);
-        }
-
         private void btnAppointment_Click(object sender, EventArgs e)
         {
             _main.OpenScreen(appointment);
             ColorActiveButton(btnAppointment);
         }
 
-        private void btnReports_Click(object sender, EventArgs e)
+        private void btnDashboard_Click(object sender, EventArgs e)
         {
-            _main.OpenScreen(reports);
-            ColorActiveButton(btnReports);
+            _main.OpenScreen(dashboard);
+            ColorActiveButton(btnDashboard);
+        }
+
+        private void btnDoctor_Click(object sender, EventArgs e)
+        {
+            _main.OpenScreen(doctor);
+            ColorActiveButton(btnDoctor);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -121,7 +106,17 @@ namespace Pulse.UC.Sidebar
             }
         }
 
-        #endregion
+        private void btnPatient_Click(object sender, EventArgs e)
+        {
+            _main.OpenScreen(patient);
+            ColorActiveButton(btnPatient);
+        }
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            _main.OpenScreen(reports);
+            ColorActiveButton(btnReports);
+        }
+        #endregion -- Button Click Events --
 
         private void UCSidebar_Load(object sender, EventArgs e)
         {
