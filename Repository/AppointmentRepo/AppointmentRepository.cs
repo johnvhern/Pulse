@@ -60,9 +60,16 @@ namespace Pulse.Repository.AppointmentRepo
             return await query.ToListAsync();
         }
 
-        public Task<IEnumerable<Appointment>> SearchAppointment(string name)
+        public Task<IEnumerable<Appointment>> SearchAppointment(string query)
         {
-            throw new NotImplementedException();
+            var lowerQuery = query?.ToLower() ?? string.Empty;
+            var result = _db.Appointments
+                 .Where(p =>
+                     (!string.IsNullOrEmpty(p.Patient.FullName) && p.Patient.FullName.ToLower().Contains(lowerQuery)) ||
+                     (!string.IsNullOrEmpty(p.Doctor.FullName) && p.Doctor.FullName.ToLower().Contains(lowerQuery)))
+                 .ToList();
+
+            return Task.FromResult(result.AsEnumerable());
         }
 
         public async Task Update(Appointment appointment)

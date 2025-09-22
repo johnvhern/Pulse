@@ -163,7 +163,7 @@ namespace Pulse.UC.Screens
             string query = txtSearchPatient.Text;
             var patients = await _patientRepository.GetAll();
 
-            if (!string.IsNullOrEmpty(txtSearchPatient.Text))
+            if (!string.IsNullOrEmpty(query))
             {
                 var results = await _patientRepository.SearchByNameEmail(query);
                 patientBindingSource.DataSource = new BindingList<Patient>(results.ToList());

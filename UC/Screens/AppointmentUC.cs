@@ -221,10 +221,8 @@ namespace Pulse.UC.Screens
             }
             else
             {
-                var filtered = appointments
-                    .Where(p => p.Patient.FullName.Contains(query, StringComparison.OrdinalIgnoreCase) || p.Doctor.FullName.Contains(query, StringComparison.OrdinalIgnoreCase)).ToList();
-
-                appointmentBindingSource.DataSource = new BindingList<Appointment>(filtered);
+                var results = await _appointmentRepository.SearchAppointment(query);
+                appointmentBindingSource.DataSource = new BindingList<Appointment>(results.ToList());
             }
         }
     }
