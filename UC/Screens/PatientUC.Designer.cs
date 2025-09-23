@@ -296,8 +296,10 @@ namespace Pulse.UC.Screens
             cbFilterDoctors.Name = "cbFilterDoctors";
             cbFilterDoctors.Size = new Size(207, 35);
             cbFilterDoctors.Style.EditorStyle.BackColor = Color.White;
+            cbFilterDoctors.Style.EditorStyle.FocusedBorderColor = Color.FromArgb(227, 254, 240);
             cbFilterDoctors.Style.EditorStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbFilterDoctors.Style.ReadOnlyEditorStyle.BackColor = Color.White;
+            cbFilterDoctors.Style.ReadOnlyEditorStyle.FocusedBorderColor = Color.FromArgb(227, 254, 240);
             cbFilterDoctors.Style.ReadOnlyEditorStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbFilterDoctors.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
             cbFilterDoctors.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -322,7 +324,7 @@ namespace Pulse.UC.Screens
             bannerTextInfo1.Text = "Search patients by name or email";
             bannerTextInfo1.Visible = true;
             bannerTextProvider1.SetBannerText(txtSearchPatient, bannerTextInfo1);
-            txtSearchPatient.BeforeTouchSize = new Size(801, 23);
+            txtSearchPatient.BeforeTouchSize = new Size(1016, 23);
             txtSearchPatient.Border3DStyle = Border3DStyle.Flat;
             txtSearchPatient.BorderColor = Color.Transparent;
             txtSearchPatient.BorderStyle = BorderStyle.FixedSingle;
