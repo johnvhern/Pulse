@@ -18,11 +18,11 @@ namespace Pulse.Forms.AppointmentFRM
 {
     public partial class frmAddAppointment : MetroForm
     {
-        private readonly IBindingList _bindingList;
-        private readonly IPatientRepository _patientRepository;
-        private readonly IDoctorRepository _doctorRepository;
         private readonly IAppointmentRepository _appointmentRepository;
-        public frmAddAppointment(IBindingList bindingList, IAppointmentRepository appointmentRepository , IPatientRepository patientRepository, IDoctorRepository doctorRepository)
+        private readonly IBindingList _bindingList;
+        private readonly IDoctorRepository _doctorRepository;
+        private readonly IPatientRepository _patientRepository;
+        public frmAddAppointment(IBindingList bindingList, IAppointmentRepository appointmentRepository, IPatientRepository patientRepository, IDoctorRepository doctorRepository)
         {
             InitializeComponent();
             SfButtonStyle.GreenButton(btnAddAppointment);
@@ -33,26 +33,6 @@ namespace Pulse.Forms.AppointmentFRM
             _doctorRepository = doctorRepository;
             _appointmentRepository = appointmentRepository;
             appointmentBindingSource.DataSource = new List<Appointment>();
-        }
-
-        private async void frmAddAppointment_Load(object sender, EventArgs e)
-        {
-            #region -- Combobox Data Load --
-
-            var _patients = await _patientRepository.GetAll();
-            var _doctors = await _doctorRepository.GetAll();
-
-            cbSelectedPatient.DisplayMember = "FullName";
-            cbSelectedPatient.ValueMember = "Id";
-            cbSelectedPatient.DataSource = _patients.ToList();
-
-            cbSelectedDoctor.DisplayMember = "FullName";
-            cbSelectedDoctor.ValueMember = "Id";
-            cbSelectedDoctor.DataSource = _doctors.ToList();
-
-            #endregion
-
-            appointmentBindingSource.AddNew();
         }
 
         private void btnAddAppointment_Click(object sender, EventArgs e)
@@ -67,7 +47,6 @@ namespace Pulse.Forms.AppointmentFRM
 
                 if (string.IsNullOrEmpty(appointment?.Error))
                 {
-
                     _bindingList.Add(appointment);
                     _appointmentRepository.Add(appointment);
                     DataUpdateNotifier.NotifyDataUpdated();
@@ -78,7 +57,6 @@ namespace Pulse.Forms.AppointmentFRM
                 {
                     ValidateControls(this, appointment);
                 }
-
             }
             else
             {
@@ -89,7 +67,7 @@ namespace Pulse.Forms.AppointmentFRM
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(cbSelectedPatient.Text) || !string.IsNullOrEmpty(cbSelectedDoctor.Text)  || !string.IsNullOrWhiteSpace(txtNotes.Text))
+            if (!string.IsNullOrEmpty(cbSelectedPatient.Text) || !string.IsNullOrEmpty(cbSelectedDoctor.Text) || !string.IsNullOrWhiteSpace(txtNotes.Text))
             {
                 var result = MessageBoxAdv.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
@@ -107,6 +85,25 @@ namespace Pulse.Forms.AppointmentFRM
             }
         }
 
+        private async void frmAddAppointment_Load(object sender, EventArgs e)
+        {
+            #region -- Combobox Data Load --
+
+            var _patients = await _patientRepository.GetAll();
+            var _doctors = await _doctorRepository.GetAll();
+
+            cbSelectedPatient.DisplayMember = "FullName";
+            cbSelectedPatient.ValueMember = "Id";
+            cbSelectedPatient.DataSource = _patients.ToList();
+
+            cbSelectedDoctor.DisplayMember = "FullName";
+            cbSelectedDoctor.ValueMember = "Id";
+            cbSelectedDoctor.DataSource = _doctors.ToList();
+
+            #endregion -- Combobox Data Load --
+
+            appointmentBindingSource.AddNew();
+        }
         private void ValidateControls(Control parent, Appointment appointment)
         {
             foreach (Control control in parent.Controls)

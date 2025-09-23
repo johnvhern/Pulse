@@ -396,9 +396,9 @@
             autoLabel2.ForeColor = Color.FromArgb(147, 150, 159);
             autoLabel2.Location = new Point(3, 30);
             autoLabel2.Name = "autoLabel2";
-            autoLabel2.Size = new Size(235, 18);
+            autoLabel2.Size = new Size(267, 18);
             autoLabel2.TabIndex = 1;
-            autoLabel2.Text = "Generate and export various reports";
+            autoLabel2.Text = "Generate and export appointment reports";
             // 
             // autoLabel1
             // 

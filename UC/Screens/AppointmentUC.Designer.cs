@@ -39,22 +39,15 @@ namespace Pulse.UC.Screens
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Syncfusion.Windows.Forms.BannerTextInfo bannerTextInfo1 = new Syncfusion.Windows.Forms.BannerTextInfo();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             dgvAppointments = new DataGridView();
-            PatientId = new DataGridViewComboBoxColumn();
-            patientBindingSource = new BindingSource(components);
-            DoctorId = new DataGridViewComboBoxColumn();
             doctorBindingSource = new BindingSource(components);
-            dateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewComboBoxColumn();
-            notesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Actions = new DataGridViewButtonColumn();
             appointmentBindingSource = new BindingSource(components);
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -69,8 +62,15 @@ namespace Pulse.UC.Screens
             sfButton2 = new Syncfusion.WinForms.Controls.SfButton();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            patientBindingSource = new BindingSource(components);
             bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
             timerSearch = new System.Windows.Forms.Timer(components);
+            PatientId = new DataGridViewComboBoxColumn();
+            DoctorId = new DataGridViewComboBoxColumn();
+            dateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewComboBoxColumn();
+            notesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Actions = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -79,7 +79,6 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
             gradientPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAppointments).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)appointmentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
@@ -94,6 +93,7 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -203,77 +203,9 @@ namespace Pulse.UC.Screens
             dgvAppointments.CellPainting += dgvAppointments_CellPainting;
             dgvAppointments.EditingControlShowing += dgvAppointments_EditingControlShowing;
             // 
-            // PatientId
-            // 
-            PatientId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            PatientId.DataPropertyName = "PatientId";
-            PatientId.DataSource = patientBindingSource;
-            PatientId.DisplayMember = "FullName";
-            PatientId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            PatientId.HeaderText = "Patient";
-            PatientId.Name = "PatientId";
-            PatientId.ValueMember = "Id";
-            // 
-            // patientBindingSource
-            // 
-            patientBindingSource.DataSource = typeof(Model.Patient);
-            // 
-            // DoctorId
-            // 
-            DoctorId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DoctorId.DataPropertyName = "DoctorId";
-            DoctorId.DataSource = doctorBindingSource;
-            DoctorId.DisplayMember = "FullName";
-            DoctorId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            DoctorId.HeaderText = "Doctor";
-            DoctorId.Name = "DoctorId";
-            DoctorId.ValueMember = "Id";
-            // 
             // doctorBindingSource
             // 
             doctorBindingSource.DataSource = typeof(Model.Doctor);
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            dateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            dateDataGridViewTextBoxColumn.ReadOnly = true;
-            dateDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
-            // 
-            // Status
-            // 
-            Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Status.DataPropertyName = "Status";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.Padding = new Padding(0, 8, 100, 5);
-            Status.DefaultCellStyle = dataGridViewCellStyle2;
-            Status.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
-            Status.HeaderText = "Status";
-            Status.Items.AddRange(new object[] { "Scheduled", "Completed", "Cancelled", "No-show" });
-            Status.Name = "Status";
-            Status.Resizable = DataGridViewTriState.False;
-            // 
-            // notesDataGridViewTextBoxColumn
-            // 
-            notesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
-            notesDataGridViewTextBoxColumn.HeaderText = "Notes";
-            notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
-            notesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Actions
-            // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Padding = new Padding(20, 3, 20, 3);
-            Actions.DefaultCellStyle = dataGridViewCellStyle3;
-            Actions.HeaderText = "Actions";
-            Actions.Name = "Actions";
-            Actions.ReadOnly = true;
-            Actions.Resizable = DataGridViewTriState.False;
-            Actions.Width = 80;
             // 
             // appointmentBindingSource
             // 
@@ -459,10 +391,78 @@ namespace Pulse.UC.Screens
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Appointments";
             // 
+            // patientBindingSource
+            // 
+            patientBindingSource.DataSource = typeof(Model.Patient);
+            // 
             // timerSearch
             // 
             timerSearch.Interval = 500;
             timerSearch.Tick += timerSearch_Tick;
+            // 
+            // PatientId
+            // 
+            PatientId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientId.DataPropertyName = "PatientId";
+            PatientId.DataSource = patientBindingSource;
+            PatientId.DisplayMember = "FullName";
+            PatientId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            PatientId.HeaderText = "Patient";
+            PatientId.Name = "PatientId";
+            PatientId.ValueMember = "Id";
+            // 
+            // DoctorId
+            // 
+            DoctorId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DoctorId.DataPropertyName = "DoctorId";
+            DoctorId.DataSource = doctorBindingSource;
+            DoctorId.DisplayMember = "FullName";
+            DoctorId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            DoctorId.HeaderText = "Doctor";
+            DoctorId.Name = "DoctorId";
+            DoctorId.ValueMember = "Id";
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            dateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            dateDataGridViewTextBoxColumn.ReadOnly = true;
+            dateDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
+            // 
+            // Status
+            // 
+            Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Status.DataPropertyName = "Status";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Padding = new Padding(0, 8, 100, 5);
+            Status.DefaultCellStyle = dataGridViewCellStyle2;
+            Status.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+            Status.HeaderText = "Status";
+            Status.Items.AddRange(new object[] { "Scheduled", "Completed", "Cancelled", "No-show" });
+            Status.Name = "Status";
+            Status.Resizable = DataGridViewTriState.False;
+            // 
+            // notesDataGridViewTextBoxColumn
+            // 
+            notesDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
+            notesDataGridViewTextBoxColumn.HeaderText = "Notes";
+            notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
+            notesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Actions
+            // 
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Padding = new Padding(20, 3, 20, 3);
+            Actions.DefaultCellStyle = dataGridViewCellStyle3;
+            Actions.HeaderText = "Actions";
+            Actions.Name = "Actions";
+            Actions.ReadOnly = true;
+            Actions.Resizable = DataGridViewTriState.False;
+            Actions.Width = 80;
             // 
             // AppointmentUC
             // 
@@ -481,7 +481,6 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
             gradientPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvAppointments).EndInit();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)appointmentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
@@ -498,6 +497,7 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
             gradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -525,9 +525,9 @@ namespace Pulse.UC.Screens
         private System.Windows.Forms.Timer timerSearch;
         private BindingSource appointmentBindingSource;
         private BindingSource patientBindingSource;
+        private BindingSource doctorBindingSource;
         private DataGridViewComboBoxColumn PatientId;
         private DataGridViewComboBoxColumn DoctorId;
-        private BindingSource doctorBindingSource;
         private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private DataGridViewComboBoxColumn Status;
         private DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;

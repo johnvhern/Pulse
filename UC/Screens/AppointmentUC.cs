@@ -40,39 +40,9 @@ namespace Pulse.UC.Screens
             new frmAddAppointment(appointmentBindingSource, _appointmentRepository, _patientRepository, _doctorRepository).ShowDialog();
         }
 
-        private async void AppointmentUC_Load(object sender, EventArgs e)
+        private void AppointmentUC_Load(object sender, EventArgs e)
         {
-            var appointment = await _appointmentRepository.GetAll();
-            appointmentBindingSource.DataSource = appointment.ToList();
-
-            #region -- Show Names of Patients and Doctors in DataGrid --
-
-            var _patients = await _patientRepository.GetAll();
-            var _doctors = await _doctorRepository.GetAll();
-
-            var patientColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["PatientId"];
-            patientColumn.DisplayMember = "FullName";
-            patientColumn.ValueMember = "Id";
-            patientColumn.DataSource = _patients.ToList();
-
-            var doctorColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["DoctorId"];
-            doctorColumn.DisplayMember = "FullName";
-            doctorColumn.ValueMember = "Id";
-            doctorColumn.DataSource = _doctors.ToList();
-
-            #endregion
-
-            #region -- Filter Date Range --
-
-            List<string> dateRange = new List<string>();
-            dateRange.Add("Today");
-            dateRange.Add("This Week");
-            dateRange.Add("This Month");
-            dateRange.Add("All Time");
-            cbDateRange.DataSource = dateRange;
-            cbDateRange.SelectedIndex = 0;
-
-            #endregion
+            LoadAppointmentsByDate();
         }
 
         private void dgvAppointments_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -152,13 +122,25 @@ namespace Pulse.UC.Screens
             }
         }
 
-        private async void cbDateRange_SelectedValueChanged(object sender, EventArgs e)
+        private void cbDateRange_SelectedValueChanged(object sender, EventArgs e)
         {
             LoadAppointmentsByDate();
         }
 
         private async void LoadAppointmentsByDate()
         {
+            #region -- Filter Date Range --
+
+            List<string> dateRange = new List<string>();
+            dateRange.Add("Today");
+            dateRange.Add("This Week");
+            dateRange.Add("This Month");
+            dateRange.Add("All Time");
+            cbDateRange.DataSource = dateRange;
+            cbDateRange.SelectedIndex = 0;
+
+            #endregion
+
             if (cbDateRange.SelectedItem == null)
             {
                 return;
@@ -181,6 +163,23 @@ namespace Pulse.UC.Screens
                     filter = AppointmentDateFilter.AllTime;
                     break;
             }
+
+            #region -- Show Names of Patients and Doctors in DataGrid --
+
+            var _patients = await _patientRepository.GetAll();
+            var _doctors = await _doctorRepository.GetAll();
+
+            var patientColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["PatientId"];
+            patientColumn.DisplayMember = "FullName";
+            patientColumn.ValueMember = "Id";
+            patientColumn.DataSource = _patients.ToList();
+
+            var doctorColumn = (DataGridViewComboBoxColumn)dgvAppointments.Columns["DoctorId"];
+            doctorColumn.DisplayMember = "FullName";
+            doctorColumn.ValueMember = "Id";
+            doctorColumn.DataSource = _doctors.ToList();
+
+            #endregion
 
             var filteredAppointment = await _appointmentRepository.GetByDate(filter);
             appointmentBindingSource.DataSource = filteredAppointment.ToList();

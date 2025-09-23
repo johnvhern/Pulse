@@ -5,6 +5,7 @@ using Pulse.Helper;
 using Pulse.Model;
 using Pulse.Repository.DoctorRepo;
 using Pulse.Repository.PatientRepo;
+using Syncfusion.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -102,19 +103,6 @@ namespace Pulse.UC.Screens
 
         private async void PatientUC_Load(object sender, EventArgs e)
         {
-            // Get doctors
-            var doctors = await _doctorRepository.GetAll();
-
-            // Assign doctors to the ComboBox column
-            var doctorColumn = (DataGridViewComboBoxColumn)dgvPatients.Columns["AssignedDoctor"];
-            doctorColumn.DataSource = doctors.ToList();
-            doctorColumn.DisplayMember = "FullName";
-            doctorColumn.ValueMember = "Id";
-
-            // Load patients
-            var patients = await _patientRepository.GetAll();
-            patientBindingSource.DataSource = patients.ToList();
-
             LoadComboBox();
         }
 
@@ -129,6 +117,12 @@ namespace Pulse.UC.Screens
             cbFilterDoctors.ValueMember = "Id";
             cbFilterDoctors.DataSource = doctorList;
             cbFilterDoctors.SelectedIndex = 0;
+
+            // Assign doctors to the ComboBox column
+            var doctorColumn = (DataGridViewComboBoxColumn)dgvPatients.Columns["AssignedDoctor"];
+            doctorColumn.DisplayMember = "FullName";
+            doctorColumn.ValueMember = "Id";
+            doctorColumn.DataSource = doctors.ToList();
         }
 
         private async void cbFilterDoctors_SelectedValueChanged(object sender, EventArgs e)

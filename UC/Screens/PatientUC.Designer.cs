@@ -45,12 +45,6 @@ namespace Pulse.UC.Screens
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             dgvPatients = new DataGridView();
-            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            AssignedDoctor = new DataGridViewComboBoxColumn();
-            doctorBindingSource = new BindingSource(components);
-            Actions = new DataGridViewButtonColumn();
             patientBindingSource = new BindingSource(components);
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
@@ -64,8 +58,14 @@ namespace Pulse.UC.Screens
             btnAddPatient = new Syncfusion.WinForms.Controls.SfButton();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            doctorBindingSource = new BindingSource(components);
             bannerTextProvider1 = new Syncfusion.Windows.Forms.BannerTextProvider(components);
             timerSearch = new System.Windows.Forms.Timer(components);
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailAddressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            AssignedDoctor = new DataGridViewComboBoxColumn();
+            Actions = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -74,7 +74,6 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
             gradientPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPatients).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
@@ -88,6 +87,7 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -196,55 +196,6 @@ namespace Pulse.UC.Screens
             dgvPatients.CellContentClick += dgvPatients_CellContentClick;
             dgvPatients.CellPainting += dgvPatients_CellPainting;
             // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            phoneNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
-            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailAddressDataGridViewTextBoxColumn
-            // 
-            emailAddressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
-            emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
-            emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
-            emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // AssignedDoctor
-            // 
-            AssignedDoctor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            AssignedDoctor.DataPropertyName = "DoctorId";
-            AssignedDoctor.DataSource = doctorBindingSource;
-            AssignedDoctor.DisplayMember = "FullName";
-            AssignedDoctor.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-            AssignedDoctor.FlatStyle = FlatStyle.Flat;
-            AssignedDoctor.HeaderText = "Assigned Doctor";
-            AssignedDoctor.Name = "AssignedDoctor";
-            AssignedDoctor.ReadOnly = true;
-            AssignedDoctor.ValueMember = "Id";
-            // 
-            // doctorBindingSource
-            // 
-            doctorBindingSource.DataSource = typeof(Model.Doctor);
-            // 
-            // Actions
-            // 
-            Actions.HeaderText = "Actions";
-            Actions.Name = "Actions";
-            Actions.ReadOnly = true;
-            Actions.Resizable = DataGridViewTriState.False;
-            Actions.Width = 80;
-            // 
             // patientBindingSource
             // 
             patientBindingSource.DataSource = typeof(Model.Patient);
@@ -324,7 +275,7 @@ namespace Pulse.UC.Screens
             bannerTextInfo1.Text = "Search patients by name or email";
             bannerTextInfo1.Visible = true;
             bannerTextProvider1.SetBannerText(txtSearchPatient, bannerTextInfo1);
-            txtSearchPatient.BeforeTouchSize = new Size(1016, 23);
+            txtSearchPatient.BeforeTouchSize = new Size(801, 23);
             txtSearchPatient.Border3DStyle = Border3DStyle.Flat;
             txtSearchPatient.BorderColor = Color.Transparent;
             txtSearchPatient.BorderStyle = BorderStyle.FixedSingle;
@@ -414,10 +365,59 @@ namespace Pulse.UC.Screens
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Patients";
             // 
+            // doctorBindingSource
+            // 
+            doctorBindingSource.DataSource = typeof(Model.Doctor);
+            // 
             // timerSearch
             // 
             timerSearch.Interval = 500;
             timerSearch.Tick += timerSearch_Tick;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            emailAddressDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            emailAddressDataGridViewTextBoxColumn.HeaderText = "Email Address";
+            emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            emailAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // AssignedDoctor
+            // 
+            AssignedDoctor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AssignedDoctor.DataPropertyName = "DoctorId";
+            AssignedDoctor.DataSource = doctorBindingSource;
+            AssignedDoctor.DisplayMember = "FullName";
+            AssignedDoctor.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            AssignedDoctor.HeaderText = "Assigned Doctor";
+            AssignedDoctor.Name = "AssignedDoctor";
+            AssignedDoctor.ReadOnly = true;
+            AssignedDoctor.Resizable = DataGridViewTriState.False;
+            AssignedDoctor.ValueMember = "Id";
+            // 
+            // Actions
+            // 
+            Actions.HeaderText = "Actions";
+            Actions.Name = "Actions";
+            Actions.ReadOnly = true;
+            Actions.Resizable = DataGridViewTriState.False;
+            Actions.Width = 80;
             // 
             // PatientUC
             // 
@@ -436,7 +436,6 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
             gradientPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvPatients).EndInit();
-            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
@@ -452,6 +451,7 @@ namespace Pulse.UC.Screens
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
             gradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -476,12 +476,12 @@ namespace Pulse.UC.Screens
         private System.Windows.Forms.Timer timerSearch;
         private BindingSource patientBindingSource;
         private BindingSource doctorBindingSource;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel8;
+        private Syncfusion.WinForms.ListView.SfComboBox cbFilterDoctors;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
         private DataGridViewComboBoxColumn AssignedDoctor;
         private DataGridViewButtonColumn Actions;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel8;
-        private Syncfusion.WinForms.ListView.SfComboBox cbFilterDoctors;
     }
 }
