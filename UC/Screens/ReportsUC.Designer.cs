@@ -28,11 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             reportsTab = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
             tabAppointments = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            dgvDashboard = new DataGridView();
+            PatientId = new DataGridViewComboBoxColumn();
+            patientBindingSource = new BindingSource(components);
+            DoctorId = new DataGridViewComboBoxColumn();
+            doctorBindingSource = new BindingSource(components);
+            Status = new DataGridViewComboBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            appointmentBindingSource = new BindingSource(components);
+            gradientPanel11 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            btnExportPDF = new Syncfusion.WinForms.Controls.SfButton();
+            lblAppointments = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -41,16 +56,21 @@
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            cbDoctorList = new Syncfusion.WinForms.ListView.SfComboBox();
             gradientPanel8 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            cbStatusList = new Syncfusion.WinForms.ListView.SfComboBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            gradientPanel10 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            dtEnd = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            gradientPanel9 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            dtStart = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             pictureBox1 = new PictureBox();
             autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             btnAddDoctor = new Syncfusion.WinForms.Controls.SfButton();
             lblDate = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            tabPageAdv1 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
-            sfComboBox1 = new Syncfusion.WinForms.ListView.SfComboBox();
-            sfComboBox2 = new Syncfusion.WinForms.ListView.SfComboBox();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).BeginInit();
@@ -59,19 +79,31 @@
             reportsTab.SuspendLayout();
             tabAppointments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
+            gradientPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDashboard).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)appointmentBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel11).BeginInit();
+            gradientPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
             gradientPanel5.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cbDoctorList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel8).BeginInit();
             gradientPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cbStatusList).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel10).BeginInit();
+            gradientPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel9).BeginInit();
+            gradientPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
             gradientPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)sfComboBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)sfComboBox2).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
@@ -103,7 +135,6 @@
             reportsTab.BorderStyle = BorderStyle.FixedSingle;
             reportsTab.CanOverrideStyle = true;
             reportsTab.Controls.Add(tabAppointments);
-            reportsTab.Controls.Add(tabPageAdv1);
             reportsTab.Dock = DockStyle.Fill;
             reportsTab.FixedSingleBorderColor = Color.Gainsboro;
             reportsTab.FocusOnTabClick = false;
@@ -141,12 +172,161 @@
             gradientPanel7.Border3DStyle = Border3DStyle.Flat;
             gradientPanel7.BorderColor = Color.Gainsboro;
             gradientPanel7.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel7.Controls.Add(dgvDashboard);
+            gradientPanel7.Controls.Add(gradientPanel11);
             gradientPanel7.Dock = DockStyle.Fill;
             gradientPanel7.Location = new Point(15, 208);
             gradientPanel7.Name = "gradientPanel7";
             gradientPanel7.Padding = new Padding(10);
             gradientPanel7.Size = new Size(1067, 351);
             gradientPanel7.TabIndex = 15;
+            // 
+            // dgvDashboard
+            // 
+            dgvDashboard.AllowUserToAddRows = false;
+            dgvDashboard.AllowUserToDeleteRows = false;
+            dgvDashboard.AllowUserToResizeRows = false;
+            dgvDashboard.AutoGenerateColumns = false;
+            dgvDashboard.BackgroundColor = Color.White;
+            dgvDashboard.BorderStyle = BorderStyle.None;
+            dgvDashboard.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDashboard.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 245, 246);
+            dataGridViewCellStyle1.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(147, 150, 159);
+            dataGridViewCellStyle1.Padding = new Padding(10);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 245, 246);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(147, 150, 159);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvDashboard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDashboard.Columns.AddRange(new DataGridViewColumn[] { PatientId, DoctorId, Status, statusDataGridViewTextBoxColumn });
+            dgvDashboard.DataSource = appointmentBindingSource;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle2.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 114, 128);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvDashboard.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvDashboard.Dock = DockStyle.Fill;
+            dgvDashboard.EnableHeadersVisualStyles = false;
+            dgvDashboard.GridColor = Color.FromArgb(226, 232, 240);
+            dgvDashboard.Location = new Point(10, 56);
+            dgvDashboard.Margin = new Padding(0);
+            dgvDashboard.MultiSelect = false;
+            dgvDashboard.Name = "dgvDashboard";
+            dgvDashboard.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvDashboard.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvDashboard.RowHeadersVisible = false;
+            dgvDashboard.RowTemplate.Height = 40;
+            dgvDashboard.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dgvDashboard.Size = new Size(1045, 283);
+            dgvDashboard.TabIndex = 13;
+            // 
+            // PatientId
+            // 
+            PatientId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PatientId.DataPropertyName = "PatientId";
+            PatientId.DataSource = patientBindingSource;
+            PatientId.DisplayMember = "FullName";
+            PatientId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            PatientId.HeaderText = "Patient";
+            PatientId.Name = "PatientId";
+            PatientId.ReadOnly = true;
+            PatientId.ValueMember = "Id";
+            // 
+            // patientBindingSource
+            // 
+            patientBindingSource.DataSource = typeof(Model.Patient);
+            // 
+            // DoctorId
+            // 
+            DoctorId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DoctorId.DataPropertyName = "DoctorId";
+            DoctorId.DataSource = doctorBindingSource;
+            DoctorId.DisplayMember = "FullName";
+            DoctorId.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            DoctorId.HeaderText = "Doctor";
+            DoctorId.Name = "DoctorId";
+            DoctorId.ReadOnly = true;
+            DoctorId.ValueMember = "Id";
+            // 
+            // doctorBindingSource
+            // 
+            doctorBindingSource.DataSource = typeof(Model.Doctor);
+            // 
+            // Status
+            // 
+            Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Status.DataPropertyName = "Status";
+            Status.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+            Status.HeaderText = "Status";
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // appointmentBindingSource
+            // 
+            appointmentBindingSource.DataSource = typeof(Model.Appointment);
+            // 
+            // gradientPanel11
+            // 
+            gradientPanel11.BorderStyle = BorderStyle.None;
+            gradientPanel11.Controls.Add(btnExportPDF);
+            gradientPanel11.Controls.Add(lblAppointments);
+            gradientPanel11.Dock = DockStyle.Top;
+            gradientPanel11.Location = new Point(10, 10);
+            gradientPanel11.Name = "gradientPanel11";
+            gradientPanel11.Size = new Size(1045, 46);
+            gradientPanel11.TabIndex = 0;
+            // 
+            // btnExportPDF
+            // 
+            btnExportPDF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnExportPDF.BackColor = Color.FromArgb(0, 213, 99);
+            btnExportPDF.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportPDF.ForeColor = Color.White;
+            btnExportPDF.Location = new Point(874, 1);
+            btnExportPDF.Margin = new Padding(7, 3, 3, 3);
+            btnExportPDF.Name = "btnExportPDF";
+            btnExportPDF.Size = new Size(165, 37);
+            btnExportPDF.Style.BackColor = Color.FromArgb(0, 213, 99);
+            btnExportPDF.Style.ForeColor = Color.White;
+            btnExportPDF.Style.Image = Properties.Resources.file_text__2_;
+            btnExportPDF.TabIndex = 4;
+            btnExportPDF.Text = "Export PDF";
+            btnExportPDF.TextAlign = ContentAlignment.MiddleRight;
+            btnExportPDF.UseVisualStyleBackColor = false;
+            // 
+            // lblAppointments
+            // 
+            lblAppointments.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblAppointments.Font = new Font("Inter SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAppointments.ForeColor = Color.FromArgb(107, 114, 128);
+            lblAppointments.Location = new Point(0, 10);
+            lblAppointments.Name = "lblAppointments";
+            lblAppointments.Size = new Size(111, 22);
+            lblAppointments.TabIndex = 2;
+            lblAppointments.Text = "Appointments";
+            lblAppointments.UseMnemonic = false;
             // 
             // gradientPanel6
             // 
@@ -186,6 +366,7 @@
             tableLayoutPanel1.Controls.Add(autoLabel1, 0, 0);
             tableLayoutPanel1.Controls.Add(gradientPanel2, 1, 1);
             tableLayoutPanel1.Controls.Add(gradientPanel8, 2, 1);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Location = new Point(13, 45);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
@@ -211,6 +392,7 @@
             btnGenerate.Text = "Generate";
             btnGenerate.TextAlign = ContentAlignment.MiddleRight;
             btnGenerate.UseVisualStyleBackColor = false;
+            btnGenerate.Click += btnGenerate_Click;
             // 
             // autoLabel5
             // 
@@ -247,9 +429,9 @@
             // 
             // gradientPanel2
             // 
-            gradientPanel2.BorderColor = Color.FromArgb(107, 114, 128);
+            gradientPanel2.BorderColor = Color.Gainsboro;
             gradientPanel2.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel2.Controls.Add(sfComboBox1);
+            gradientPanel2.Controls.Add(cbDoctorList);
             gradientPanel2.Dock = DockStyle.Fill;
             gradientPanel2.Location = new Point(295, 22);
             gradientPanel2.Margin = new Padding(7, 3, 7, 3);
@@ -257,17 +439,138 @@
             gradientPanel2.Size = new Size(274, 37);
             gradientPanel2.TabIndex = 9;
             // 
+            // cbDoctorList
+            // 
+            cbDoctorList.AllowDropDownResize = false;
+            cbDoctorList.BackColor = Color.White;
+            cbDoctorList.BorderStyle = BorderStyle.None;
+            cbDoctorList.Dock = DockStyle.Fill;
+            cbDoctorList.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            cbDoctorList.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDownList;
+            cbDoctorList.Font = new Font("Inter", 9.75F);
+            cbDoctorList.Location = new Point(0, 0);
+            cbDoctorList.Name = "cbDoctorList";
+            cbDoctorList.Size = new Size(272, 35);
+            cbDoctorList.Style.DropDownStyle.BorderColor = Color.Gainsboro;
+            cbDoctorList.Style.EditorStyle.BackColor = Color.White;
+            cbDoctorList.Style.EditorStyle.BorderColor = Color.Gainsboro;
+            cbDoctorList.Style.EditorStyle.FocusedBorderColor = Color.Gainsboro;
+            cbDoctorList.Style.EditorStyle.Font = new Font("Inter", 9.75F);
+            cbDoctorList.Style.EditorStyle.HoverBorderColor = Color.Gainsboro;
+            cbDoctorList.Style.ReadOnlyEditorStyle.BackColor = Color.White;
+            cbDoctorList.Style.ReadOnlyEditorStyle.Font = new Font("Inter", 9.75F);
+            cbDoctorList.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
+            cbDoctorList.Style.TokenStyle.Font = new Font("Inter", 9.75F);
+            cbDoctorList.TabIndex = 0;
+            // 
             // gradientPanel8
             // 
-            gradientPanel8.BorderColor = Color.FromArgb(107, 114, 128);
+            gradientPanel8.BorderColor = Color.Gainsboro;
             gradientPanel8.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel8.Controls.Add(sfComboBox2);
+            gradientPanel8.Controls.Add(cbStatusList);
             gradientPanel8.Dock = DockStyle.Fill;
             gradientPanel8.Location = new Point(583, 22);
             gradientPanel8.Margin = new Padding(7, 3, 7, 3);
             gradientPanel8.Name = "gradientPanel8";
             gradientPanel8.Size = new Size(274, 37);
             gradientPanel8.TabIndex = 10;
+            // 
+            // cbStatusList
+            // 
+            cbStatusList.AllowDropDownResize = false;
+            cbStatusList.BackColor = Color.White;
+            cbStatusList.BorderStyle = BorderStyle.None;
+            cbStatusList.Dock = DockStyle.Fill;
+            cbStatusList.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            cbStatusList.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDownList;
+            cbStatusList.Font = new Font("Inter", 9.75F);
+            cbStatusList.Location = new Point(0, 0);
+            cbStatusList.Name = "cbStatusList";
+            cbStatusList.Size = new Size(272, 35);
+            cbStatusList.Style.EditorStyle.BackColor = Color.White;
+            cbStatusList.Style.EditorStyle.Font = new Font("Inter", 9.75F);
+            cbStatusList.Style.ReadOnlyEditorStyle.BackColor = Color.White;
+            cbStatusList.Style.ReadOnlyEditorStyle.Font = new Font("Inter", 9.75F);
+            cbStatusList.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
+            cbStatusList.Style.TokenStyle.Font = new Font("Inter", 9.75F);
+            cbStatusList.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.5116272F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 6.976745F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.5116348F));
+            tableLayoutPanel2.Controls.Add(gradientPanel10, 2, 0);
+            tableLayoutPanel2.Controls.Add(gradientPanel9, 0, 0);
+            tableLayoutPanel2.Controls.Add(autoLabel6, 1, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 19);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(288, 43);
+            tableLayoutPanel2.TabIndex = 11;
+            // 
+            // gradientPanel10
+            // 
+            gradientPanel10.BorderColor = Color.FromArgb(107, 114, 128);
+            gradientPanel10.BorderStyle = BorderStyle.None;
+            gradientPanel10.Controls.Add(dtEnd);
+            gradientPanel10.Dock = DockStyle.Fill;
+            gradientPanel10.Location = new Point(156, 3);
+            gradientPanel10.Margin = new Padding(3, 3, 7, 3);
+            gradientPanel10.Name = "gradientPanel10";
+            gradientPanel10.Size = new Size(125, 37);
+            gradientPanel10.TabIndex = 11;
+            // 
+            // dtEnd
+            // 
+            dtEnd.DateTimeIcon = null;
+            dtEnd.Dock = DockStyle.Fill;
+            dtEnd.Location = new Point(0, 0);
+            dtEnd.Name = "dtEnd";
+            dtEnd.Size = new Size(125, 37);
+            dtEnd.Style.BorderColor = Color.Gainsboro;
+            dtEnd.Style.FocusedBorderColor = Color.Gainsboro;
+            dtEnd.Style.HoverBorderColor = Color.Gainsboro;
+            dtEnd.TabIndex = 1;
+            dtEnd.ToolTipText = "";
+            // 
+            // gradientPanel9
+            // 
+            gradientPanel9.BorderColor = Color.FromArgb(107, 114, 128);
+            gradientPanel9.BorderStyle = BorderStyle.None;
+            gradientPanel9.Controls.Add(dtStart);
+            gradientPanel9.Dock = DockStyle.Fill;
+            gradientPanel9.Location = new Point(3, 3);
+            gradientPanel9.Name = "gradientPanel9";
+            gradientPanel9.Size = new Size(127, 37);
+            gradientPanel9.TabIndex = 10;
+            // 
+            // dtStart
+            // 
+            dtStart.DateTimeIcon = null;
+            dtStart.Dock = DockStyle.Fill;
+            dtStart.Location = new Point(0, 0);
+            dtStart.Name = "dtStart";
+            dtStart.Size = new Size(127, 37);
+            dtStart.Style.BorderColor = Color.Gainsboro;
+            dtStart.Style.FocusedBorderColor = Color.Gainsboro;
+            dtStart.Style.HoverBorderColor = Color.Gainsboro;
+            dtStart.TabIndex = 0;
+            dtStart.ToolTipText = "";
+            // 
+            // autoLabel6
+            // 
+            autoLabel6.Dock = DockStyle.Fill;
+            autoLabel6.Location = new Point(136, 0);
+            autoLabel6.Name = "autoLabel6";
+            autoLabel6.Size = new Size(14, 43);
+            autoLabel6.TabIndex = 0;
+            autoLabel6.Text = "-";
+            autoLabel6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -339,43 +642,6 @@
             autoLabel4.TabIndex = 0;
             autoLabel4.Text = "Appointment Summary Report";
             // 
-            // tabPageAdv1
-            // 
-            tabPageAdv1.Image = null;
-            tabPageAdv1.ImageSize = new Size(16, 16);
-            tabPageAdv1.Location = new Point(1, 27);
-            tabPageAdv1.Name = "tabPageAdv1";
-            tabPageAdv1.ShowCloseButton = true;
-            tabPageAdv1.Size = new Size(1097, 574);
-            tabPageAdv1.TabForeColor = Color.FromArgb(107, 114, 128);
-            tabPageAdv1.TabIndex = 2;
-            tabPageAdv1.Text = "Patients";
-            tabPageAdv1.ThemesEnabled = false;
-            // 
-            // sfComboBox1
-            // 
-            sfComboBox1.BorderStyle = BorderStyle.None;
-            sfComboBox1.Dock = DockStyle.Fill;
-            sfComboBox1.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            sfComboBox1.Location = new Point(0, 0);
-            sfComboBox1.Name = "sfComboBox1";
-            sfComboBox1.Size = new Size(272, 35);
-            sfComboBox1.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
-            sfComboBox1.TabIndex = 0;
-            sfComboBox1.TabStop = false;
-            // 
-            // sfComboBox2
-            // 
-            sfComboBox2.BorderStyle = BorderStyle.None;
-            sfComboBox2.Dock = DockStyle.Fill;
-            sfComboBox2.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            sfComboBox2.Location = new Point(0, 0);
-            sfComboBox2.Name = "sfComboBox2";
-            sfComboBox2.Size = new Size(272, 35);
-            sfComboBox2.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
-            sfComboBox2.TabIndex = 1;
-            sfComboBox2.TabStop = false;
-            // 
             // ReportsUC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -393,6 +659,14 @@
             reportsTab.ResumeLayout(false);
             tabAppointments.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
+            gradientPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDashboard).EndInit();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)doctorBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)appointmentBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel11).EndInit();
+            gradientPanel11.ResumeLayout(false);
+            gradientPanel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
             gradientPanel5.ResumeLayout(false);
@@ -401,14 +675,20 @@
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)cbDoctorList).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel8).EndInit();
             gradientPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)cbStatusList).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel10).EndInit();
+            gradientPanel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gradientPanel9).EndInit();
+            gradientPanel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
             gradientPanel4.ResumeLayout(false);
             gradientPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)sfComboBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)sfComboBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -425,7 +705,6 @@
         private Syncfusion.WinForms.Controls.SfButton btnAddDoctor;
         private Syncfusion.Windows.Forms.Tools.AutoLabel lblDate;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
-        private Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
         private PictureBox pictureBox1;
         private TableLayoutPanel tableLayoutPanel1;
@@ -435,7 +714,24 @@
         private Syncfusion.WinForms.Controls.SfButton btnGenerate;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel2;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel8;
-        private Syncfusion.WinForms.ListView.SfComboBox sfComboBox1;
-        private Syncfusion.WinForms.ListView.SfComboBox sfComboBox2;
+        private Syncfusion.WinForms.ListView.SfComboBox cbDoctorList;
+        private Syncfusion.WinForms.ListView.SfComboBox cbStatusList;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel10;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel9;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit dtEnd;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit dtStart;
+        private BindingSource patientBindingSource;
+        private BindingSource doctorBindingSource;
+        private BindingSource appointmentBindingSource;
+        private DataGridView dgvDashboard;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel11;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel lblAppointments;
+        private DataGridViewComboBoxColumn PatientId;
+        private DataGridViewComboBoxColumn DoctorId;
+        private DataGridViewComboBoxColumn Status;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private Syncfusion.WinForms.Controls.SfButton btnExportPDF;
     }
 }

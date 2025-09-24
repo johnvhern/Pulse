@@ -50,7 +50,7 @@ namespace Pulse.UC.Sidebar
             doctor = new DoctorUC(_doctorRepository);
             patient = new PatientUC(_doctorRepository, _patientRepository);
             appointment = new AppointmentUC(_appointmentRepository, _patientRepository, _doctorRepository);
-            reports = new ReportsUC();
+            reports = new ReportsUC(_appointmentRepository, _doctorRepository, _patientRepository);
         }
 
         private void ColorActiveButton(SfButton button)
