@@ -7,6 +7,12 @@ Pulse is a desktop application designed to streamline clinic operations by enabl
   <img src="pulse_logo.png" alt="Pulse Logo" width="300"/>
 </p>
 
+## Screenshots
+<img width="394" height="471" alt="Screenshot 2025-09-24 001636" src="https://github.com/user-attachments/assets/0770261d-e17f-4d2c-8a80-ba71fdf70427" />
+<img width="1920" height="1057" alt="Screenshot 2025-09-24 001626" src="https://github.com/user-attachments/assets/ed943264-a40b-44cc-a9ad-4bb9fa37ba5b" />
+<img width="1920" height="1057" alt="Screenshot 2025-09-24 001614" src="https://github.com/user-attachments/assets/0ae1d761-b1a3-46ab-b020-b17d1d874c96" />
+<img width="1920" height="1057" alt="Screenshot 2025-09-24 001603" src="https://github.com/user-attachments/assets/c6373e03-cb2e-455a-a094-7a29bd42f155" />
+<img width="1920" height="1057" alt="Screenshot 2025-09-24 001549" src="https://github.com/user-attachments/assets/63f86bca-0334-4a21-b45d-e6693623803d" />
 
 ## Features
 
