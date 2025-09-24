@@ -42,6 +42,18 @@ namespace Pulse.UC.Screens
 
         private void AppointmentUC_Load(object sender, EventArgs e)
         {
+            #region -- Filter Date Range --
+
+            List<string> dateRange = new List<string>();
+            dateRange.Add("Today");
+            dateRange.Add("This Week");
+            dateRange.Add("This Month");
+            dateRange.Add("All Time");
+            cbDateRange.DataSource = dateRange;
+            cbDateRange.SelectedIndex = 0;
+
+            #endregion
+
             LoadAppointmentsByDate();
         }
 
@@ -129,17 +141,6 @@ namespace Pulse.UC.Screens
 
         private async void LoadAppointmentsByDate()
         {
-            #region -- Filter Date Range --
-
-            List<string> dateRange = new List<string>();
-            dateRange.Add("Today");
-            dateRange.Add("This Week");
-            dateRange.Add("This Month");
-            dateRange.Add("All Time");
-            cbDateRange.DataSource = dateRange;
-            cbDateRange.SelectedIndex = 0;
-
-            #endregion
 
             if (cbDateRange.SelectedItem == null)
             {

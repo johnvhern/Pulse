@@ -50,7 +50,7 @@ namespace Pulse.Forms.AppointmentFRM
                     _bindingList.Add(appointment);
                     _appointmentRepository.Add(appointment);
                     DataUpdateNotifier.NotifyDataUpdated();
-                    MessageBoxAdv.Show("Patient added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxAdv.Show("Appointment added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 else
