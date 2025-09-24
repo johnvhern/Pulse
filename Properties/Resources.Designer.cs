@@ -173,6 +173,16 @@ namespace Pulse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap funnel {
+            get {
+                object obj = ResourceManager.GetObject("funnel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap layout_dashboard__2_ {
             get {
                 object obj = ResourceManager.GetObject("layout-dashboard (2)", resourceCulture);

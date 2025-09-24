@@ -29,64 +29,55 @@
         private void InitializeComponent()
         {
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            tableLayoutPanel1 = new TableLayoutPanel();
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            gradientPanel10 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            gradientPanel8 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            gradientPanel12 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            gradientPanel16 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            gradientPanel15 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            gradientPanel14 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            gradientPanel13 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            lblPatientsToday = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            gradientPanel9 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            reportsTab = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
+            tabAppointments = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             gradientPanel7 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel6 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            btnGenReport = new Syncfusion.WinForms.Controls.SfButton();
-            gradientPanel11 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            cbReports = new Syncfusion.WinForms.ListView.SfComboBox();
-            gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnGenerate = new Syncfusion.WinForms.Controls.SfButton();
+            autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            gradientPanel8 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            pictureBox1 = new PictureBox();
+            autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            btnAddDoctor = new Syncfusion.WinForms.Controls.SfButton();
+            lblDate = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            tabPageAdv1 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            sfComboBox1 = new Syncfusion.WinForms.ListView.SfComboBox();
+            sfComboBox2 = new Syncfusion.WinForms.ListView.SfComboBox();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).BeginInit();
             gradientPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
-            gradientPanel4.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel10).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel12).BeginInit();
-            tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel16).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel15).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel14).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel13).BeginInit();
-            gradientPanel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)reportsTab).BeginInit();
+            reportsTab.SuspendLayout();
+            tabAppointments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
             gradientPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel11).BeginInit();
-            gradientPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)cbReports).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel8).BeginInit();
+            gradientPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
+            gradientPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)sfComboBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)sfComboBox2).BeginInit();
             SuspendLayout();
             // 
             // gradientPanel1
             // 
             gradientPanel1.BorderStyle = BorderStyle.None;
-            gradientPanel1.Controls.Add(tableLayoutPanel1);
-            gradientPanel1.Controls.Add(gradientPanel2);
+            gradientPanel1.Controls.Add(gradientPanel3);
             gradientPanel1.Dock = DockStyle.Fill;
             gradientPanel1.Location = new Point(0, 0);
             gradientPanel1.Name = "gradientPanel1";
@@ -94,321 +85,296 @@
             gradientPanel1.Size = new Size(1129, 637);
             gradientPanel1.TabIndex = 0;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Controls.Add(gradientPanel3, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(15, 76);
-            tableLayoutPanel1.Margin = new Padding(0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1099, 546);
-            tableLayoutPanel1.TabIndex = 2;
-            // 
             // gradientPanel3
             // 
             gradientPanel3.BorderStyle = BorderStyle.None;
-            gradientPanel3.Controls.Add(gradientPanel4);
-            gradientPanel3.Controls.Add(gradientPanel12);
-            gradientPanel3.Controls.Add(tableLayoutPanel2);
-            gradientPanel3.Controls.Add(gradientPanel9);
-            gradientPanel3.Controls.Add(gradientPanel7);
-            gradientPanel3.Controls.Add(gradientPanel6);
-            gradientPanel3.Controls.Add(gradientPanel5);
+            gradientPanel3.Controls.Add(reportsTab);
             gradientPanel3.Dock = DockStyle.Fill;
-            gradientPanel3.Location = new Point(3, 15);
-            gradientPanel3.Margin = new Padding(3, 15, 3, 3);
+            gradientPanel3.Location = new Point(15, 20);
             gradientPanel3.Name = "gradientPanel3";
-            gradientPanel3.Size = new Size(1093, 528);
-            gradientPanel3.TabIndex = 0;
+            gradientPanel3.Size = new Size(1099, 602);
+            gradientPanel3.TabIndex = 2;
             // 
-            // gradientPanel4
+            // reportsTab
             // 
-            gradientPanel4.BorderColor = Color.Gainsboro;
-            gradientPanel4.BorderStyle = BorderStyle.None;
-            gradientPanel4.Controls.Add(tableLayoutPanel3);
-            gradientPanel4.Dock = DockStyle.Fill;
-            gradientPanel4.Location = new Point(0, 275);
-            gradientPanel4.Margin = new Padding(0);
-            gradientPanel4.Name = "gradientPanel4";
-            gradientPanel4.Size = new Size(1093, 253);
-            gradientPanel4.TabIndex = 12;
+            reportsTab.ActiveTabColor = Color.FromArgb(227, 254, 240);
+            reportsTab.ActiveTabFont = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            reportsTab.BeforeTouchSize = new Size(1099, 602);
+            reportsTab.BorderStyle = BorderStyle.FixedSingle;
+            reportsTab.CanOverrideStyle = true;
+            reportsTab.Controls.Add(tabAppointments);
+            reportsTab.Controls.Add(tabPageAdv1);
+            reportsTab.Dock = DockStyle.Fill;
+            reportsTab.FixedSingleBorderColor = Color.Gainsboro;
+            reportsTab.FocusOnTabClick = false;
+            reportsTab.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            reportsTab.InactiveTabColor = Color.White;
+            reportsTab.Location = new Point(0, 0);
+            reportsTab.Name = "reportsTab";
+            reportsTab.ShowScroll = false;
+            reportsTab.Size = new Size(1099, 602);
+            reportsTab.TabIndex = 0;
+            reportsTab.TabPanelBackColor = Color.White;
+            reportsTab.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererMetro);
+            reportsTab.ThemeName = "TabRendererMetro";
             // 
-            // tableLayoutPanel3
+            // tabAppointments
             // 
-            tableLayoutPanel3.ColumnCount = 1;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Controls.Add(gradientPanel10, 0, 1);
-            tableLayoutPanel3.Controls.Add(gradientPanel8, 0, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(0, 0);
-            tableLayoutPanel3.Margin = new Padding(0);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(1093, 253);
-            tableLayoutPanel3.TabIndex = 0;
-            // 
-            // gradientPanel10
-            // 
-            gradientPanel10.BorderColor = Color.Gainsboro;
-            gradientPanel10.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel10.Dock = DockStyle.Fill;
-            gradientPanel10.Location = new Point(0, 133);
-            gradientPanel10.Margin = new Padding(0, 7, 0, 0);
-            gradientPanel10.Name = "gradientPanel10";
-            gradientPanel10.Padding = new Padding(10);
-            gradientPanel10.Size = new Size(1093, 120);
-            gradientPanel10.TabIndex = 8;
-            // 
-            // gradientPanel8
-            // 
-            gradientPanel8.BorderColor = Color.Gainsboro;
-            gradientPanel8.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel8.Dock = DockStyle.Fill;
-            gradientPanel8.Location = new Point(0, 0);
-            gradientPanel8.Margin = new Padding(0, 0, 0, 7);
-            gradientPanel8.Name = "gradientPanel8";
-            gradientPanel8.Padding = new Padding(10);
-            gradientPanel8.Size = new Size(1093, 119);
-            gradientPanel8.TabIndex = 7;
-            // 
-            // gradientPanel12
-            // 
-            gradientPanel12.BorderStyle = BorderStyle.None;
-            gradientPanel12.Dock = DockStyle.Top;
-            gradientPanel12.Location = new Point(0, 260);
-            gradientPanel12.Name = "gradientPanel12";
-            gradientPanel12.Size = new Size(1093, 15);
-            gradientPanel12.TabIndex = 10;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 4;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Controls.Add(gradientPanel16, 2, 0);
-            tableLayoutPanel2.Controls.Add(gradientPanel15, 1, 0);
-            tableLayoutPanel2.Controls.Add(gradientPanel14, 4, 0);
-            tableLayoutPanel2.Controls.Add(gradientPanel13, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Top;
-            tableLayoutPanel2.Location = new Point(0, 160);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(1093, 100);
-            tableLayoutPanel2.TabIndex = 10;
-            // 
-            // gradientPanel16
-            // 
-            gradientPanel16.BorderColor = Color.Gainsboro;
-            gradientPanel16.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel16.Dock = DockStyle.Fill;
-            gradientPanel16.Location = new Point(553, 0);
-            gradientPanel16.Margin = new Padding(7, 0, 7, 0);
-            gradientPanel16.Name = "gradientPanel16";
-            gradientPanel16.Padding = new Padding(15);
-            gradientPanel16.Size = new Size(259, 100);
-            gradientPanel16.TabIndex = 7;
-            // 
-            // gradientPanel15
-            // 
-            gradientPanel15.BorderColor = Color.Gainsboro;
-            gradientPanel15.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel15.Dock = DockStyle.Fill;
-            gradientPanel15.Location = new Point(280, 0);
-            gradientPanel15.Margin = new Padding(7, 0, 7, 0);
-            gradientPanel15.Name = "gradientPanel15";
-            gradientPanel15.Padding = new Padding(15);
-            gradientPanel15.Size = new Size(259, 100);
-            gradientPanel15.TabIndex = 6;
-            // 
-            // gradientPanel14
-            // 
-            gradientPanel14.BorderColor = Color.Gainsboro;
-            gradientPanel14.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel14.Dock = DockStyle.Fill;
-            gradientPanel14.Location = new Point(826, 0);
-            gradientPanel14.Margin = new Padding(7, 0, 0, 0);
-            gradientPanel14.Name = "gradientPanel14";
-            gradientPanel14.Padding = new Padding(15);
-            gradientPanel14.Size = new Size(267, 100);
-            gradientPanel14.TabIndex = 5;
-            // 
-            // gradientPanel13
-            // 
-            gradientPanel13.BorderColor = Color.Gainsboro;
-            gradientPanel13.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel13.Controls.Add(lblPatientsToday);
-            gradientPanel13.Controls.Add(autoLabel3);
-            gradientPanel13.Dock = DockStyle.Fill;
-            gradientPanel13.Location = new Point(0, 0);
-            gradientPanel13.Margin = new Padding(0, 0, 7, 0);
-            gradientPanel13.Name = "gradientPanel13";
-            gradientPanel13.Padding = new Padding(15);
-            gradientPanel13.Size = new Size(266, 100);
-            gradientPanel13.TabIndex = 1;
-            // 
-            // lblPatientsToday
-            // 
-            lblPatientsToday.Font = new Font("Inter", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPatientsToday.ForeColor = Color.FromArgb(107, 112, 129);
-            lblPatientsToday.Location = new Point(18, 45);
-            lblPatientsToday.Name = "lblPatientsToday";
-            lblPatientsToday.Size = new Size(37, 27);
-            lblPatientsToday.TabIndex = 2;
-            lblPatientsToday.Text = "24";
-            // 
-            // autoLabel3
-            // 
-            autoLabel3.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            autoLabel3.ForeColor = Color.FromArgb(147, 150, 159);
-            autoLabel3.Location = new Point(18, 27);
-            autoLabel3.Name = "autoLabel3";
-            autoLabel3.Size = new Size(101, 18);
-            autoLabel3.TabIndex = 1;
-            autoLabel3.Text = "Patients Today";
-            // 
-            // gradientPanel9
-            // 
-            gradientPanel9.BorderStyle = BorderStyle.None;
-            gradientPanel9.Dock = DockStyle.Top;
-            gradientPanel9.Location = new Point(0, 145);
-            gradientPanel9.Name = "gradientPanel9";
-            gradientPanel9.Size = new Size(1093, 15);
-            gradientPanel9.TabIndex = 9;
+            tabAppointments.Controls.Add(gradientPanel7);
+            tabAppointments.Controls.Add(gradientPanel6);
+            tabAppointments.Controls.Add(gradientPanel5);
+            tabAppointments.Controls.Add(gradientPanel4);
+            tabAppointments.Image = null;
+            tabAppointments.ImageSize = new Size(16, 16);
+            tabAppointments.Location = new Point(1, 27);
+            tabAppointments.Name = "tabAppointments";
+            tabAppointments.Padding = new Padding(15);
+            tabAppointments.ShowCloseButton = true;
+            tabAppointments.Size = new Size(1097, 574);
+            tabAppointments.TabForeColor = Color.FromArgb(107, 114, 128);
+            tabAppointments.TabIndex = 1;
+            tabAppointments.Text = "Appointments";
+            tabAppointments.ThemesEnabled = false;
             // 
             // gradientPanel7
             // 
+            gradientPanel7.Border3DStyle = Border3DStyle.Flat;
             gradientPanel7.BorderColor = Color.Gainsboro;
             gradientPanel7.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel7.Dock = DockStyle.Top;
-            gradientPanel7.Location = new Point(0, 80);
+            gradientPanel7.Dock = DockStyle.Fill;
+            gradientPanel7.Location = new Point(15, 208);
             gradientPanel7.Name = "gradientPanel7";
             gradientPanel7.Padding = new Padding(10);
-            gradientPanel7.Size = new Size(1093, 65);
-            gradientPanel7.TabIndex = 6;
+            gradientPanel7.Size = new Size(1067, 351);
+            gradientPanel7.TabIndex = 15;
             // 
             // gradientPanel6
             // 
             gradientPanel6.BorderStyle = BorderStyle.None;
             gradientPanel6.Dock = DockStyle.Top;
-            gradientPanel6.Location = new Point(0, 65);
+            gradientPanel6.Location = new Point(15, 193);
             gradientPanel6.Name = "gradientPanel6";
-            gradientPanel6.Size = new Size(1093, 15);
-            gradientPanel6.TabIndex = 5;
+            gradientPanel6.Size = new Size(1067, 15);
+            gradientPanel6.TabIndex = 14;
             // 
             // gradientPanel5
             // 
             gradientPanel5.Border3DStyle = Border3DStyle.Flat;
             gradientPanel5.BorderColor = Color.Gainsboro;
             gradientPanel5.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel5.Controls.Add(btnGenReport);
-            gradientPanel5.Controls.Add(gradientPanel11);
+            gradientPanel5.Controls.Add(tableLayoutPanel1);
+            gradientPanel5.Controls.Add(pictureBox1);
+            gradientPanel5.Controls.Add(autoLabel3);
             gradientPanel5.Dock = DockStyle.Top;
-            gradientPanel5.Location = new Point(0, 0);
+            gradientPanel5.Location = new Point(15, 71);
             gradientPanel5.Name = "gradientPanel5";
             gradientPanel5.Padding = new Padding(10);
-            gradientPanel5.Size = new Size(1093, 65);
-            gradientPanel5.TabIndex = 4;
+            gradientPanel5.Size = new Size(1067, 122);
+            gradientPanel5.TabIndex = 13;
             // 
-            // btnGenReport
+            // tableLayoutPanel1
             // 
-            btnGenReport.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            btnGenReport.BackColor = Color.FromArgb(0, 213, 99);
-            btnGenReport.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGenReport.ForeColor = Color.White;
-            btnGenReport.Location = new Point(908, 13);
-            btnGenReport.Name = "btnGenReport";
-            btnGenReport.Size = new Size(170, 37);
-            btnGenReport.Style.BackColor = Color.FromArgb(0, 213, 99);
-            btnGenReport.Style.ForeColor = Color.White;
-            btnGenReport.Style.Image = Properties.Resources.file_text__2_;
-            btnGenReport.TabIndex = 5;
-            btnGenReport.Text = "Generate Report";
-            btnGenReport.TextAlign = ContentAlignment.MiddleRight;
-            btnGenReport.UseVisualStyleBackColor = false;
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.ColumnCount = 4;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.7777786F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.7777786F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.7777786F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel1.Controls.Add(btnGenerate, 3, 1);
+            tableLayoutPanel1.Controls.Add(autoLabel5, 2, 0);
+            tableLayoutPanel1.Controls.Add(autoLabel2, 1, 0);
+            tableLayoutPanel1.Controls.Add(autoLabel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(gradientPanel2, 1, 1);
+            tableLayoutPanel1.Controls.Add(gradientPanel8, 2, 1);
+            tableLayoutPanel1.Location = new Point(13, 45);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 30.64516F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 69.3548355F));
+            tableLayoutPanel1.Size = new Size(1039, 62);
+            tableLayoutPanel1.TabIndex = 3;
             // 
-            // gradientPanel11
+            // btnGenerate
             // 
-            gradientPanel11.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gradientPanel11.BorderColor = Color.Gainsboro;
-            gradientPanel11.BorderStyle = BorderStyle.FixedSingle;
-            gradientPanel11.Controls.Add(cbReports);
-            gradientPanel11.Location = new Point(13, 13);
-            gradientPanel11.Name = "gradientPanel11";
-            gradientPanel11.Size = new Size(889, 37);
-            gradientPanel11.TabIndex = 4;
+            btnGenerate.BackColor = Color.FromArgb(0, 213, 99);
+            btnGenerate.Dock = DockStyle.Fill;
+            btnGenerate.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGenerate.ForeColor = Color.White;
+            btnGenerate.Location = new Point(871, 22);
+            btnGenerate.Margin = new Padding(7, 3, 3, 3);
+            btnGenerate.Name = "btnGenerate";
+            btnGenerate.Size = new Size(165, 37);
+            btnGenerate.Style.BackColor = Color.FromArgb(0, 213, 99);
+            btnGenerate.Style.ForeColor = Color.White;
+            btnGenerate.Style.Image = Properties.Resources.file_text__2_;
+            btnGenerate.TabIndex = 3;
+            btnGenerate.Text = "Generate";
+            btnGenerate.TextAlign = ContentAlignment.MiddleRight;
+            btnGenerate.UseVisualStyleBackColor = false;
             // 
-            // cbReports
+            // autoLabel5
             // 
-            cbReports.AllowDropDownResize = false;
-            cbReports.BackColor = Color.White;
-            cbReports.BorderStyle = BorderStyle.None;
-            cbReports.Dock = DockStyle.Fill;
-            cbReports.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            cbReports.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDownList;
-            cbReports.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbReports.Location = new Point(0, 0);
-            cbReports.Name = "cbReports";
-            cbReports.Size = new Size(887, 35);
-            cbReports.Style.DropDownStyle.BorderColor = Color.Gainsboro;
-            cbReports.Style.DropDownStyle.GripperForeColor = Color.Gainsboro;
-            cbReports.Style.EditorStyle.BackColor = Color.White;
-            cbReports.Style.EditorStyle.BorderColor = Color.Gainsboro;
-            cbReports.Style.EditorStyle.FocusedBorderColor = Color.FromArgb(227, 254, 240);
-            cbReports.Style.EditorStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbReports.Style.EditorStyle.HoverBorderColor = Color.Gainsboro;
-            cbReports.Style.ReadOnlyEditorStyle.BackColor = Color.White;
-            cbReports.Style.ReadOnlyEditorStyle.BorderColor = Color.Gainsboro;
-            cbReports.Style.ReadOnlyEditorStyle.FocusedBorderColor = Color.FromArgb(227, 254, 240);
-            cbReports.Style.ReadOnlyEditorStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbReports.Style.ReadOnlyEditorStyle.HoverBorderColor = Color.Gainsboro;
-            cbReports.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
-            cbReports.Style.TokenStyle.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbReports.TabIndex = 0;
-            // 
-            // gradientPanel2
-            // 
-            gradientPanel2.BorderStyle = BorderStyle.None;
-            gradientPanel2.Controls.Add(autoLabel2);
-            gradientPanel2.Controls.Add(autoLabel1);
-            gradientPanel2.Dock = DockStyle.Top;
-            gradientPanel2.Location = new Point(15, 20);
-            gradientPanel2.Name = "gradientPanel2";
-            gradientPanel2.Size = new Size(1099, 56);
-            gradientPanel2.TabIndex = 1;
+            autoLabel5.Dock = DockStyle.Fill;
+            autoLabel5.Font = new Font("Inter Medium", 9F, FontStyle.Bold);
+            autoLabel5.ForeColor = Color.FromArgb(107, 114, 128);
+            autoLabel5.Location = new Point(579, 0);
+            autoLabel5.Name = "autoLabel5";
+            autoLabel5.Size = new Size(282, 19);
+            autoLabel5.TabIndex = 2;
+            autoLabel5.Text = "Status";
             // 
             // autoLabel2
             // 
-            autoLabel2.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            autoLabel2.ForeColor = Color.FromArgb(147, 150, 159);
-            autoLabel2.Location = new Point(3, 30);
+            autoLabel2.Dock = DockStyle.Fill;
+            autoLabel2.Font = new Font("Inter Medium", 9F, FontStyle.Bold);
+            autoLabel2.ForeColor = Color.FromArgb(107, 114, 128);
+            autoLabel2.Location = new Point(291, 0);
             autoLabel2.Name = "autoLabel2";
-            autoLabel2.Size = new Size(267, 18);
+            autoLabel2.Size = new Size(282, 19);
             autoLabel2.TabIndex = 1;
-            autoLabel2.Text = "Generate and export appointment reports";
+            autoLabel2.Text = "Doctor";
             // 
             // autoLabel1
             // 
-            autoLabel1.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel1.Dock = DockStyle.Fill;
+            autoLabel1.Font = new Font("Inter Medium", 9F, FontStyle.Bold);
             autoLabel1.ForeColor = Color.FromArgb(107, 114, 128);
-            autoLabel1.Location = new Point(0, 4);
+            autoLabel1.Location = new Point(3, 0);
             autoLabel1.Name = "autoLabel1";
-            autoLabel1.Size = new Size(84, 27);
+            autoLabel1.Size = new Size(282, 19);
             autoLabel1.TabIndex = 0;
-            autoLabel1.Text = "Reports";
+            autoLabel1.Text = "Date Range";
+            // 
+            // gradientPanel2
+            // 
+            gradientPanel2.BorderColor = Color.FromArgb(107, 114, 128);
+            gradientPanel2.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel2.Controls.Add(sfComboBox1);
+            gradientPanel2.Dock = DockStyle.Fill;
+            gradientPanel2.Location = new Point(295, 22);
+            gradientPanel2.Margin = new Padding(7, 3, 7, 3);
+            gradientPanel2.Name = "gradientPanel2";
+            gradientPanel2.Size = new Size(274, 37);
+            gradientPanel2.TabIndex = 9;
+            // 
+            // gradientPanel8
+            // 
+            gradientPanel8.BorderColor = Color.FromArgb(107, 114, 128);
+            gradientPanel8.BorderStyle = BorderStyle.FixedSingle;
+            gradientPanel8.Controls.Add(sfComboBox2);
+            gradientPanel8.Dock = DockStyle.Fill;
+            gradientPanel8.Location = new Point(583, 22);
+            gradientPanel8.Margin = new Padding(7, 3, 7, 3);
+            gradientPanel8.Name = "gradientPanel8";
+            gradientPanel8.Size = new Size(274, 37);
+            gradientPanel8.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.funnel;
+            pictureBox1.Location = new Point(13, 14);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(16, 16);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // autoLabel3
+            // 
+            autoLabel3.Font = new Font("Inter SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel3.ForeColor = Color.FromArgb(107, 114, 128);
+            autoLabel3.Location = new Point(30, 10);
+            autoLabel3.Name = "autoLabel3";
+            autoLabel3.Size = new Size(117, 22);
+            autoLabel3.TabIndex = 1;
+            autoLabel3.Text = "Filter & Search";
+            autoLabel3.UseMnemonic = false;
+            // 
+            // gradientPanel4
+            // 
+            gradientPanel4.BorderStyle = BorderStyle.None;
+            gradientPanel4.Controls.Add(btnAddDoctor);
+            gradientPanel4.Controls.Add(lblDate);
+            gradientPanel4.Controls.Add(autoLabel4);
+            gradientPanel4.Dock = DockStyle.Top;
+            gradientPanel4.Location = new Point(15, 15);
+            gradientPanel4.Name = "gradientPanel4";
+            gradientPanel4.Size = new Size(1067, 56);
+            gradientPanel4.TabIndex = 12;
+            // 
+            // btnAddDoctor
+            // 
+            btnAddDoctor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddDoctor.BackColor = Color.FromArgb(0, 213, 99);
+            btnAddDoctor.Font = new Font("Inter SemiBold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddDoctor.ForeColor = Color.White;
+            btnAddDoctor.Location = new Point(3494, 10);
+            btnAddDoctor.Name = "btnAddDoctor";
+            btnAddDoctor.Size = new Size(137, 0);
+            btnAddDoctor.Style.BackColor = Color.FromArgb(0, 213, 99);
+            btnAddDoctor.Style.ForeColor = Color.White;
+            btnAddDoctor.Style.Image = Properties.Resources.plus__2_;
+            btnAddDoctor.TabIndex = 2;
+            btnAddDoctor.Text = "Add Doctor";
+            btnAddDoctor.TextAlign = ContentAlignment.MiddleRight;
+            btnAddDoctor.UseVisualStyleBackColor = false;
+            // 
+            // lblDate
+            // 
+            lblDate.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDate.ForeColor = Color.FromArgb(147, 150, 159);
+            lblDate.Location = new Point(3, 30);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(36, 18);
+            lblDate.TabIndex = 1;
+            lblDate.Text = "Date";
+            // 
+            // autoLabel4
+            // 
+            autoLabel4.Font = new Font("Inter SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel4.ForeColor = Color.FromArgb(107, 114, 128);
+            autoLabel4.Location = new Point(0, 4);
+            autoLabel4.Name = "autoLabel4";
+            autoLabel4.Size = new Size(293, 27);
+            autoLabel4.TabIndex = 0;
+            autoLabel4.Text = "Appointment Summary Report";
+            // 
+            // tabPageAdv1
+            // 
+            tabPageAdv1.Image = null;
+            tabPageAdv1.ImageSize = new Size(16, 16);
+            tabPageAdv1.Location = new Point(1, 27);
+            tabPageAdv1.Name = "tabPageAdv1";
+            tabPageAdv1.ShowCloseButton = true;
+            tabPageAdv1.Size = new Size(1097, 574);
+            tabPageAdv1.TabForeColor = Color.FromArgb(107, 114, 128);
+            tabPageAdv1.TabIndex = 2;
+            tabPageAdv1.Text = "Patients";
+            tabPageAdv1.ThemesEnabled = false;
+            // 
+            // sfComboBox1
+            // 
+            sfComboBox1.BorderStyle = BorderStyle.None;
+            sfComboBox1.Dock = DockStyle.Fill;
+            sfComboBox1.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            sfComboBox1.Location = new Point(0, 0);
+            sfComboBox1.Name = "sfComboBox1";
+            sfComboBox1.Size = new Size(272, 35);
+            sfComboBox1.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
+            sfComboBox1.TabIndex = 0;
+            sfComboBox1.TabStop = false;
+            // 
+            // sfComboBox2
+            // 
+            sfComboBox2.BorderStyle = BorderStyle.None;
+            sfComboBox2.Dock = DockStyle.Fill;
+            sfComboBox2.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            sfComboBox2.Location = new Point(0, 0);
+            sfComboBox2.Name = "sfComboBox2";
+            sfComboBox2.Size = new Size(272, 35);
+            sfComboBox2.Style.TokenStyle.CloseButtonBackColor = Color.FromArgb(255, 255, 255);
+            sfComboBox2.TabIndex = 1;
+            sfComboBox2.TabStop = false;
             // 
             // ReportsUC
             // 
@@ -421,62 +387,55 @@
             Load += ReportsUC_Load;
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).EndInit();
             gradientPanel1.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).EndInit();
             gradientPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
-            gradientPanel4.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gradientPanel10).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel12).EndInit();
-            tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gradientPanel16).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel15).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel14).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel13).EndInit();
-            gradientPanel13.ResumeLayout(false);
-            gradientPanel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gradientPanel9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)reportsTab).EndInit();
+            reportsTab.ResumeLayout(false);
+            tabAppointments.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel7).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
             gradientPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gradientPanel11).EndInit();
-            gradientPanel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)cbReports).EndInit();
+            gradientPanel5.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
-            gradientPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel8).EndInit();
+            gradientPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
+            gradientPanel4.ResumeLayout(false);
+            gradientPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)sfComboBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)sfComboBox2).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel1;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel2;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel1;
-        private TableLayoutPanel tableLayoutPanel1;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel3;
+        private Syncfusion.Windows.Forms.Tools.TabControlAdv reportsTab;
+        private Syncfusion.Windows.Forms.Tools.TabPageAdv tabAppointments;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel7;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel6;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel5;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel9;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel11;
-        private Syncfusion.WinForms.Controls.SfButton btnGenReport;
-        private Syncfusion.WinForms.ListView.SfComboBox cbReports;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel4;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel10;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel8;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel12;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel13;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel lblPatientsToday;
+        private Syncfusion.WinForms.Controls.SfButton btnAddDoctor;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel lblDate;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
+        private Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel14;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel15;
-        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel16;
+        private PictureBox pictureBox1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel5;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel1;
+        private Syncfusion.WinForms.Controls.SfButton btnGenerate;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel2;
+        private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel8;
+        private Syncfusion.WinForms.ListView.SfComboBox sfComboBox1;
+        private Syncfusion.WinForms.ListView.SfComboBox sfComboBox2;
     }
 }

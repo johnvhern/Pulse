@@ -16,23 +16,24 @@ namespace Pulse.UC.Screens
         public ReportsUC()
         {
             InitializeComponent();
-            SfButtonStyle.GreenButton(btnGenReport);
+            SfButtonStyle.GreenButton(btnGenerate);
         }
 
-        private void LoadComboBox()
-        {
-            List<string> reports = new List<string>();
-            reports.Add("Daily Appointments");
-            reports.Add("Monthly Patients per Doctor");
-            reports.Add("No-show Statistics");
-            reports.Add("Patient Demographics");
+        //private void LoadComboBox()
+        //{
+        //    List<string> reports = new List<string>();
+        //    reports.Add("Daily Appointments");
+        //    reports.Add("Monthly Patients per Doctor");
+        //    reports.Add("No-show Statistics");
+        //    reports.Add("Patient Demographics");
 
-            cbReports.DataSource = reports;
-        }
+        //    cbReports.DataSource = reports;
+        //}
 
         private void ReportsUC_Load(object sender, EventArgs e)
         {
-            LoadComboBox();
+            lblDate.Text = DateTime.Now.ToString("D");
+            //LoadComboBox();
         }
     }
 }
