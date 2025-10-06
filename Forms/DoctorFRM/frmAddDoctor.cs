@@ -29,16 +29,27 @@ namespace Pulse.Forms.DoctorFRM
             doctorBindingSource.DataSource = new List<Doctor>();
         }
 
-        private void btnAddDoctor_Click(object sender, EventArgs e)
+        private async void btnAddDoctor_Click(object sender, EventArgs e)
         {
             var doctor = doctorBindingSource.Current as Doctor;
             if (string.IsNullOrEmpty(doctor?.Error))
             {
-                _bindingList.Add(doctor);
-                _doctorRepository.Add(doctor);
-                DataUpdateNotifier.NotifyDataUpdated();
-                MessageBoxAdv.Show("Doctor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                try
+                {
+                    await _doctorRepository.Add(doctor);
+
+                    if (doctor.Id != null)
+                    {
+                        _bindingList.Add(doctor);
+                        DataUpdateNotifier.NotifyDataUpdated();
+                        MessageBoxAdv.Show("Doctor added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBoxAdv.Show($"{doctor.FullName} is already in the list. Please add another doctor.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {

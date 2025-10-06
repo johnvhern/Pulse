@@ -14,8 +14,17 @@ namespace Pulse.Repository.DoctorRepo
         }
         public async Task Add(Doctor doctor)
         {
-            _db.Doctors.Add(doctor);
-            await _db.SaveChangesAsync();
+            bool duplicateDoctor = await _db.Doctors.AnyAsync(d => d.FullName.ToLower() == doctor.FullName.ToLower().Trim() && d.Specialization.ToLower() == doctor.Specialization.ToLower().Trim());
+
+            if (duplicateDoctor)
+            {
+                throw new InvalidOperationException($"Dr. {doctor.FullName} is already in the list. Please enter another doctor.");
+            }
+            else
+            {
+                _db.Doctors.Add(doctor);
+                await _db.SaveChangesAsync();
+            }
         }
 
         public async Task Delete(Doctor doctor)

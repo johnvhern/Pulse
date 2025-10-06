@@ -43,7 +43,6 @@
             gradientPanel3 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             btnRegister = new Syncfusion.WinForms.Controls.SfButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             txtName = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -62,6 +61,7 @@
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             pictureBox1 = new PictureBox();
+            autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel3).BeginInit();
@@ -138,17 +138,6 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(352, 312);
             flowLayoutPanel1.TabIndex = 0;
-            // 
-            // autoLabel3
-            // 
-            autoLabel3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold);
-            autoLabel3.ForeColor = Color.FromArgb(107, 112, 129);
-            autoLabel3.Location = new Point(3, 10);
-            autoLabel3.Margin = new Padding(3, 10, 3, 0);
-            autoLabel3.Name = "autoLabel3";
-            autoLabel3.Size = new Size(45, 18);
-            autoLabel3.TabIndex = 0;
-            autoLabel3.Text = "Name";
             // 
             // gradientPanel4
             // 
@@ -366,6 +355,17 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // autoLabel3
+            // 
+            autoLabel3.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold);
+            autoLabel3.ForeColor = Color.FromArgb(107, 112, 129);
+            autoLabel3.Location = new Point(3, 10);
+            autoLabel3.Margin = new Padding(3, 10, 3, 0);
+            autoLabel3.Name = "autoLabel3";
+            autoLabel3.Size = new Size(45, 18);
+            autoLabel3.TabIndex = 0;
+            autoLabel3.Text = "Name";
+            // 
             // frmRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -422,7 +422,6 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel1;
         private PictureBox pictureBox1;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel4;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel5;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel5;
@@ -437,5 +436,6 @@
         private PictureBox imgShowConfirmPass;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtConfirmPass;
         private Label lblConfirmPass;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
     }
 }

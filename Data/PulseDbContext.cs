@@ -36,6 +36,10 @@ namespace Pulse.Data
                 .Property(a => a.Status)
                 .HasDefaultValue("Scheduled");
 
+            modelBuilder.Entity<Doctor>()
+               .HasIndex(d => new { d.FullName, d.Specialization })
+               .IsUnique();
+
             base.OnModelCreating(modelBuilder);
         }
     }

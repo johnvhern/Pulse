@@ -44,7 +44,6 @@
             autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel4 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             cbSelectedPatient = new Syncfusion.WinForms.ListView.SfComboBox();
-            patientBindingSource = new BindingSource(components);
             autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             gradientPanel5 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             cbSelectedDoctor = new Syncfusion.WinForms.ListView.SfComboBox();
@@ -59,6 +58,7 @@
             btnCancel = new Syncfusion.WinForms.Controls.SfButton();
             gradientPanel2 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            patientBindingSource = new BindingSource(components);
             appointmentDetailError = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
@@ -66,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).BeginInit();
             gradientPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbSelectedPatient).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).BeginInit();
             gradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbSelectedDoctor).BeginInit();
@@ -78,6 +77,7 @@
             gradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).BeginInit();
             gradientPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)appointmentDetailError).BeginInit();
             SuspendLayout();
             // 
@@ -154,10 +154,6 @@
             cbSelectedPatient.TabIndex = 2;
             cbSelectedPatient.TabStop = false;
             cbSelectedPatient.Tag = "PatientId";
-            // 
-            // patientBindingSource
-            // 
-            patientBindingSource.DataSource = typeof(Model.Patient);
             // 
             // autoLabel3
             // 
@@ -237,7 +233,7 @@
             dtDate.Name = "dtDate";
             dtDate.Size = new Size(368, 23);
             dtDate.Style.BorderColor = Color.Transparent;
-            dtDate.Style.FocusedBorderColor = Color.Transparent;
+            dtDate.Style.FocusedBorderColor = Color.Gainsboro;
             dtDate.Style.HoverBorderColor = Color.Transparent;
             dtDate.TabIndex = 1;
             dtDate.Tag = "Date";
@@ -332,6 +328,10 @@
             autoLabel1.TabIndex = 0;
             autoLabel1.Text = "Schedule New Appointment";
             // 
+            // patientBindingSource
+            // 
+            patientBindingSource.DataSource = typeof(Model.Patient);
+            // 
             // appointmentDetailError
             // 
             appointmentDetailError.ContainerControl = this;
@@ -355,7 +355,6 @@
             ((System.ComponentModel.ISupportInitialize)gradientPanel4).EndInit();
             gradientPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbSelectedPatient).EndInit();
-            ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gradientPanel5).EndInit();
             gradientPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbSelectedDoctor).EndInit();
@@ -367,6 +366,7 @@
             gradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gradientPanel2).EndInit();
             gradientPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)patientBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)appointmentDetailError).EndInit();
             ResumeLayout(false);
         }

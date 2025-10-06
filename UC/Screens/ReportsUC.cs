@@ -66,7 +66,15 @@ namespace Pulse.UC.Screens
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            LoadReport();
+        }
 
+        private void LoadReport()
+        {
+            var dateTimeStart = dtStart.Value;
+            var dateTimeEnd = dtEnd.Value;
+            var selectedDoctor = cbDoctorList.SelectedValue;
+            var selectedStatus = cbStatusList.SelectedValue;
         }
     }
 }
